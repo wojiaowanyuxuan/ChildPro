@@ -1,0 +1,31 @@
+﻿@model Models.User
+
+@{
+    ViewBag.Title = "少而编程 - 你的职业课堂";
+}
+<link href="~/Content/Home.css" rel="stylesheet" />
+
+<div class="mod_carousel_wrap">
+    <div class="carousel_inner p-r">
+        <div id="play_list_item0" class="bg_img1 p-a"></div>
+        <div id="play_list_item1" class="bg_img2 p-a"></div>
+        <div id="play_list_item2" class="bg_img3 p-a"></div>
+    </div>
+</div>
+<div class="mod_wrapper">
+    <div class="mod_course_system">
+        <div class="course_system_inner">
+            <div class="course_system_head">
+                <h2 class="course_system_title">系统化学习路径</h2>
+                <span class="course_system_subtitle">网易云课堂六大课程体系，让学习有章有序</span>
+            </div>
+            <div class="course_system_body">
+                <a href="javascript:;" v-for="item of courseList" class="course_system_item">
+                    <img :src="item.img" v-if="item.img" />
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,10 @@
+E:\201626705036VS\少儿编程\IDAL\bin\Debug\IDAL.dll
+E:\201626705036VS\少儿编程\IDAL\bin\Debug\IDAL.pdb
+E:\201626705036VS\少儿编程\IDAL\bin\Debug\Models.dll
+E:\201626705036VS\少儿编程\IDAL\bin\Debug\EntityFramework.dll
+E:\201626705036VS\少儿编程\IDAL\bin\Debug\Models.pdb
+E:\201626705036VS\少儿编程\IDAL\bin\Debug\EntityFramework.xml
+E:\201626705036VS\少儿编程\IDAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\201626705036VS\少儿编程\IDAL\obj\Debug\IDAL.csprojResolveAssemblyReference.cache
+E:\201626705036VS\少儿编程\IDAL\obj\Debug\IDAL.dll
+E:\201626705036VS\少儿编程\IDAL\obj\Debug\IDAL.pdb

@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LessProModelStoreContainer" CdmEntityContainer="LessProEntities">
+    <EntitySetMapping Name="Add_Course">
+      <EntityTypeMapping TypeName="LessProModel.Add_Course">
+        <MappingFragment StoreEntitySet="Add_Course">
+          <ScalarProperty Name="AddID_Course" ColumnName="AddID_Course" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admin">
+      <EntityTypeMapping TypeName="LessProModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Adress">
+      <EntityTypeMapping TypeName="LessProModel.Adress">
+        <MappingFragment StoreEntitySet="Adress">
+          <ScalarProperty Name="Adress_ID" ColumnName="Adress_ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Town" ColumnName="Town" />
+          <ScalarProperty Name="Adress_Detail" ColumnName="Adress_Detail" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cart">
+      <EntityTypeMapping TypeName="LessProModel.Cart">
+        <MappingFragment StoreEntitySet="Cart">
+          <ScalarProperty Name="Cart_ID" ColumnName="Cart_ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+          <ScalarProperty Name="Num" ColumnName="Num" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Product_Class_ID" ColumnName="Product_Class_ID" />
+          <ScalarProperty Name="Order_Product_Detail_ID" ColumnName="Order_Product_Detail_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Collect">
+      <EntityTypeMapping TypeName="LessProModel.Collect">
+        <MappingFragment StoreEntitySet="Collect">
+          <ScalarProperty Name="CollectID" ColumnName="CollectID" />
+          <ScalarProperty Name="Collect_Type" ColumnName="Collect_Type" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Post_Id" ColumnName="Post_Id" />
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Works_Id" ColumnName="Works_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Collect_Work">
+      <EntityTypeMapping TypeName="LessProModel.Collect_Work">
+        <MappingFragment StoreEntitySet="Collect_Work">
+          <ScalarProperty Name="CollectID_Work" ColumnName="CollectID_Work" />
+          <ScalarProperty Name="Collect_Type" ColumnName="Collect_Type" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Work_Id" ColumnName="Work_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comment">
+      <EntityTypeMapping TypeName="LessProModel.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="Com_Content" ColumnName="Com_Content" />
+          <ScalarProperty Name="Com_Date" ColumnName="Com_Date" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Com_Praise_Num" ColumnName="Com_Praise_Num" />
+          <ScalarProperty Name="Post_Id" ColumnName="Post_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comment_Course">
+      <EntityTypeMapping TypeName="LessProModel.Comment_Course">
+        <MappingFragment StoreEntitySet="Comment_Course">
+          <ScalarProperty Name="CommentID_Course" ColumnName="CommentID_Course" />
+          <ScalarProperty Name="Com_Content" ColumnName="Com_Content" />
+          <ScalarProperty Name="Com_Date" ColumnName="Com_Date" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Course_Id" ColumnName="Course_Id" />
+          <ScalarProperty Name="Com_Praise_Num" ColumnName="Com_Praise_Num" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comment_Product">
+      <EntityTypeMapping TypeName="LessProModel.Comment_Product">
+        <MappingFragment StoreEntitySet="Comment_Product">
+          <ScalarProperty Name="Comment_Product_ID" ColumnName="Comment_Product_ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Com_Content" ColumnName="Com_Content" />
+          <ScalarProperty Name="Com_Data" ColumnName="Com_Data" />
+          <ScalarProperty Name="Com_Praise_Num" ColumnName="Com_Praise_Num" />
+          <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comment_Works">
+      <EntityTypeMapping TypeName="LessProModel.Comment_Works">
+        <MappingFragment StoreEntitySet="Comment_Works">
+          <ScalarProperty Name="CommentID_Works" ColumnName="CommentID_Works" />
+          <ScalarProperty Name="Com_Content" ColumnName="Com_Content" />
+          <ScalarProperty Name="Com_Date" ColumnName="Com_Date" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Work_Id" ColumnName="Work_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Course">
+      <EntityTypeMapping TypeName="LessProModel.Course">
+        <MappingFragment StoreEntitySet="Course">
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="CourseType" ColumnName="CourseType" />
+          <ScalarProperty Name="ImageData" ColumnName="ImageData" />
+          <ScalarProperty Name="ImageMineType" ColumnName="ImageMineType" />
+          <ScalarProperty Name="Course_Time" ColumnName="Course_Time" />
+          <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Course_Class">
+      <EntityTypeMapping TypeName="LessProModel.Course_Class">
+        <MappingFragment StoreEntitySet="Course_Class">
+          <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+          <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+          <ScalarProperty Name="Class_Num" ColumnName="Class_Num" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order">
+      <EntityTypeMapping TypeName="LessProModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+          <ScalarProperty Name="Order_State" ColumnName="Order_State" />
+          <ScalarProperty Name="Order_Time" ColumnName="Order_Time" />
+          <ScalarProperty Name="Pay_Time" ColumnName="Pay_Time" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="User_Remarks" ColumnName="User_Remarks" />
+          <ScalarProperty Name="Adress_ID" ColumnName="Adress_ID" />
+          <ScalarProperty Name="Order_Detail_ID" ColumnName="Order_Detail_ID" />
+          <ScalarProperty Name="Cart_ID" ColumnName="Cart_ID" />
+          <ScalarProperty Name="Order_Product_Detail_ID" ColumnName="Order_Product_Detail_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order_Detail">
+      <EntityTypeMapping TypeName="LessProModel.Order_Detail">
+        <MappingFragment StoreEntitySet="Order_Detail">
+          <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+          <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+          <ScalarProperty Name="Order_Detail_ID" ColumnName="Order_Detail_ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order_Product_Detail">
+      <EntityTypeMapping TypeName="LessProModel.Order_Product_Detail">
+        <MappingFragment StoreEntitySet="Order_Product_Detail">
+          <ScalarProperty Name="Order_Product_Detail_ID" ColumnName="Order_Product_Detail_ID" />
+          <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+          <ScalarProperty Name="Pro_Num" ColumnName="Pro_Num" />
+          <ScalarProperty Name="Pro_Norms" ColumnName="Pro_Norms" />
+          <ScalarProperty Name="Cart_ID" ColumnName="Cart_ID" />
+          <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Post">
+      <EntityTypeMapping TypeName="LessProModel.Post">
+        <MappingFragment StoreEntitySet="Post">
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Post_Date" ColumnName="Post_Date" />
+          <ScalarProperty Name="Post_Content" ColumnName="Post_Content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Praise_Product">
+      <EntityTypeMapping TypeName="LessProModel.Praise_Product">
+        <MappingFragment StoreEntitySet="Praise_Product">
+          <ScalarProperty Name="Product_Praise_ID" ColumnName="Product_Praise_ID" />
+          <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Comment_Product_ID" ColumnName="Comment_Product_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Praised">
+      <EntityTypeMapping TypeName="LessProModel.Praised">
+        <MappingFragment StoreEntitySet="Praised">
+          <ScalarProperty Name="PraisedID" ColumnName="PraisedID" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Com_Id" ColumnName="Com_Id" />
+          <ScalarProperty Name="Rep_Id" ColumnName="Rep_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product">
+      <EntityTypeMapping TypeName="LessProModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Product_Description" ColumnName="Product_Description" />
+          <ScalarProperty Name="Product_Type" ColumnName="Product_Type" />
+          <ScalarProperty Name="Product_Price" ColumnName="Product_Price" />
+          <ScalarProperty Name="Product_Main_Image" ColumnName="Product_Main_Image" />
+          <ScalarProperty Name="Image_ID" ColumnName="Image_ID" />
+          <ScalarProperty Name="Product_Norms_ID" ColumnName="Product_Norms_ID" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Image">
+      <EntityTypeMapping TypeName="LessProModel.Product_Image">
+        <MappingFragment StoreEntitySet="Product_Image">
+          <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+          <ScalarProperty Name="Image_ID" ColumnName="Image_ID" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Norms">
+      <EntityTypeMapping TypeName="LessProModel.Product_Norms">
+        <MappingFragment StoreEntitySet="Product_Norms">
+          <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+          <ScalarProperty Name="Product_Class_ID" ColumnName="Product_Class_ID" />
+          <ScalarProperty Name="Specs" ColumnName="Specs" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Reply">
+      <EntityTypeMapping TypeName="LessProModel.Product_Reply">
+        <MappingFragment StoreEntitySet="Product_Reply">
+          <ScalarProperty Name="Reply_Product_ID" ColumnName="Reply_Product_ID" />
+          <ScalarProperty Name="Comment_Product_ID" ColumnName="Comment_Product_ID" />
+          <ScalarProperty Name="Rep_Content" ColumnName="Rep_Content" />
+          <ScalarProperty Name="Rep_Data" ColumnName="Rep_Data" />
+          <ScalarProperty Name="Rep_UserID" ColumnName="Rep_UserID" />
+          <ScalarProperty Name="Rep_to_UserID" ColumnName="Rep_to_UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Replys">
+      <EntityTypeMapping TypeName="LessProModel.Replys">
+        <MappingFragment StoreEntitySet="Replys">
+          <ScalarProperty Name="ReplyID" ColumnName="ReplyID" />
+          <ScalarProperty Name="Com_Id" ColumnName="Com_Id" />
+          <ScalarProperty Name="Rep_Content" ColumnName="Rep_Content" />
+          <ScalarProperty Name="Rep_Date" ColumnName="Rep_Date" />
+          <ScalarProperty Name="Rep_UserId" ColumnName="Rep_UserId" />
+          <ScalarProperty Name="Rep_To_UserId" ColumnName="Rep_To_UserId" />
+          <ScalarProperty Name="Rep_Type" ColumnName="Rep_Type" />
+          <ScalarProperty Name="Rep_Praise_Num" ColumnName="Rep_Praise_Num" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Replys_Course">
+      <EntityTypeMapping TypeName="LessProModel.Replys_Course">
+        <MappingFragment StoreEntitySet="Replys_Course">
+          <ScalarProperty Name="ReplyID_Course" ColumnName="ReplyID_Course" />
+          <ScalarProperty Name="Com_Id_Course" ColumnName="Com_Id_Course" />
+          <ScalarProperty Name="Rep_Content" ColumnName="Rep_Content" />
+          <ScalarProperty Name="Rep_Date" ColumnName="Rep_Date" />
+          <ScalarProperty Name="Rep_UserId" ColumnName="Rep_UserId" />
+          <ScalarProperty Name="Rep_To_UserId" ColumnName="Rep_To_UserId" />
+          <ScalarProperty Name="Rep_Type" ColumnName="Rep_Type" />
+          <ScalarProperty Name="Rep_Praise_Num" ColumnName="Rep_Praise_Num" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Replys_Work">
+      <EntityTypeMapping TypeName="LessProModel.Replys_Work">
+        <MappingFragment StoreEntitySet="Replys_Work">
+          <ScalarProperty Name="ReplyID_Works" ColumnName="ReplyID_Works" />
+          <ScalarProperty Name="Com_Id_Works" ColumnName="Com_Id_Works" />
+          <ScalarProperty Name="Rep_Content" ColumnName="Rep_Content" />
+          <ScalarProperty Name="Rep_Date" ColumnName="Rep_Date" />
+          <ScalarProperty Name="Rep_UserId" ColumnName="Rep_UserId" />
+          <ScalarProperty Name="Rep_To_UserId" ColumnName="Rep_To_UserId" />
+          <ScalarProperty Name="Rep_Type" ColumnName="Rep_Type" />
+          <ScalarProperty Name="Rep_Praise_Num" ColumnName="Rep_Praise_Num" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Return_Product">
+      <EntityTypeMapping TypeName="LessProModel.Return_Product">
+        <MappingFragment StoreEntitySet="Return_Product">
+          <ScalarProperty Name="Return_Product_ID" ColumnName="Return_Product_ID" />
+          <ScalarProperty Name="Order_Detail_ID" ColumnName="Order_Detail_ID" />
+          <ScalarProperty Name="Delivery_Company" ColumnName="Delivery_Company" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="LessProModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teacher">
+      <EntityTypeMapping TypeName="LessProModel.Teacher">
+        <MappingFragment StoreEntitySet="Teacher">
+          <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+          <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="LessProModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="RealName" ColumnName="RealName" />
+          <ScalarProperty Name="ImageMineType" ColumnName="ImageMineType" />
+          <ScalarProperty Name="ImageData" ColumnName="ImageData" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Video">
+      <EntityTypeMapping TypeName="LessProModel.Video">
+        <MappingFragment StoreEntitySet="Video">
+          <ScalarProperty Name="VideoID" ColumnName="VideoID" />
+          <ScalarProperty Name="VideoName" ColumnName="VideoName" />
+          <ScalarProperty Name="Teacher_Id" ColumnName="Teacher_Id" />
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+          <ScalarProperty Name="Video_Content" ColumnName="Video_Content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Works">
+      <EntityTypeMapping TypeName="LessProModel.Works">
+        <MappingFragment StoreEntitySet="Works">
+          <ScalarProperty Name="WorkID" ColumnName="WorkID" />
+          <ScalarProperty Name="WorkName" ColumnName="WorkName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="WorkContent" ColumnName="WorkContent" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

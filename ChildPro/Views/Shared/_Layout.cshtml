@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet"/>
+    <link href="~/Content/global.css" rel="stylesheet" />
+    <link href="~/Content/header.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div id="app">
+        <div class="header_wrap p-r">
+            <div class="bg_cover"></div>
+            <div class="header_top_nav p-r">
+                <div class="header_flow">
+                    <div class="header_top p-r">
+                        <a class="indexlogo f-l">
+                            <img class="f-l logo_img" width="188" height="55" src="//edu-image.nosdn.127.net/51373455cc3e4a96a802e89387cb868c.png?imageView&quality=100" />
+                        </a>
+                        <div class="search_box p-r f-l">
+                            <div class="search_box_left f-l p-r">
+                                <span class="select_show_type">
+                                    <span class="select_type">课程</span>
+                                    <i class="fa fa-angle-down f-s20"></i>
+                                </span>
+                                <div>
+
+                                </div>
+                            </div>
+                            <div class="search_box_milieu p-r">
+                                <input type="text" class="search_input f-s14" placeholder="行业专家亲授，直击就业痛点">
+                            </div>
+                            <div class="search_box_right p-a">
+                                <i class="fa fa-search-plus m-l10"></i>
+                                <span>搜索</span>
+                            </div>
+                            <!-- 搜索结果列表 -->
+                            <div class="search_result_wrap"></div>
+                        </div>
+                        <div class="header_userinfo p-r f-r">
+                            <div class="userinfo_area p-r">
+                                <a href="/register/index" class="register_btn f-r m-l10">注册</a>
+                                <a href="/Login/index" class="login_btn f-r">登录</a>
+                                <i class="f-r line"></i>
+                                <a class="my_cart f-r p-r" title="查看我的购物车" href="javascript:;">
+                                    <i class="fa fa-shopping-cart f-s20"></i>
+                                </a>
+                                <a class="notice_message f-r p-r" title="查看更多消息" href="javascript:;">
+                                    <i class="fa fa-envelope f-s20"></i>
+                                </a>
+                                <a href="javascript:;" class="my_study f-r">我的学习</a>
+                                <a href="javascript:;" class="management f-r">管理后台</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header_remise_icon">
+                        <a href="javascript:;">折扣</a>
+                    </div>
+                    <div class="header_bottom_nav p-r">
+                        <div class="header_bottom_main_menu">
+                            <a class="f-l header_menu_item active">首页</a>
+                            <div class="f-l header_menu_item course_sort" v-on:mouseenter="current=-1">
+                                <span>课程分类</span>
+                                <i class="fa fa-angle-down f-s20"></i>
+                                <div class="content">
+                                    <div class="course_category_menu">
+                                        <div class="course_category_menu_left">
+                                            <div v-for="(item,index) of courseList" class="menu_left_item">
+                                                <a class="menu_left_item_name" v-on:mouseover="current=index">{{item.name}}</a>
+                                                <div :class="{'left_line':index==current}"></div>
+                                            </div>
+                                        </div>
+                                        <div class="course_category_menu_right fade_in_out" :class="{'show':current!=-1,'hide':current==-1}">
+                                            <div v-for="(item,index) of courseList" class="menu_right_item" :class="{'showright':current==index,'hideright':current!=index}">
+                                                <div>
+                                                    <a href="javascript:;" class="menu_right_item_top_link">
+                                                        <span>{{item.title}}</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="f-l header_menu_item">微专业</a>
+                            <a class="f-l header_menu_item">论坛中心</a>
+                            <a class="f-r member_center_link" href="javascript:;">会员中心</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @RenderBody()
+    </div>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/vue.js"></script>
+    <script src="~/Scripts/axios.js"></script>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                courseList: [{ name: "职场提升", title: "职场通用技能体系", img: '//edu-image.nosdn.127.net/b8cbbde8bc98409aad5227fde070df7d.png?imageView&quality=100' },
+                    { name: "编程与开发", title: '编程与开发课程体系', img: '//edu-image.nosdn.127.net/9c3adc02cea44377a91c6716201bbe4c.png?imageView&quality=100' },
+                    { name: "AI/数据科学", title: '人工智能与数据科学课程体系', img: '//edu-image.nosdn.127.net/7594f6916fc94a16af474856d1de8786.png?imageView&quality=100' },
+                    { name: "产品与运营", title: '互联网产品与运营课程体系', img: '//edu-image.nosdn.127.net/29696616fe6e495a9b191244f2bd0bea.png?imageView&quality=100' },
+                    { name: "设计创意", title: '设计创意课程体系', img: '//edu-image.nosdn.127.net/96ee5f4a9b954c1991b17ca577aaa00a.png?imageView&quality=100' },
+                    { name: "电商运营", title: '电商运营课程体系', img: '//edu-image.nosdn.127.net/9957cb6a888e40f08c36ce6a96804d32.png?imageView&quality=100' },
+                    { name: "语言学习", title: '' },
+                    { name: "职业考试", title: '' },
+                    { name: "生活兴趣", title: '' }],
+                current: -1,
+                show: false,
+            }
+        })
+    </script>
+    <script type="text/javascript">
+    $(function () {
+        $('.header_top').on('focus','.search_box',function () {
+            $('.search_box').addClass('focus');
+        }).on('blur','.search_box',function () {
+            $('.search_box').removeClass('focus')
+        });
+
+    //   渐变轮播图
+        function initCarousel(selector,timeout) {
+            var now = 0;
+            for(var i=0;i<3;i++){
+                $(selector+i).css('z-index',2-i);
+            }
+            setInterval(function () {
+                var next = now===2 ? 0 : now+1;
+                var nextnext = now===0 ? 2 : now-1;
+                var nowpic = $(selector+now);
+                var nextpic = $(selector+next);
+                var nextnextpic = $(selector+nextnext);
+                nowpic.animate({opacity:0},1500,'linear',function () {
+                    nowpic.css('z-index',0).css('opacity',1);
+                    nextpic.css('z-index',2);
+                    nextnextpic.css('z-index',1);
+                })
+                now = next;
+            },timeout);
+        }
+
+        initCarousel('#play_list_item',4500);
+    })
+    </script>
+</body>
+</html>

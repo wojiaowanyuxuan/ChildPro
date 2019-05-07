@@ -1,0 +1,506 @@
+﻿body,input,textarea,button{
+    color: #202124;
+    font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
+}
+@media (min-width: 601px) {
+    .wrapper{
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        position: relative;
+    }
+    .be-height:before{
+        flex-grow: 1;
+        content: '';
+        display: block;
+        height: 24px;
+    }
+    .be-height:after{
+        flex-grow: 1;
+        content: '';
+        display: block;
+        height: 24px;
+    }
+    .wrap{
+        /*当空间不足时其他项目都将缩小 该元素不缩小*/
+        flex-shrink: 0;
+        border: 1px solid #dadce0;
+        border-radius: 8px;
+        display: block;
+        margin: 0 auto;
+        box-sizing: border-box;
+        max-width: 100%;
+        z-index: 2;
+        position: relative;
+    }
+    .poss-a{
+        height: 4px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        overflow: hidden;
+    }
+    .poss-a .poss-inner{
+        border-radius: 8px 8px 0 0;
+        height: 8px;
+        opacity: 0;
+        z-index: 5;
+    }
+    .poss-b{
+        display: flex;
+        padding: 48px 40px 36px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    .foot{
+        height: 16.8px;
+        padding: 24px 0 0;
+        position: absolute;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 12px;
+        /* 水平主轴的排列方式 */
+        justify-content: space-between;
+        line-height: 1.4;
+    }
+    .registe-form {
+        padding-left: 40px;
+        padding-right: 40px;
+        overflow: hidden;
+        margin: auto -40px;
+        display: block;
+    }
+    .registe-val{
+        margin: auto -40px;
+    }
+
+}
+@media (min-width: 901px) {
+    .wrap{
+        width: 750px;
+    }
+    .poss-b{
+        height: auto;
+        min-height: 500px;
+        overflow-y: auto;
+    }
+    .poss-b .registe-b{
+        -webkit-flex-basis: 450px;
+        flex-basis: 450px;
+        padding: 0 48px;
+        margin: 0 -48px;
+        overflow: hidden;
+    }
+    .poss-b .show-all{
+        -webkit-flex-shrink: 0;
+        flex-shrink: 0;
+        display: flex;
+        box-sizing: border-box;
+        padding-left: 48px;
+        width: 300px;
+    }
+    .registe-b .logo{
+        height: 24px;
+    }
+}
+h1{
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    margin: 0;
+}
+.r-text-h{
+    font-family: 'Google Sans',arial,sans-serif;
+    padding-bottom: 0;
+    padding-top: 16px;
+}
+.r-text-p{
+    font-size: 16px;
+    letter-spacing: .1px;
+    line-height: 1.5;
+    margin: 0;
+    padding-bottom: 0;
+    padding-top: 8px;
+    position: relative;
+    text-align: left;
+}
+.registe-UI{
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 14px;
+    padding: 24px 0 0;
+    border: 0 solid transparent;
+    border-left-width: 40px;
+    border-right-width: 40px;
+    transform: translateZ(0);
+    vertical-align: top;
+    white-space: normal;
+    width: 100%;
+}
+.write .yourname{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.yourname .last-name{
+    margin-right: 16px;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    width: calc(50% - 8px);
+    order: 1;
+    box-sizing: content-box;
+}
+.input-wrap{
+    padding: 8px 0 8px;
+    display: block;
+    outline: none;
+}
+.fixedheight{
+    height: 36px;
+    padding-top: 0;
+    vertical-align: top;
+    position: relative;
+}
+.input-wrap .inner-static-block{
+    align-items: center;
+    position: static;
+    top: 0;
+    display: flex;
+}
+.input-wrap .finel{
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 0%;
+    position: relative;
+}
+.error-title{
+    display: flex;
+}
+.input_all{
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    flex-shrink: 1;
+    background: transparent;
+    border: none;
+    display: block;
+    font: 400 17px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    line-height: 24px;
+    min-width: 0%;
+    outline: none;
+}
+input.what_is_that{
+    margin: 1px 1px 0 1px;
+    border-radius: 4px;
+    z-index: 1;
+    text-align: left;
+    font-size: 15px;
+    height: 20px;
+    padding: 7px 11px;
+}
+.show-inf{
+    font-weight: 400;
+    color: #5f6368;
+    left: 6px;
+    bottom: 9px;
+    font-size: 15px;
+    padding: 0 6px;
+    background: #fff;
+    box-sizing: border-box;
+    width: auto;
+    z-index: 1;
+    transition: transform 150ms cubic-bezier(0.4,0,0.2,1),opacity 150ms cubic-bezier(0.4,0,0.2,1);
+    font: 400 15px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+}
+.animate-inf{
+    position: absolute;
+    pointer-events: none;
+    transform-origin: bottom left;
+}
+.usb-ani .show-inf{
+    color: #1a73e8;
+    border-bottom: 1px solid #dadce0;
+}
+.opk .show-inf{
+    transform: scale(.75) translateY(-155%);
+}
+.err .show-inf{
+    color: #d50000;
+}
+.inner-static-block .lpl{
+    /* 这里的行高继承自设定为固定高度的父元素也就是 fixedheight*/
+    height: 100%;
+    background: transparent;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.coverss{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+}
+.coverss:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid rgba(0,0,0,0);
+    pointer-events: none;
+}
+.bod{
+    height: calc(100% - 2*2px);
+    background-color: transparent;
+    border-radius: 4px;
+    opacity: 0;
+    transform: none;
+    transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1);
+    width: calc(100% - 2*2px);
+    position: absolute;
+    left: 0;
+    padding: 0;
+    bottom: 0;
+    margin: 0;
+}
+.usb-ani .bod{
+    border: 2px solid #1a73e8;
+    opacity: 1;
+}
+.err .bod{
+    border: 2px solid #d93025;
+    opacity: 1;
+}
+.first-name{
+    flex-grow: 1;
+    width: calc(50% - 8px);
+    order: 3;
+}
+.error-title{
+    display: flex;
+}
+.error-tip{
+    padding-top: 5px;
+    flex: 1 1 auto;
+    font: 400 13px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    color: #d50000;
+}
+.err-text{
+    display: flex;
+    color: #d93025;
+    align-items: flex-start;
+    line-height: normal;
+    margin-top: 2px;
+}
+.err_p{
+    padding: 0;
+    margin: 0;
+    pointer-events: none;
+}
+.input_em{
+    height: 20px;
+    padding: 7px 11px;
+    margin: 2px 2px 0 2px;
+    border-radius: 4px;
+    z-index: 1;
+}
+.email-wrap{
+    box-sizing: content-box;
+}
+.email-tip{
+    opacity: 1;
+    pointer-events: none;
+    user-select: none;
+    min-height: 16px;
+    padding-top: 8px;
+    font: 400 13px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+}
+.email-err_tip{
+    display: none;
+    padding-top: 8px;
+    color: #d50000;
+    font: 400 13px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+}
+.email_err_p{
+    color: #d93025;
+    display: flex;
+    align-items: flex-start;
+    margin-top: 2px;
+    line-height: normal;
+}
+.yourpassword{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0;
+}
+.ps-wrap{
+    display: flex;
+    width: 86%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    overflow: hidden;
+    -webkit-flex-grow: 1;
+}
+.password{
+    margin-right: 16px;
+    flex-grow: 1;
+    width: calc(50% - 8px);
+    box-sizing: content-box;
+}
+.confirm{
+    flex-grow: 1;
+    width: calc(50% - 8px);
+    box-sizing: content-box;
+}
+.input_ps{
+    height: 20px;
+    margin: 1px 1px 0 1px;
+    padding: 7px 11px;
+    font-size: 15px;
+    z-index: 1;
+}
+.input_confirm{
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    flex-shrink: 1;
+    background: transparent;
+    border: none;
+    display: block;
+    font: 400 17px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    line-height: 24px;
+    min-width: 0%;
+    outline: none;
+}
+.look{
+    padding-top: 9px;
+}
+.look .eye-button{
+    color: rgba(0,0,0,0.54);
+    fill: rgba(0,0,0,0.54);
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    height: 48px;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 48px;
+    z-index: 1;
+}
+.eye-button i{
+    font-size: 30px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%,-50%,0);
+}
+@keyframes eye_ani{
+    form{
+        background-color: rgba(0,0,0,0.9);
+    }
+    to{
+        background-color: rgba(0,0,0,0.15);
+    }
+}
+.ani_butt .eye-button{
+    animation: eye_ani 0.35s;
+    animation-timing-function: cubic-bezier(0.44,0.5,0.08,1);
+}
+.eye-hide{
+    display: none;
+}
+.login-in{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    min-height: 48px;
+    margin-top: 32px;
+    padding-bottom: 0;
+    /* 垂直居中 */
+    align-items: center;
+    flex-direction: row-reverse;
+}
+.ok_wrapper{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.TJ{
+    background-color: #909399;
+    border: 1px solid #dcdfe6;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+}
+.TJ:hover{
+    box-shadow: 0 0 8px 0 #909090;
+}
+.login_wrapper{
+    text-align: left;
+    flex-grow: 1;
+    display: block;
+}
+.login_link{
+    color: #1a73e8;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 500;
+    /* 设置行高为36px 意味着这个div的高度遵从box-sizing为content-box的设置方式 也就是说它的真实高度(div高度)为36+6+6
+       它的效果等价于 height:36 + box-sizing:content-box;
+       而如果设置line-height为36  即使你设置box-sizing为border-box,它的内容高度也不会被压缩 还是36px 整体高度还是36+6+6;
+       但同时设置height 和 line-height 则height生效.
+    */
+    line-height: 36px;
+    padding: 6px 0;
+    position: relative;
+    letter-spacing: 0.25px;
+}
+.login_link:before{
+    content: '';
+    background: rgba(66,133,244,.26);
+    border-radius: 2px;
+    position: absolute;
+    /* 绝对定位同时设置top,bottom,left,right之后 如果没有显示设置元素的高度或者宽度 那么默认为相对定位元素的高和宽减去你设置的top+bottom和left+right
+       也就是说 这个before的高度为.login_link的高度36+6+6 - (top+bottom) = 36px
+     */
+    bottom: 6px;
+    top: 6px;
+    right: -16px;
+    left: -16px;
+    opacity: 0;
+    z-index: -1;
+}
+.show-wrap{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.fig{
+    margin:0 4px;
+    text-align: center;
+}
+
+
+
+
+
+
+

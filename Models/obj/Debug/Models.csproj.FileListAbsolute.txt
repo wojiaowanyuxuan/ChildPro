@@ -1,0 +1,12 @@
+E:\201626705036VS\少儿编程\Models\bin\Debug\Models.dll.config
+E:\201626705036VS\少儿编程\Models\bin\Debug\Models.dll
+E:\201626705036VS\少儿编程\Models\bin\Debug\Models.pdb
+E:\201626705036VS\少儿编程\Models\bin\Debug\EntityFramework.dll
+E:\201626705036VS\少儿编程\Models\bin\Debug\EntityFramework.SqlServer.dll
+E:\201626705036VS\少儿编程\Models\bin\Debug\EntityFramework.xml
+E:\201626705036VS\少儿编程\Models\bin\Debug\EntityFramework.SqlServer.xml
+E:\201626705036VS\少儿编程\Models\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\201626705036VS\少儿编程\Models\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+E:\201626705036VS\少儿编程\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+E:\201626705036VS\少儿编程\Models\obj\Debug\Models.dll
+E:\201626705036VS\少儿编程\Models\obj\Debug\Models.pdb

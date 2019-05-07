@@ -1,0 +1,63 @@
+﻿html,body,h1,h2,h3,h4,h5,h6,ul,li,dl,dt,dd,input,form,th,td,tr,p,input{
+    padding: 0;
+    margin: 0;
+}
+img{
+    border: 0;
+}
+input{
+    border: none;
+    outline: none;
+}
+body{
+    padding-bottom: 150px;
+    background-color: #fff;
+    font-family: 'Arial','Hiragino Sans GB','Helvetica','sans-selif';
+    font-size: 14px;
+    color: #343d42;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+    color: #31c27c;
+}
+.p-r{
+    position: relative;
+}
+.p-a{
+    position: absolute;
+}
+.f-l{
+    float: left;
+}
+.f-r{
+    float: right;
+}
+.f-s14{
+    font-size: 14px;
+}
+.f-s20{
+    font-size: 20px;
+    position: relative;
+    top: 1px;
+}
+.m-r5{
+    margin-right: 5px;
+}
+.m-l10{
+    margin-left: 10px;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}
+.hideright{
+    display: none;
+}
+.showright{
+    display: block;
+}

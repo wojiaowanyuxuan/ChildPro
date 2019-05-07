@@ -1,0 +1,75 @@
+﻿
+
+/* 轮播图 */
+.mod_carousel_wrap{
+    min-height: 360px;
+    position: relative;
+    height: 360px;
+    margin-bottom: 30px;
+}
+.carousel_inner{
+    width: 1205px;
+    margin: 0 auto;
+    position: relative;
+    text-align: left;
+    height: 100%;
+}
+.bg_img1,.bg_img2,.bg_img3{
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+}
+.bg_img1{
+    background: url("../img/img.jpg");
+}
+.bg_img2{
+    background: url("../img/img2.jpg");
+}
+.bg_img3{
+    background: url("../img/img3.png");
+}
+/* 后半场 */
+.mod_wrapper{
+    background-color: #fff;
+}
+.course_system_inner{
+    width: 1205px;
+    margin: 0 auto 40px;
+    overflow: hidden;
+}
+.course_system_head{
+    margin-bottom: 16px;
+}
+.course_system_title{
+    font-size: 24px;
+    line-height: 31px;
+    color: #555;
+    display: inline-block;
+}
+.course_system_subtitle{
+    font-size: 14px;
+    line-height: 19px;
+    color: #666;
+    margin-left: 8px;
+    display: inline-block;
+}
+.course_system_body{
+    margin-right: -25px;
+}
+.course_system_item{
+    width: 180px;
+    height: 120px;
+    margin-right: 25px;
+    border-radius: 3px;
+    overflow: hidden;
+    display: inline-block;
+}
+.course_system_item img{
+    width: 100%;
+    height: 100%;
+
+}
+
+

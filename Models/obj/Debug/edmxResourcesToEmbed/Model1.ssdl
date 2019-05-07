@@ -1,0 +1,1150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LessProModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Add_Course">
+    <Key>
+      <PropertyRef Name="AddID_Course" />
+    </Key>
+    <Property Name="AddID_Course" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="CourseId" Type="int" Nullable="false" />
+    <Property Name="AddTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="int" Nullable="false" />
+    <Property Name="AdminName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Adress">
+    <Key>
+      <PropertyRef Name="Adress_ID" />
+    </Key>
+    <Property Name="Adress_ID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Country" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Province" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="City" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Town" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Adress_Detail" Type="nvarchar" MaxLength="50" />
+    <Property Name="PostalCode" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="Cart_ID" />
+    </Key>
+    <Property Name="Cart_ID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Product_ID" Type="int" Nullable="false" />
+    <Property Name="Num" Type="int" Nullable="false" />
+    <Property Name="Time" Type="datetime" Nullable="false" />
+    <Property Name="Product_Class_ID" Type="int" Nullable="false" />
+    <Property Name="Order_Product_Detail_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Collect">
+    <Key>
+      <PropertyRef Name="CollectID" />
+    </Key>
+    <Property Name="CollectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Collect_Type" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Post_Id" Type="int" />
+    <Property Name="Product_Id" Type="int" />
+    <Property Name="Works_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Collect_Work">
+    <Key>
+      <PropertyRef Name="CollectID_Work" />
+    </Key>
+    <Property Name="CollectID_Work" Type="int" Nullable="false" />
+    <Property Name="Collect_Type" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Work_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Com_Content" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Com_Date" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Com_Praise_Num" Type="int" />
+    <Property Name="Post_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Comment_Course">
+    <Key>
+      <PropertyRef Name="CommentID_Course" />
+    </Key>
+    <Property Name="CommentID_Course" Type="int" Nullable="false" />
+    <Property Name="Com_Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Com_Date" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Course_Id" Type="int" Nullable="false" />
+    <Property Name="Com_Praise_Num" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comment_Product">
+    <Key>
+      <PropertyRef Name="Comment_Product_ID" />
+    </Key>
+    <Property Name="Comment_Product_ID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Com_Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Com_Data" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Com_Praise_Num" Type="int" />
+    <Property Name="Product_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comment_Works">
+    <Key>
+      <PropertyRef Name="CommentID_Works" />
+    </Key>
+    <Property Name="CommentID_Works" Type="int" Nullable="false" />
+    <Property Name="Com_Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Com_Date" Type="datetime" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Work_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="CourseID" Type="int" Nullable="false" />
+    <Property Name="CourseName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CourseType" Type="int" />
+    <Property Name="ImageData" Type="varbinary(max)" />
+    <Property Name="ImageMineType" Type="varchar" MaxLength="50" />
+    <Property Name="Course_Time" Type="datetime" Nullable="false" />
+    <Property Name="TeacherId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Course_Class">
+    <Key>
+      <PropertyRef Name="ClassID" />
+    </Key>
+    <Property Name="ClassID" Type="int" Nullable="false" />
+    <Property Name="VideoId" Type="int" Nullable="false" />
+    <Property Name="Class_Num" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CourseId" Type="int" Nullable="false" />
+    <Property Name="ClassName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Order_ID" />
+    </Key>
+    <Property Name="Order_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Order_State" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Order_Time" Type="datetime" Nullable="false" />
+    <Property Name="Pay_Time" Type="datetime" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="User_Remarks" Type="nvarchar" MaxLength="50" />
+    <Property Name="Adress_ID" Type="int" Nullable="false" />
+    <Property Name="Order_Detail_ID" Type="int" Nullable="false" />
+    <Property Name="Cart_ID" Type="int" Nullable="false" />
+    <Property Name="Order_Product_Detail_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order_Detail">
+    <Key>
+      <PropertyRef Name="Order_Detail_ID" />
+    </Key>
+    <Property Name="Order_ID" Type="int" Nullable="false" />
+    <Property Name="Product_ID" Type="int" Nullable="false" />
+    <Property Name="Order_Detail_ID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order_Product_Detail">
+    <Key>
+      <PropertyRef Name="Order_Product_Detail_ID" />
+    </Key>
+    <Property Name="Order_Product_Detail_ID" Type="int" Nullable="false" />
+    <Property Name="Product_ID" Type="int" Nullable="false" />
+    <Property Name="Pro_Num" Type="int" Nullable="false" />
+    <Property Name="Pro_Norms" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cart_ID" Type="int" Nullable="false" />
+    <Property Name="Order_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="PostID" />
+    </Key>
+    <Property Name="PostID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Post_Date" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Post_Content" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Praise_Product">
+    <Key>
+      <PropertyRef Name="Product_Praise_ID" />
+    </Key>
+    <Property Name="Product_Praise_ID" Type="int" Nullable="false" />
+    <Property Name="Product_ID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Comment_Product_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Praised">
+    <Key>
+      <PropertyRef Name="PraisedID" />
+    </Key>
+    <Property Name="PraisedID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Com_Id" Type="int" />
+    <Property Name="Rep_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Product_ID" />
+    </Key>
+    <Property Name="Product_ID" Type="int" Nullable="false" />
+    <Property Name="Product_Name" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Product_Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="Product_Type" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Product_Price" Type="money" />
+    <Property Name="Product_Main_Image" Type="nvarchar" MaxLength="50" />
+    <Property Name="Image_ID" Type="int" Nullable="false" />
+    <Property Name="Product_Norms_ID" Type="int" Nullable="false" />
+    <Property Name="Stock" Type="int" />
+  </EntityType>
+  <EntityType Name="Product_Image">
+    <Key>
+      <PropertyRef Name="Image_ID" />
+    </Key>
+    <Property Name="Product_ID" Type="int" Nullable="false" />
+    <Property Name="Image_ID" Type="int" Nullable="false" />
+    <Property Name="Image" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Product_Norms">
+    <Key>
+      <PropertyRef Name="Product_Class_ID" />
+    </Key>
+    <Property Name="Product_ID" Type="int" Nullable="false" />
+    <Property Name="Product_Class_ID" Type="int" Nullable="false" />
+    <Property Name="Specs" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product_Reply">
+    <Key>
+      <PropertyRef Name="Reply_Product_ID" />
+    </Key>
+    <Property Name="Reply_Product_ID" Type="int" Nullable="false" />
+    <Property Name="Comment_Product_ID" Type="int" Nullable="false" />
+    <Property Name="Rep_Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Rep_Data" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Rep_UserID" Type="int" Nullable="false" />
+    <Property Name="Rep_to_UserID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Replys">
+    <Key>
+      <PropertyRef Name="ReplyID" />
+    </Key>
+    <Property Name="ReplyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Com_Id" Type="int" Nullable="false" />
+    <Property Name="Rep_Content" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Rep_Date" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Rep_UserId" Type="int" Nullable="false" />
+    <Property Name="Rep_To_UserId" Type="int" Nullable="false" />
+    <Property Name="Rep_Type" Type="int" />
+    <Property Name="Rep_Praise_Num" Type="int" />
+  </EntityType>
+  <EntityType Name="Replys_Course">
+    <Key>
+      <PropertyRef Name="ReplyID_Course" />
+    </Key>
+    <Property Name="ReplyID_Course" Type="int" Nullable="false" />
+    <Property Name="Com_Id_Course" Type="int" Nullable="false" />
+    <Property Name="Rep_Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Rep_Date" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Rep_UserId" Type="int" Nullable="false" />
+    <Property Name="Rep_To_UserId" Type="int" Nullable="false" />
+    <Property Name="Rep_Type" Type="int" Nullable="false" />
+    <Property Name="Rep_Praise_Num" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Replys_Work">
+    <Key>
+      <PropertyRef Name="ReplyID_Works" />
+    </Key>
+    <Property Name="ReplyID_Works" Type="int" Nullable="false" />
+    <Property Name="Com_Id_Works" Type="int" Nullable="false" />
+    <Property Name="Rep_Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Rep_Date" Type="datetime" Nullable="false" />
+    <Property Name="Rep_UserId" Type="int" Nullable="false" />
+    <Property Name="Rep_To_UserId" Type="int" Nullable="false" />
+    <Property Name="Rep_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Rep_Praise_Num" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Return_Product">
+    <Key>
+      <PropertyRef Name="Return_Product_ID" />
+    </Key>
+    <Property Name="Return_Product_ID" Type="int" Nullable="false" />
+    <Property Name="Order_Detail_ID" Type="int" Nullable="false" />
+    <Property Name="Delivery_Company" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="TeacherID" />
+    </Key>
+    <Property Name="TeacherID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeacherName" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Sex" Type="varchar" MaxLength="50" />
+    <Property Name="RealName" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ImageMineType" Type="varchar" MaxLength="50" />
+    <Property Name="ImageData" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="VideoID" />
+    </Key>
+    <Property Name="VideoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VideoName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Teacher_Id" Type="int" Nullable="false" />
+    <Property Name="ClassId" Type="int" Nullable="false" />
+    <Property Name="Video_Content" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Works">
+    <Key>
+      <PropertyRef Name="WorkID" />
+    </Key>
+    <Property Name="WorkID" Type="int" Nullable="false" />
+    <Property Name="WorkName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="WorkContent" Type="nvarchar(max)" />
+    <Property Name="Image" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Add_Course_Course">
+    <End Role="Course" Type="Self.Course" Multiplicity="1" />
+    <End Role="Add_Course" Type="Self.Add_Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="Add_Course">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Add_Course_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Add_Course" Type="Self.Add_Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Add_Course">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Adress_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Adress">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cart_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Product_ID" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cart_Product_Norms">
+    <End Role="Product_Norms" Type="Self.Product_Norms" Multiplicity="1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product_Norms">
+        <PropertyRef Name="Product_Class_ID" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="Product_Class_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cart_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Collect_Post">
+    <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+    <End Role="Collect" Type="Self.Collect" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="PostID" />
+      </Principal>
+      <Dependent Role="Collect">
+        <PropertyRef Name="Post_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Collect_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Collect" Type="Self.Collect" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Collect">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Collect_Work_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Collect_Work" Type="Self.Collect_Work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Collect_Work">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Collect_Work_Works">
+    <End Role="Works" Type="Self.Works" Multiplicity="1" />
+    <End Role="Collect_Work" Type="Self.Collect_Work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Works">
+        <PropertyRef Name="WorkID" />
+      </Principal>
+      <Dependent Role="Collect_Work">
+        <PropertyRef Name="Work_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Course_Course">
+    <End Role="Course" Type="Self.Course" Multiplicity="1" />
+    <End Role="Comment_Course" Type="Self.Comment_Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="Comment_Course">
+        <PropertyRef Name="Course_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Course_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Comment_Course" Type="Self.Comment_Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Comment_Course">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Post">
+    <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="PostID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="Post_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Product_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Comment_Product" Type="Self.Comment_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Product_ID" />
+      </Principal>
+      <Dependent Role="Comment_Product">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Product_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Comment_Product" Type="Self.Comment_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Comment_Product">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Works_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Comment_Works" Type="Self.Comment_Works" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Comment_Works">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Works_Works">
+    <End Role="Works" Type="Self.Works" Multiplicity="1" />
+    <End Role="Comment_Works" Type="Self.Comment_Works" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Works">
+        <PropertyRef Name="WorkID" />
+      </Principal>
+      <Dependent Role="Comment_Works">
+        <PropertyRef Name="Work_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Course_Class_Course">
+    <End Role="Course" Type="Self.Course" Multiplicity="1" />
+    <End Role="Course_Class" Type="Self.Course_Class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="Course_Class">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Course_Teacher">
+    <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
+    <End Role="Course" Type="Self.Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="TeacherID" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="TeacherId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Cart">
+    <End Role="Cart" Type="Self.Cart" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cart">
+        <PropertyRef Name="Cart_ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Cart_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Detail_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Order_Detail" Type="Self.Order_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Order_Detail">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Order_Detail1">
+    <End Role="Order_Detail" Type="Self.Order_Detail" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order_Detail">
+        <PropertyRef Name="Order_Detail_ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Order_Detail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Product_Detail_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="1" />
+    <End Role="Order_Product_Detail" Type="Self.Order_Product_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Order_ID" />
+      </Principal>
+      <Dependent Role="Order_Product_Detail">
+        <PropertyRef Name="Order_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Product_Detail_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Order_Product_Detail" Type="Self.Order_Product_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Product_ID" />
+      </Principal>
+      <Dependent Role="Order_Product_Detail">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Praise_Product_Comment_Product">
+    <End Role="Comment_Product" Type="Self.Comment_Product" Multiplicity="1" />
+    <End Role="Praise_Product" Type="Self.Praise_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comment_Product">
+        <PropertyRef Name="Comment_Product_ID" />
+      </Principal>
+      <Dependent Role="Praise_Product">
+        <PropertyRef Name="Comment_Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Praise_Product_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Praise_Product" Type="Self.Praise_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Product_ID" />
+      </Principal>
+      <Dependent Role="Praise_Product">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Praise_Product_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Praise_Product" Type="Self.Praise_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Praise_Product">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Praised_Comment">
+    <End Role="Comment" Type="Self.Comment" Multiplicity="0..1" />
+    <End Role="Praised" Type="Self.Praised" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comment">
+        <PropertyRef Name="CommentID" />
+      </Principal>
+      <Dependent Role="Praised">
+        <PropertyRef Name="Com_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Praised_Replys">
+    <End Role="Replys" Type="Self.Replys" Multiplicity="0..1" />
+    <End Role="Praised" Type="Self.Praised" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Replys">
+        <PropertyRef Name="ReplyID" />
+      </Principal>
+      <Dependent Role="Praised">
+        <PropertyRef Name="Rep_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Praised_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Praised" Type="Self.Praised" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Praised">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Image_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Product_Image" Type="Self.Product_Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Product_ID" />
+      </Principal>
+      <Dependent Role="Product_Image">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Norms_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Product_Norms" Type="Self.Product_Norms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Product_ID" />
+      </Principal>
+      <Dependent Role="Product_Norms">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Reply_Comment_Product">
+    <End Role="Comment_Product" Type="Self.Comment_Product" Multiplicity="1" />
+    <End Role="Product_Reply" Type="Self.Product_Reply" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comment_Product">
+        <PropertyRef Name="Comment_Product_ID" />
+      </Principal>
+      <Dependent Role="Product_Reply">
+        <PropertyRef Name="Comment_Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Reply_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Product_Reply" Type="Self.Product_Reply" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Product_Reply">
+        <PropertyRef Name="Rep_UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Replys_Comment">
+    <End Role="Comment" Type="Self.Comment" Multiplicity="1" />
+    <End Role="Replys" Type="Self.Replys" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comment">
+        <PropertyRef Name="CommentID" />
+      </Principal>
+      <Dependent Role="Replys">
+        <PropertyRef Name="Com_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Replys_Course_Course">
+    <End Role="Comment_Course" Type="Self.Comment_Course" Multiplicity="1" />
+    <End Role="Replys_Course" Type="Self.Replys_Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comment_Course">
+        <PropertyRef Name="CommentID_Course" />
+      </Principal>
+      <Dependent Role="Replys_Course">
+        <PropertyRef Name="Com_Id_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Replys_Course_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Replys_Course" Type="Self.Replys_Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Replys_Course">
+        <PropertyRef Name="Rep_UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Replys_Course_User1">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Replys_Course" Type="Self.Replys_Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Replys_Course">
+        <PropertyRef Name="Rep_To_UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Replys_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Replys" Type="Self.Replys" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Replys">
+        <PropertyRef Name="Rep_UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Replys_User1">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Replys" Type="Self.Replys" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Replys">
+        <PropertyRef Name="Rep_To_UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Replys_Work_Replys_Work">
+    <End Role="Comment_Works" Type="Self.Comment_Works" Multiplicity="1" />
+    <End Role="Replys_Work" Type="Self.Replys_Work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comment_Works">
+        <PropertyRef Name="CommentID_Works" />
+      </Principal>
+      <Dependent Role="Replys_Work">
+        <PropertyRef Name="Com_Id_Works" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Replys_Work_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Replys_Work" Type="Self.Replys_Work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Replys_Work">
+        <PropertyRef Name="Rep_UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Replys_Work_User1">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Replys_Work" Type="Self.Replys_Work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Replys_Work">
+        <PropertyRef Name="Rep_To_UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Return_Product_Order_Detail">
+    <End Role="Order_Detail" Type="Self.Order_Detail" Multiplicity="1" />
+    <End Role="Return_Product" Type="Self.Return_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order_Detail">
+        <PropertyRef Name="Order_Detail_ID" />
+      </Principal>
+      <Dependent Role="Return_Product">
+        <PropertyRef Name="Order_Detail_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Return_Product_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Return_Product" Type="Self.Return_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Return_Product">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Video_Course_Class">
+    <End Role="Course_Class" Type="Self.Course_Class" Multiplicity="1" />
+    <End Role="Video" Type="Self.Video" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course_Class">
+        <PropertyRef Name="ClassID" />
+      </Principal>
+      <Dependent Role="Video">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Works_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Works" Type="Self.Works" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Works">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LessProModelStoreContainer">
+    <EntitySet Name="Add_Course" EntityType="Self.Add_Course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Adress" EntityType="Self.Adress" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Collect" EntityType="Self.Collect" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Collect_Work" EntityType="Self.Collect_Work" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comment_Course" EntityType="Self.Comment_Course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comment_Product" EntityType="Self.Comment_Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comment_Works" EntityType="Self.Comment_Works" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Course_Class" EntityType="Self.Course_Class" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order_Detail" EntityType="Self.Order_Detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order_Product_Detail" EntityType="Self.Order_Product_Detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Praise_Product" EntityType="Self.Praise_Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Praised" EntityType="Self.Praised" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_Image" EntityType="Self.Product_Image" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_Norms" EntityType="Self.Product_Norms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_Reply" EntityType="Self.Product_Reply" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Replys" EntityType="Self.Replys" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Replys_Course" EntityType="Self.Replys_Course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Replys_Work" EntityType="Self.Replys_Work" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Return_Product" EntityType="Self.Return_Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Video" EntityType="Self.Video" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Works" EntityType="Self.Works" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Add_Course_Course" Association="Self.FK_Add_Course_Course">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="Add_Course" EntitySet="Add_Course" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Add_Course_User" Association="Self.FK_Add_Course_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Add_Course" EntitySet="Add_Course" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Adress_User" Association="Self.FK_Adress_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Adress" EntitySet="Adress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cart_Product" Association="Self.FK_Cart_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Cart" EntitySet="Cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cart_Product_Norms" Association="Self.FK_Cart_Product_Norms">
+      <End Role="Product_Norms" EntitySet="Product_Norms" />
+      <End Role="Cart" EntitySet="Cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cart_User" Association="Self.FK_Cart_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Cart" EntitySet="Cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Collect_Post" Association="Self.FK_Collect_Post">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="Collect" EntitySet="Collect" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Collect_User" Association="Self.FK_Collect_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Collect" EntitySet="Collect" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Collect_Work_User" Association="Self.FK_Collect_Work_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Collect_Work" EntitySet="Collect_Work" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Collect_Work_Works" Association="Self.FK_Collect_Work_Works">
+      <End Role="Works" EntitySet="Works" />
+      <End Role="Collect_Work" EntitySet="Collect_Work" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Course_Course" Association="Self.FK_Comment_Course_Course">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="Comment_Course" EntitySet="Comment_Course" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Course_User" Association="Self.FK_Comment_Course_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Comment_Course" EntitySet="Comment_Course" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Post" Association="Self.FK_Comment_Post">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Product_Product" Association="Self.FK_Comment_Product_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Comment_Product" EntitySet="Comment_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Product_User" Association="Self.FK_Comment_Product_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Comment_Product" EntitySet="Comment_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_User" Association="Self.FK_Comment_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Works_User" Association="Self.FK_Comment_Works_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Comment_Works" EntitySet="Comment_Works" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Works_Works" Association="Self.FK_Comment_Works_Works">
+      <End Role="Works" EntitySet="Works" />
+      <End Role="Comment_Works" EntitySet="Comment_Works" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Course_Class_Course" Association="Self.FK_Course_Class_Course">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="Course_Class" EntitySet="Course_Class" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Course_Teacher" Association="Self.FK_Course_Teacher">
+      <End Role="Teacher" EntitySet="Teacher" />
+      <End Role="Course" EntitySet="Course" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Cart" Association="Self.FK_Order_Cart">
+      <End Role="Cart" EntitySet="Cart" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Detail_User" Association="Self.FK_Order_Detail_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Order_Detail" EntitySet="Order_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Order_Detail1" Association="Self.FK_Order_Order_Detail1">
+      <End Role="Order_Detail" EntitySet="Order_Detail" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Product_Detail_Order" Association="Self.FK_Order_Product_Detail_Order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Order_Product_Detail" EntitySet="Order_Product_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Product_Detail_Product" Association="Self.FK_Order_Product_Detail_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Order_Product_Detail" EntitySet="Order_Product_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_User" Association="Self.FK_Order_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Praise_Product_Comment_Product" Association="Self.FK_Praise_Product_Comment_Product">
+      <End Role="Comment_Product" EntitySet="Comment_Product" />
+      <End Role="Praise_Product" EntitySet="Praise_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Praise_Product_Product" Association="Self.FK_Praise_Product_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Praise_Product" EntitySet="Praise_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Praise_Product_User" Association="Self.FK_Praise_Product_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Praise_Product" EntitySet="Praise_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Praised_Comment" Association="Self.FK_Praised_Comment">
+      <End Role="Comment" EntitySet="Comment" />
+      <End Role="Praised" EntitySet="Praised" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Praised_Replys" Association="Self.FK_Praised_Replys">
+      <End Role="Replys" EntitySet="Replys" />
+      <End Role="Praised" EntitySet="Praised" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Praised_User" Association="Self.FK_Praised_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Praised" EntitySet="Praised" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Image_Product" Association="Self.FK_Product_Image_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Product_Image" EntitySet="Product_Image" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Norms_Product" Association="Self.FK_Product_Norms_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Product_Norms" EntitySet="Product_Norms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Reply_Comment_Product" Association="Self.FK_Product_Reply_Comment_Product">
+      <End Role="Comment_Product" EntitySet="Comment_Product" />
+      <End Role="Product_Reply" EntitySet="Product_Reply" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Reply_User" Association="Self.FK_Product_Reply_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Product_Reply" EntitySet="Product_Reply" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Replys_Comment" Association="Self.FK_Replys_Comment">
+      <End Role="Comment" EntitySet="Comment" />
+      <End Role="Replys" EntitySet="Replys" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Replys_Course_Course" Association="Self.FK_Replys_Course_Course">
+      <End Role="Comment_Course" EntitySet="Comment_Course" />
+      <End Role="Replys_Course" EntitySet="Replys_Course" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Replys_Course_User" Association="Self.FK_Replys_Course_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Replys_Course" EntitySet="Replys_Course" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Replys_Course_User1" Association="Self.FK_Replys_Course_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Replys_Course" EntitySet="Replys_Course" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Replys_User" Association="Self.FK_Replys_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Replys" EntitySet="Replys" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Replys_User1" Association="Self.FK_Replys_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Replys" EntitySet="Replys" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Replys_Work_Replys_Work" Association="Self.FK_Replys_Work_Replys_Work">
+      <End Role="Comment_Works" EntitySet="Comment_Works" />
+      <End Role="Replys_Work" EntitySet="Replys_Work" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Replys_Work_User" Association="Self.FK_Replys_Work_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Replys_Work" EntitySet="Replys_Work" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Replys_Work_User1" Association="Self.FK_Replys_Work_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Replys_Work" EntitySet="Replys_Work" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Return_Product_Order_Detail" Association="Self.FK_Return_Product_Order_Detail">
+      <End Role="Order_Detail" EntitySet="Order_Detail" />
+      <End Role="Return_Product" EntitySet="Return_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Return_Product_User" Association="Self.FK_Return_Product_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Return_Product" EntitySet="Return_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Video_Course_Class" Association="Self.FK_Video_Course_Class">
+      <End Role="Course_Class" EntitySet="Course_Class" />
+      <End Role="Video" EntitySet="Video" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Works_User" Association="Self.FK_Works_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Works" EntitySet="Works" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

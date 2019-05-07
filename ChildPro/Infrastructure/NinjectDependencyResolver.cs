@@ -4,10 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Ninject;
+using Models.Abstract;
+using Models.Concrete;
 
 namespace ChildPro.Infrastructure
 {
-	public class NinjectDependencyResolver
+	public class NinjectDependencyResolver: IDependencyResolver
 	{
 		private IKernel kernel;
 		public NinjectDependencyResolver(IKernel kernelParam)
@@ -27,7 +29,8 @@ namespace ChildPro.Infrastructure
 		}
 		private void AddBindings()
 		{
-
+			// 添加绑定 --用户
+			kernel.Bind<IUserInfoRepository>().To<EFUserInfoRepository>();
 		}
 	}
 }
