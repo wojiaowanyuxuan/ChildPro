@@ -28,6 +28,7 @@ namespace Models
             this.Comment_Works = new HashSet<Comment_Works>();
             this.Order = new HashSet<Order>();
             this.Order_Detail = new HashSet<Order_Detail>();
+            this.Post = new HashSet<Post>();
             this.Praise_Product = new HashSet<Praise_Product>();
             this.Praised = new HashSet<Praised>();
             this.Product_Reply = new HashSet<Product_Reply>();
@@ -73,6 +74,8 @@ namespace Models
         public virtual ICollection<Order> Order { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order_Detail> Order_Detail { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Post> Post { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Praise_Product> Praise_Product { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

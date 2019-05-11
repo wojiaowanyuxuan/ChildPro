@@ -31,6 +31,8 @@ namespace ChildPro.Infrastructure
 		{
 			// 添加绑定 --用户
 			kernel.Bind<IUserInfoRepository>().To<EFUserInfoRepository>();
+			// 添加绑定 --论坛帖子
+			kernel.Bind<IPostRepository>().To<EFPostRepository>();
 		}
 	}
 }

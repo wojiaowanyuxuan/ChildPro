@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Models.Post>
+
+@if(Model.Count() == 0)
+{
+    <div style="display:flex;justify-content:center;height:200px;align-items:center">
+        <h2 style="color:#999">暂时还没有任何人发帖哦，赶快发表帖子分享给大家吧</h2>
+    </div>
+}
+else
+{
+    foreach (var item in Model)
+    {
+        <a href=@Url.Action("PostDetails","Forum",new { postid = item.PostID}) class="ui_post_card">
+            <div class="p_wrap ">
+                <div class="p_content">
+                    <div class="trick_area">
+                        <p class="p_title">@item.Post_Title</p>
+                        <p class="p_part_content">@item.Post_Content</p>
+                    </div>
+                    <!-- 如果帖子包含了图片 -->
+                    <div v-if="img"></div>
+                </div>
+                <div class="p_info">
+                    <div href="javascript:;" class="p_info_userhead">
+                        <img src="//edu-image.nosdn.127.net/e0cca900-d0d0-4466-8e24-2eb0c4b75c55.jpg?imageView&quality=100&thumbnail=40y40" />
+                        <span>@item.User.UserName</span>
+                    </div>
+                    <span class="comment_num">
+                        <i class="fa fa-comment"></i>
+                        <span class="num_text">1500</span>
+                    </span>
+                    <span class="p_pd">@item.Post_Date</span>
+                </div>
+            </div>
+        </a>
+    }
+}

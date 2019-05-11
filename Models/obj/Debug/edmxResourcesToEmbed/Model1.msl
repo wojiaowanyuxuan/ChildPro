@@ -185,6 +185,9 @@
           <ScalarProperty Name="User_Id" ColumnName="User_Id" />
           <ScalarProperty Name="Post_Date" ColumnName="Post_Date" />
           <ScalarProperty Name="Post_Content" ColumnName="Post_Content" />
+          <ScalarProperty Name="Post_Tag" ColumnName="Post_Tag" />
+          <ScalarProperty Name="Post_Title" ColumnName="Post_Title" />
+          <ScalarProperty Name="Post_heat" ColumnName="Post_heat" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

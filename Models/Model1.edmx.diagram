@@ -4,38 +4,38 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ebf40c28e33c44a19f82db67d7593270" Name="Diagram1">
+      <Diagram DiagramId="034a1f8ded8a4e658d1ae43f985220e2" Name="Diagram1">
         <EntityTypeShape EntityType="LessProModel.Add_Course" Width="1.5" PointX="3" PointY="26.5" IsExpanded="true" />
         <EntityTypeShape EntityType="LessProModel.Admin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Adress" Width="1.5" PointX="3" PointY="22.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Cart" Width="1.5" PointX="6" PointY="23.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Collect" Width="1.5" PointX="3" PointY="19.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Collect_Work" Width="1.5" PointX="5.25" PointY="37.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Comment" Width="1.5" PointX="6" PointY="19.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Comment_Course" Width="1.5" PointX="6" PointY="27.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Comment_Product" Width="1.5" PointX="9" PointY="23.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Comment_Works" Width="1.5" PointX="8.25" PointY="37.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Course" Width="1.5" PointX="0.75" PointY="29.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Course_Class" Width="1.5" PointX="3" PointY="40.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Order" Width="1.5" PointX="8.25" PointY="32" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Order_Detail" Width="1.5" PointX="3" PointY="50" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Order_Product_Detail" Width="1.5" PointX="10.5" PointY="34.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Post" Width="1.5" PointX="0.75" PointY="17.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Praise_Product" Width="1.5" PointX="11.25" PointY="26.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Praised" Width="1.5" PointX="8.25" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Adress" Width="1.5" PointX="3" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Cart" Width="1.5" PointX="6" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Collect" Width="1.5" PointX="5.25" PointY="38.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Collect_Work" Width="1.5" PointX="5.25" PointY="42.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Comment" Width="1.5" PointX="8.25" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Comment_Course" Width="1.5" PointX="6" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Comment_Product" Width="1.5" PointX="6" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Comment_Works" Width="1.5" PointX="8.25" PointY="42" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Course" Width="1.5" PointX="3.75" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Course_Class" Width="1.5" PointX="6" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Order" Width="1.5" PointX="8.25" PointY="33" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Order_Detail" Width="1.5" PointX="3" PointY="50.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Order_Product_Detail" Width="1.5" PointX="13.5" PointY="34.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Post" Width="1.5" PointX="3" PointY="53.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Praise_Product" Width="1.5" PointX="8.25" PointY="28.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Praised" Width="1.5" PointX="10.5" PointY="30.875" IsExpanded="true" />
         <EntityTypeShape EntityType="LessProModel.Product" Width="1.5" PointX="3.75" PointY="14.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Product_Image" Width="1.5" PointX="6" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Product_Image" Width="1.5" PointX="6" PointY="14.375" IsExpanded="true" />
         <EntityTypeShape EntityType="LessProModel.Product_Norms" Width="1.5" PointX="3.75" PointY="29.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Product_Reply" Width="1.5" PointX="14.25" PointY="23.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Replys" Width="1.5" PointX="11.25" PointY="22" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Replys_Course" Width="1.5" PointX="8.25" PointY="27" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Replys_Work" Width="1.5" PointX="10.5" PointY="30" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Return_Product" Width="1.5" PointX="5.25" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Product_Reply" Width="1.5" PointX="11.25" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Replys" Width="1.5" PointX="13.5" PointY="30.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Replys_Course" Width="1.5" PointX="8.25" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Replys_Work" Width="1.5" PointX="10.5" PointY="34.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Return_Product" Width="1.5" PointX="5.25" PointY="34.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LessProModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Teacher" Width="1.5" PointX="1.5" PointY="33.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.User" Width="1.5" PointX="0.75" PointY="21.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Video" Width="1.5" PointX="5.25" PointY="40.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="LessProModel.Works" Width="1.5" PointX="3" PointY="53" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Teacher" Width="1.5" PointX="1.5" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.User" Width="1.5" PointX="0.75" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Video" Width="1.5" PointX="8.25" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LessProModel.Works" Width="1.5" PointX="3" PointY="56.75" IsExpanded="true" />
         <AssociationConnector Association="LessProModel.FK_Add_Course_Course" ManuallyRouted="false" />
         <AssociationConnector Association="LessProModel.FK_Add_Course_User" ManuallyRouted="false" />
         <AssociationConnector Association="LessProModel.FK_Adress_User" ManuallyRouted="false" />
@@ -70,6 +70,7 @@
         <AssociationConnector Association="LessProModel.FK_Order_Detail_User" ManuallyRouted="false" />
         <AssociationConnector Association="LessProModel.FK_Return_Product_Order_Detail" ManuallyRouted="false" />
         <AssociationConnector Association="LessProModel.FK_Order_Product_Detail_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="LessProModel.FK_Post_User" ManuallyRouted="false" />
         <AssociationConnector Association="LessProModel.FK_Praise_Product_Product" ManuallyRouted="false" />
         <AssociationConnector Association="LessProModel.FK_Praise_Product_User" ManuallyRouted="false" />
         <AssociationConnector Association="LessProModel.FK_Praised_Replys" ManuallyRouted="false" />

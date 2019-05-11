@@ -1,6 +1,9 @@
-﻿html,body,h1,h2,h3,h4,h5,h6,ul,li,dl,dt,dd,input,form,th,td,tr,p,input{
+﻿html,body,h1,h2,h3,h4,h5,h6,ul,li,dl,dt,dd,input,form,th,td,tr,p,input,div{
     padding: 0;
     margin: 0;
+}
+ul,li{
+    list-style: none;
 }
 img{
     border: 0;
@@ -61,3 +64,20 @@ a:hover{
 .showright{
     display: block;
 }
+
+/* 更改设置导航条样式*/
+::-webkit-scrollbar{
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track{
+    background: 0 0;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #ccc;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: #666;
+}
+

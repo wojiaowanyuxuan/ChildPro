@@ -8,7 +8,8 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <link href="~/Content/login.css" rel="stylesheet" />
+    <link href="~/Content/logina.css" rel="stylesheet" />
+    <link href="~/fonts/iconfont.css" rel="stylesheet" />
     <style type="text/css">
         body{
             padding: 0;
@@ -108,7 +109,7 @@
                                                                 </div>
                                                                 <div class="error-title">
                                                                     <div class="error-tip">
-                                                                        <div class="err-text">
+                                                                        <div class="err-text ps_pop">
 
                                                                         </div>
                                                                     </div>
@@ -280,7 +281,67 @@
     </script>
     <script type="text/javascript">
         $('.Create_btn').on('click', function () {
-            window.location.href = '/register/Index';
+            window.location.href = '/Register/Index';
+        });
+
+        $('.DL').on('click', function () {
+            var checkover = 0;
+            var phoneOrEmail = $('.em_or_phone').val().trim();
+            var password = $('.pass_word').val().trim();
+            var err_1 = '<p class="err_p"><i class="iconfont iconjinggao" style="font-size: 20px"></i>&nbsp;邮箱地址或电话不能为空' + '</p>';
+            var err_2 = '<p class="err_p"><i class="iconfont iconjinggao" style="font-size: 20px"></i>&nbsp;密码不能为空' + '</p>';
+            var err_3 = '<p class="err_p"><i class="iconfont iconjinggao" style="font-size: 20px"></i>&nbsp;密码错误，请重新输入' + '</p>';
+            var fir = true;
+            $('.input_for_login').each(function () {
+                $_this = $(this);
+                var val = $_this.val().trim();
+                //聚焦第一个空input
+                if (!val && fir) {
+                    $_this.focus();
+                    fir = false;
+                }
+                var err_text = $_this.parents('.fixedheight').next().find('.err-text');
+                var err_p = $_this.parents('.fixedheight').next().find('.err_p');
+                if (!val && !err_p.length) {
+                    if ($_this.is('.em_or_phone')) {
+                        err_text.append(err_1);
+                    } else if ($_this.is('.pass_word')) {
+                        err_text.append(err_2);
+                    }
+                } else if (!!val) {
+                    err_text.empty();
+                    checkover += !!val;
+                }
+            });
+
+            if (checkover == 2) {
+                var loginObj = {
+                    key: $('.em_or_phone').val().trim(),
+                    password:$('.pass_word').val().trim()
+                };
+                $.ajax({
+                    url:'/Login/Index',
+                    type: 'post',
+                    contentType: 'application/json;charset=utf-8',
+                    data: JSON.stringify(loginObj),
+                    success: function (res) {
+                        console.log(res.message);
+                        if (res.code == 200) {
+                            //登陆成功
+                            window.location.href = '/Home/Index';
+                        }else{
+                            //邮箱或密码错误
+                            var err_p = $('.ps_pop').children('.err_p').length;
+                            if(!err_p){
+                                $('.ps_pop').append(err_3);
+                            }
+                        }
+                    },
+                    error: function () {
+                        console.log('登陆失败');
+                    }
+                })
+            }
         })
     </script>
 </body>

@@ -53,12 +53,12 @@
                                                         <div class="inner-static-block">
                                                             <div class="finel">
                                                                 <input type="text" class="what_is_that input_A input_all" autocomplete="off" spellcheck="false"
-                                                                       aria-label="姓氏"
+                                                                       aria-label="用户名"
                                                                        tabindex="0"
                                                                        maxlength="9"
                                                                        name="lastname"
                                                                        id="lastname" />
-                                                                <div class="show-inf animate-inf" aria-hidden="true">姓氏</div>
+                                                                <div class="show-inf animate-inf" aria-hidden="true">用户名</div>
                                                             </div>
                                                             <div class="lpl coverss"></div>
                                                             <div class="bod"></div>
@@ -79,12 +79,12 @@
                                                         <div class="inner-static-block">
                                                             <div class="finel">
                                                                 <input type="text" class="what_is_that input_B input_all" autocomplete="off" spellcheck="false"
-                                                                       aria-label="名字"
+                                                                       aria-label="电话"
                                                                        tabindex="0"
-                                                                       maxlength="9"
+                                                                       maxlength="15"
                                                                        name="firstname"
                                                                        id="firstname" />
-                                                                <div class="show-inf animate-inf" aria-hidden="true">名字</div>
+                                                                <div class="show-inf animate-inf" aria-hidden="true">电话</div>
                                                             </div>
                                                             <div class="lpl coverss"></div>
                                                             <div class="bod"></div>
@@ -346,10 +346,27 @@
             input_firm.parents('.input-wrap').removeClass('err');
             checkover2 = true;
         }
-
-        if(checkover1 == 4 && checkover2){
+        if((checkover1 == 4) && checkover2){
+            var dataObj = {
+                UserName:$('.input_A').val().trim(),
+                Phone:$('.input_B').val().trim()+'',
+                Email:$('.input_em').val().trim(),
+                Password:$('.input_ps').val().trim()
+            }
             //如果验证成功 提交数据
-
+            $.ajax({
+                url:'/Register/Index',
+                type:'post',
+                contentType: 'application/json;charset=utf-8',
+                data:JSON.stringify(dataObj),
+                success:function(res){
+                    console.log(res.message);
+                    window.location.href='/Home/Index';
+                },
+                error:function(){
+                    console.log('请求失败');
+                }
+            })
         }
     })
     </script>

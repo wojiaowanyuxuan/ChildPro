@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/global.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link href="~/Content/PostHeader.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div id="app">
+        <div class="header">
+            <div class="header_wrap">
+                <div class="ui_common_header p-r">
+                    <div class="header_content">
+                        <div class="f-l">
+                            <a href="javascript:;" class="f-l logo">
+                                <img src="//edu-image.nosdn.127.net/9b126021-01bc-4885-8c1e-70a2c5484383.png" class="logo_img">
+                            </a>
+                            <ul class="f-l header_nav">
+                                <li class="header_nav_item" v-for="(item,index) of navlist" v-bind:class="{'active':current == index}">
+                                    <a v-bind:href="item.path" class="header_nav_item_link" v-on:click="current = index">{{item.name}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="f-r">
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui_common_header hh hide_nav">
+                    <div class="ui_common_header">
+                        <div class="header_content">
+                            <div class="f-l">
+                                <a class="f-l logo">
+                                    <img src="//edu-image.nosdn.127.net/6db20a18-8cfc-4dcf-a9df-5131c612c4c3.png" class="logo_img">
+                                </a>
+                                <ul class="f-l header_nav">
+                                    <li class="header_nav_item" v-for="(item,index) of navlist" v-bind:class="{'active':current == index}">
+                                        <a v-bind:href="item.path" class="header_nav_item_link" v-on:click="current = index">{{item.name}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="f-r">
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @RenderBody()
+    </div>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/vue.min.js"></script>
+    <script src="~/Scripts/axios.min.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="~/Scripts/yuxuan.js"></script>
+    <script type="text/javascript">
+    $(window).on('scroll',function (e) {
+        // 不考虑性能消耗
+        let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        let ui = $('.hh');
+        let side = $('.side_nav_wrap');
+        let announce = $('.announce');
+        if(scrollTop >= 80){
+            ui.removeClass('hide_nav').addClass('scroll_style');
+            side.addClass('fixside');
+            announce.addClass('fixannounce');
+        }else{
+            ui.removeClass('scroll_style').addClass('hide_nav');
+            side.removeClass('fixside');
+            announce.removeClass('fixannounce');
+        }
+    })
+    </script>
+</body>
+</html>

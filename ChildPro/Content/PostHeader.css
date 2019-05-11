@@ -1,0 +1,107 @@
+﻿body {
+    font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+    background: url("../img/forumbg.png") no-repeat center 0 #edf1f7;
+    background-size: 1920px 100px;
+    height: 1000px;
+}
+.hide_nav{
+    transform: translateY(-70px);
+    display: none;
+}
+.header{
+
+}
+.header_wrap{
+
+}
+.ui_common_header{
+    width: 100%;
+    height: 70px;
+    z-index: 998;
+}
+.header_content{
+    width: 1200px;
+    margin: 0 auto;
+}
+a.logo{
+    display: block;
+    height: 35px;
+    margin-top: 17px;
+    outline: none !important;
+}
+.logo .logo_img{
+    height: 100%;
+}
+.header_nav{
+    margin: 20px 0 0 60px;
+    font-size: 0;
+}
+.header_nav_item_link{
+    cursor: pointer;
+    color: #fff;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.header_nav_item{
+    display: inline-block;
+    text-align: center;
+    margin-right: 18px;
+    height: 30px;
+    box-sizing: border-box;
+    line-height: 30px;
+    min-width: 64px;
+    font-size: 16px;
+    border-radius: 30px !important;
+    border: 1px solid transparent;
+}
+.header_nav_item:hover{
+    background-color: rgba(0,0,0,.2);
+}
+.header_nav_item:hover a{
+    color: #fff;
+}
+.header_nav_item.active{
+    background-color: rgba(0,0,0,.2);
+}
+
+/* 向下滚动式 */
+@keyframes fallani {
+    0%{
+        transform: translateY(-70px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+.scroll_style{
+    display: block;
+    position: fixed;
+    top: 0;
+    height: 60px;
+    background: #fff !important;
+    color: #888;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,.1);
+    animation: fallani .4s ease-out 0ms;
+}
+.scroll_style .logo{
+    margin-top: 12px;
+}
+.scroll_style .header_nav{
+    margin-top: 15px;
+}
+.scroll_style .header_nav_item_link{
+    color: #797979;
+}
+.scroll_style .active.header_nav_item{
+    background-color: #39A5EF;
+}
+.scroll_style .active a{
+    color: #fff;
+}
+.scroll_style .header_nav_item:hover a{
+    color: #fff;
+}
+.scroll_style .header_nav_item:hover{
+    background-color: #39A5EF;
+}

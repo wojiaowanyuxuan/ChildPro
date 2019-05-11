@@ -210,8 +210,12 @@
     <Property Name="User_Id" Type="Int32" Nullable="false" />
     <Property Name="Post_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Post_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Post_Tag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Post_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Post_heat" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Collect" Relationship="Self.FK_Collect_Post" FromRole="Post" ToRole="Collect" />
     <NavigationProperty Name="Comment" Relationship="Self.FK_Comment_Post" FromRole="Post" ToRole="Comment" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Post_User" FromRole="Post" ToRole="User" />
   </EntityType>
   <EntityType Name="Praise_Product">
     <Key>
@@ -372,12 +376,12 @@
       <PropertyRef Name="UserID" />
     </Key>
     <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Sex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="RealName" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RealName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="ImageMineType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ImageData" Type="Binary" MaxLength="Max" FixedLength="false" />
     <NavigationProperty Name="Add_Course" Relationship="Self.FK_Add_Course_User" FromRole="User" ToRole="Add_Course" />
@@ -391,6 +395,7 @@
     <NavigationProperty Name="Comment_Works" Relationship="Self.FK_Comment_Works_User" FromRole="User" ToRole="Comment_Works" />
     <NavigationProperty Name="Order" Relationship="Self.FK_Order_User" FromRole="User" ToRole="Order" />
     <NavigationProperty Name="Order_Detail" Relationship="Self.FK_Order_Detail_User" FromRole="User" ToRole="Order_Detail" />
+    <NavigationProperty Name="Post" Relationship="Self.FK_Post_User" FromRole="User" ToRole="Post" />
     <NavigationProperty Name="Praise_Product" Relationship="Self.FK_Praise_Product_User" FromRole="User" ToRole="Praise_Product" />
     <NavigationProperty Name="Praised" Relationship="Self.FK_Praised_User" FromRole="User" ToRole="Praised" />
     <NavigationProperty Name="Product_Reply" Relationship="Self.FK_Product_Reply_User" FromRole="User" ToRole="Product_Reply" />
@@ -836,6 +841,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Post_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Post" Type="Self.Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Post">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Praise_Product_Product">
     <End Role="Product" Type="Self.Product" Multiplicity="1" />
     <End Role="Praise_Product" Type="Self.Praise_Product" Multiplicity="*" />
@@ -1183,6 +1200,10 @@
     <AssociationSet Name="FK_Order_Product_Detail_Product" Association="Self.FK_Order_Product_Detail_Product">
       <End Role="Product" EntitySet="Product" />
       <End Role="Order_Product_Detail" EntitySet="Order_Product_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_User" Association="Self.FK_Post_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Post" EntitySet="Post" />
     </AssociationSet>
     <AssociationSet Name="FK_Praise_Product_Product" Association="Self.FK_Praise_Product_Product">
       <End Role="Product" EntitySet="Product" />

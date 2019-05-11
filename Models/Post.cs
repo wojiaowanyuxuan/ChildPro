@@ -25,10 +25,14 @@ namespace Models
         public int User_Id { get; set; }
         public string Post_Date { get; set; }
         public string Post_Content { get; set; }
+        public string Post_Tag { get; set; }
+        public string Post_Title { get; set; }
+        public int Post_heat { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Collect> Collect { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comment { get; set; }
+        public virtual User User { get; set; }
     }
 }
