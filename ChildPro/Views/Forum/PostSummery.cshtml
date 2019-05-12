@@ -10,7 +10,7 @@ else
 {
     foreach (var item in Model)
     {
-        <a href=@Url.Action("PostDetails","Forum",new { postid = item.PostID}) class="ui_post_card">
+        <a target="_blank" href=@Url.Action("PostDetails","Forum",new { postid = item.PostID}) class="ui_post_card">
             <div class="p_wrap ">
                 <div class="p_content">
                     <div class="trick_area">

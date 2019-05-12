@@ -1,9 +1,48 @@
 ﻿@model Models.Post
 
 @{
-    ViewBag.Title = Model.Post_Title.Substring(0,9);
+    ViewBag.Title = Model.Post_Title;
     Layout = "~/Views/Shared/_PostLayout.cshtml";
 }
+<link href="~/Content/PostDetails.css" rel="stylesheet" />
+
+<div id="details" class="wrapper p-r">
+    <div id="post_wrap">
+        <div class="text_wrap">
+            <div class="post_title">
+                <h3 class="post_title_text">第一章 此间少年</h3>
+                <div class="post_userinfo">
+                    <div class="f-l info">
+                        <a href="javascript:;" class="post_tag">作品Show</a>
+                        <a href="javascript:;" class="post_tag">你问我答</a>
+                        <span class="post_data"><i class="iconfont iconshizhong"></i>2019-5-12 9:35</span>
+                    </div>
+                    <div class="f-r p-r pen">
+                        <a title="评论" href="javascript:;" class="pen_link"><i class="el-icon-edit"></i></a>
+                    </div>
+                    <!-- 清除浮动 -->
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+            <input style="display:none" id="post_content" value="@Model.Post_Content">
+            <div class="post_content">
+
+            </div>
+        </div>
+    </div>
+    <!--评论回复区域 -->
+    <div>
+
+    </div>
+</div>
+<script type="text/javascript">
+    //格式化帖子内容
+    let value = $('#post_content').val();
+    value.replace(/[\n\r\s]/g, ',').split(',').map(item => {
+        let it = `<p>${item}</p>`;
+        $('.post_content').append(it);
+    });
+</script>
 
 
 

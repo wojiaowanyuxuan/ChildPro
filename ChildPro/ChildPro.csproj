@@ -117,9 +117,10 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Forum.css" />
     <Content Include="Content\global.css" />
-    <Content Include="Content\header.css" />
+    <Content Include="Content\Header.css" />
     <Content Include="Content\Home.css" />
     <Content Include="Content\logina.css" />
+    <Content Include="Content\PostDetails.css" />
     <Content Include="Content\PostHeader.css" />
     <Content Include="Content\register.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -172,7 +173,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\vue.js" />
     <Content Include="Scripts\vue.min.js" />
-    <Content Include="Scripts\yuxuan.js" />
+    <Content Include="Scripts\xuan.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +183,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -203,6 +205,7 @@
     <Content Include="Views\Forum\Index.cshtml" />
     <Content Include="Views\Forum\PostSummery.cshtml" />
     <Content Include="Views\Forum\PostDetails.cshtml" />
+    <Content Include="Views\Home\headerSummery.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -212,6 +215,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DALFactory\DALFactory.csproj">

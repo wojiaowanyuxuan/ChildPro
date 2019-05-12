@@ -7,11 +7,15 @@
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <link href="~/Content/PostHeader.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/vue.min.js"></script>
+    <script src="~/Scripts/axios.min.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div id="app">
-        <div class="header">
+    <div>
+        <div id="header" class="header">
             <div class="header_wrap">
                 <div class="ui_common_header p-r">
                     <div class="header_content">
@@ -53,11 +57,19 @@
         </div>
         @RenderBody()
     </div>
-    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-    <script src="~/Scripts/vue.min.js"></script>
-    <script src="~/Scripts/axios.min.js"></script>
-    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-    <script src="~/Scripts/yuxuan.js"></script>
+    <script type="text/javascript">
+        var header = new Vue({
+            el: '#header',
+            data:{
+                current: 3,
+                navlist: [{ name: '首页', path: '/Home/Index' },
+                    { name: '发现', path: '' },
+                    { name: '创作', path: '' },
+                    { name: '论坛', path: '' },
+                    { name: '赛事', path: '' }],
+            }
+        })
+    </script>
     <script type="text/javascript">
     $(window).on('scroll',function (e) {
         // 不考虑性能消耗

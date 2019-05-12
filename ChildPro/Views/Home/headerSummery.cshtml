@@ -1,0 +1,18 @@
+﻿@model Models.User
+
+@if (Model == null)
+{
+    <a href="/Register/Index" class="register_btn f-r m-l10">注册</a>
+    <a href="/Login/index" class="login_btn f-r">登录</a>
+}
+else
+{
+    <div class="headimg f-r">
+        <div class="headimg_box">
+            <img width="32" height="32" src="//img-ph-mirror.nosdn.127.net/ndJaDC3tdNFNsrL5YWikwA==/6631687890259807058.jpg?imageView&quality=100&thumbnail=30y30" />
+        </div>
+    </div>
+    <a href="javascript:;" class="my_username f-r">
+        <span>@Model.UserName</span>
+    </a>
+}

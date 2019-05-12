@@ -35,10 +35,10 @@ namespace ChildPro.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult PostSummery(int sortby,string title=null,string content=null,string date=null,string tag=null)
+		public ActionResult PostSummery(int sort_by,string title=null,string content=null,string date=null,string tag=null)
 		{
 			IEnumerable<Post> posts = null;
-			if (sortby == 1)
+			if (sort_by == 1)
 			{
 				Post p = new Post()
 				{
@@ -53,7 +53,7 @@ namespace ChildPro.Controllers
 				post_repository.WritePost(p);		
 				posts = lpe.Post.Include("User").OrderByDescending(e => e.Post_heat);
 			}
-			else if(sortby == 2)
+			else if(sort_by == 2)
 			{
 				//按时间从最近开始排序
 				posts = lpe.Post.Include("User").OrderByDescending(e => e.PostID);

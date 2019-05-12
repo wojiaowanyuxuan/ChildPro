@@ -24,5 +24,10 @@ namespace ChildPro.Controllers
         {
             return View();
         }
+
+		public ActionResult headerSummery()
+		{
+			return PartialView((User)Session["user"]);
+		}
     }
 }

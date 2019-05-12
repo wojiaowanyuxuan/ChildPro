@@ -23,7 +23,8 @@
         dynamicTags: [],
         inputVisible: false,
         tagvalue: '',
-        img: false
+        img: false,
+
     },
     methods: {
         showInput() {
@@ -79,6 +80,7 @@
                     }
                 }).then(res => {
                     console.log(res.status);
+                    console.log(res.data);
                     p_l.innerHTML = res.data;
 
                 }).catch(err => {
@@ -93,7 +95,7 @@
             this.sort_by = (typenum == 3) ? true : false;
             let p_l = document.getElementById('clearlove');
             axios.post('/Forum/PostSummery', {
-                sortby: typenum
+                sort_by: typenum
             }).then(res => {
                 p_l.innerHTML = res.data;
             })
@@ -103,7 +105,7 @@
             let date = new Date(),
                 year = date.getFullYear(),
                 month = date.getMonth() + 1,
-                day = date.getDay(),
+                day = date.getDate(),
                 h = date.getHours(),
                 m = date.getMinutes(),
                 s = date.getSeconds();
@@ -111,6 +113,11 @@
             s = s < 10 ? '0' + s : s;
             let now = `${year}-${month}-${day} ${h}:${m}:${s}`;
             return now;
+        },
+        //格式化内容
+        formatContent(content){
+            console.log(content);
+            return content;
         }
     },
     computed: {
