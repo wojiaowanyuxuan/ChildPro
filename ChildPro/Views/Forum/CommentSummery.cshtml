@@ -1,0 +1,133 @@
+﻿@model IEnumerable<ChildPro.Models.ViewModel>
+
+@if(Model.Count() == 0)
+{
+    <div style="display:flex;justify-content:center;align-items:center">
+        <h2 style="color:#999">暂时还没有任何人评论哦，先发表一下自己的看法吧</h2>
+    </div>
+}
+else
+{
+    foreach(var item in Model)
+    {
+        <div class="comment-show-con clearfix">
+            <div class="pull-left comment-show-con-img">
+                <img src="~/img/xuanshao.jpg" class="comment_header"/>
+            </div>
+            <div class="comment-show-con-list pull-left clearfix" data-id="@item.c.CommentID">
+                <div class="pl-text">
+                    <a href="javascript:;" class="comment-size-name" data-user-id="@item.c.User_Id">@item.c.User.UserName</a>
+                    <a href="#" title="尊贵会员"><em class="icon-member icon-member-l3 w-icon"></em></a>
+                    <span class="my-pl-con">：@item.c.Com_Content</span>
+                </div>
+                <div class="date-dz">
+                    <span class="date-dz-left pull-left comment-time">@item.c.Com_Date</span>
+                    <div class="date-dz-right pull-right comment-pl-block">
+                        <a href="javascript:;" class="removeBlock">删除</a>
+                        <a href="javascript:;" id="hf_btn" class="hf-con-block pull-left hf-a" data-type="1">回复</a>
+                        <span class="pull-left date-dz-line">|</span>
+                        @if (item.PraStatus == 1)
+                        {
+                            <a href="javascript:;" title="取消赞" class="date-dz-z pull-left">
+                                <span class="UI_ani_praised">
+                                    <i class="praised"></i>
+                                    <em class="num">@item.c.Com_Praise_Num</em>
+                                </span>
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="javascript:;" title="赞" class="date-dz-z pull-left" data-id="@item.c.CommentID">
+                                <span class="noz">
+                                    <i class="praised"></i>
+                                    @if (item.c.Com_Praise_Num == 0)
+                                    {
+                                        <em class="num">赞</em>
+                                    }
+                                    else
+                                    {
+                                        <em class="num">@item.c.Com_Praise_Num</em>
+                                    }
+                                </span>
+                            </a>
+                        }
+                    </div>
+                    <div class="hf-con pull-left">
+                        <div class="flex-text-wrap">
+                            <textarea class="el-textarea__inner ko" rows="2" style="resize:none" maxlength="140"></textarea>
+                            <div class="hf-btn-area">
+                                <button class="hf-btn el-button el-button--primary is-plain parent">
+                                    <i class="el-icon-edit"></i>评论
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @*回复区域*@
+                <div class="hf-list-con">
+                    @foreach(var R in item.Rs)
+                    {
+                        <div class="all-pl-con">
+                            <div class="pl-text hfpl-text">
+                                <a href="#" class="comment-size-name" data-user-id="@R.Rep_UserId">@R.User.UserName</a>
+                                <a href="#" title="尊贵会员"><em class="icon-member icon-member-l7 w-icon"></em></a>
+                                @if (R.Rep_Type == 1)
+                                {
+                                    <span class="my-pl-con">@("：")@R.Rep_Content</span>
+                                }
+                                else
+                                {
+                                    <span class="my-pl-con">@("回复@")@R.User1.UserName@("：")@R.Rep_Content</span>
+                                }
+                            </div>
+                            <div class="date-dz">
+                                <span class="date-dz-left pull-left comment-time">@R.Rep_Date</span>
+                                <div class="date-dz-right pull-right comment-pl-block">
+                                    <a href="javascript:;" class="removeBlock">删除</a>
+                                    <a href="javascript:;" class="hf-a hf-con-block pull-left" data-type="2">回复</a>
+                                    <span class="pull-left date-dz-line">|</span>
+                                    @if (item.Ps.Contains(R))
+                                    {
+                                        <a href="javascript:;" title="取消赞" class="date-dz-z pull-left" data-id="@R.ReplyID">
+                                            <span class="UI_ani_praised">
+                                                <i class="praised"></i>
+                                                <em class="num">@R.Rep_Praise_Num</em>
+                                            </span>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="javascript:;" title="赞" class="date-dz-z pull-left" data-id="@R.ReplyID">
+                                            <span class="noz">
+                                                <i class="praised"></i>
+                                                @if (R.Rep_Praise_Num == 0)
+                                                {
+                                                    <em class="num">赞</em>
+                                                }
+                                                else
+                                                {
+                                                    <em class="num">@R.Rep_Praise_Num</em>
+                                                }
+                                            </span>
+                                        </a>
+                                    }
+                                </div>
+                                <div class="hf-con pull-left">
+                                    <div class="flex-text-wrap">
+                                        <textarea class="el-textarea__inner ko" rows="2" style="resize:none" maxlength="140"></textarea>
+                                        <div class="hf-btn-area">
+                                            <button class="hf-btn el-button el-button--primary is-plain son">
+                                                <i class="el-icon-edit"></i>评论
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+}

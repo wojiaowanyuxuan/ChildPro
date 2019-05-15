@@ -26,7 +26,7 @@ namespace Models
         public string Com_Date { get; set; }
         public int User_Id { get; set; }
         public Nullable<int> Com_Praise_Num { get; set; }
-        public Nullable<int> Post_Id { get; set; }
+        public int Post_Id { get; set; }
     
         public virtual Post Post { get; set; }
         public virtual User User { get; set; }

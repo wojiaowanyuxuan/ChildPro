@@ -85,4 +85,20 @@
     word-wrap: break-word;
 }
 
+.action_wrap{
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    justify-content: center;
+    padding: 10px 0;
+    height: 59px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+::selection {
+    background: #eb7350;
+    color: #fff;
+}
+
 

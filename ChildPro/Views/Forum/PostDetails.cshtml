@@ -1,13 +1,14 @@
-﻿@model Models.Post
+﻿@model ChildPro.Models.PostViewModel
 
 @{
-    ViewBag.Title = Model.Post_Title;
+    ViewBag.Title = Model.p.Post_Title;
     Layout = "~/Views/Shared/_PostLayout.cshtml";
 }
-<link href="~/Content/PostDetails.css" rel="stylesheet" />
+<link href="~/Content/commentArea.css" rel="stylesheet" />
+<link href="~/Content/pdetails.css" rel="stylesheet"/>
 
-<div id="details" class="wrapper p-r">
-    <div id="post_wrap">
+<div id="contentaa" class="wrapper p-r">
+    <div id="post_wrap" class="p-r">
         <div class="text_wrap">
             <div class="post_title">
                 <h3 class="post_title_text">第一章 此间少年</h3>
@@ -15,26 +16,141 @@
                     <div class="f-l info">
                         <a href="javascript:;" class="post_tag">作品Show</a>
                         <a href="javascript:;" class="post_tag">你问我答</a>
-                        <span class="post_data"><i class="iconfont iconshizhong"></i>2019-5-12 9:35</span>
+                        <span class="post_data"><i class="iconfont iconshizhong"></i>@Model.p.Post_Date</span>
                     </div>
                     <div class="f-r p-r pen">
-                        <a title="评论" href="javascript:;" class="pen_link"><i class="el-icon-edit"></i></a>
+                        <a title="评论" href="javascript:;" class="pen_link"><i class="fa fa-paint-brush"></i></a>
                     </div>
                     <!-- 清除浮动 -->
                     <div style="clear:both"></div>
                 </div>
             </div>
-            <input style="display:none" id="post_content" value="@Model.Post_Content">
+            <input style="display:none" id="post_content" value="@Model.p.Post_Content">
+
             <div class="post_content">
 
             </div>
         </div>
+        <div class="action_wrap">
+            @if(Model.isC)
+            {
+                <el-button id="aas" v-if="kk" icon="el-icon-star-on" type="success"  round v-on:click="handleCollect(2)">已收藏</el-button>
+                <el-button id="aas" v-else icon="el-icon-star-on" type="primary" plain round v-on:click="handleCollect(1)">收藏</el-button>
+            }
+            else
+            {
+                <el-button id="aas" v-if="kk" icon="el-icon-star-on" type="primary" plain round v-on:click="handleCollect(1)">收藏</el-button>
+                <el-button id="aas" v-else icon="el-icon-star-on" type="success" round v-on:click="handleCollect(2)">已收藏</el-button>
+            }
+            <el-button icon="el-icon-share" type="primary" plain round>分享</el-button>
+        </div>
     </div>
     <!--评论回复区域 -->
-    <div>
-
+    <div id="commontAll" class="commentAll">
+        <div class="reviewArea">
+            <div class="flex-text-wrap">
+                <el-input type="textarea" :rows="4" placeholder="给帖子发表一些自己的看法吧"
+                          resize="none" maxlength="140"
+                          v-model="val"></el-input>
+                <div class="pl-btn-area">
+                    <el-button class="pl-btn" type="primary" icon="el-icon-edit" v-on:click="PL">评论</el-button>
+                </div>
+            </div>
+        </div>
+        <div class="comment-show" id="comment-show">
+            @Html.Action("CommentSummery", "Forum",new { postid=Model.p.PostID})
+        </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    var app2 = new Vue({
+        el: '#contentaa',
+        data:{
+            val: '',
+            text:'收藏',
+            kk:true
+        },
+        methods: {
+            formatTime(){
+                let date = new Date(),
+                    year = date.getFullYear(),
+                    month = date.getMonth() + 1,
+                    day = date.getDate(),
+                    h = date.getHours(),
+                    m = date.getMinutes(),
+                    s = date.getSeconds();
+                m = m < 10 ? '0' + m : m;
+                s = s < 10 ? '0' + s : s;
+                let now = `${year}-${month}-${day} ${h}:${m}:${s}`;
+                return now;
+            },
+            PL(){
+                let self = this,
+                    postid = @Model.p.PostID,
+                    date = this.formatTime(),
+                    cs = document.getElementById("comment-show");
+                if (self.val.replace(/(^\s*)|(\s*$)/g, "") == '') {
+                    self.$message({
+                        message: '评论内容不能为空哦',
+                        type: 'warning'
+                    });
+                }else{
+                    axios.post('/Forum/CommentSummery',{
+                        Com_type: 1,
+                        Com_content: self.val,
+                        date: date,
+                        postid:postid
+                    }).then(res => {
+                        cs.innerHTML = res.data;
+                        console.log(res.status);
+                        this.val = '';
+                    })
+                }
+            },
+            handleCollect(tag){
+                let self  = this,
+                    postid = @Model.p.PostID,
+                    ass = document.getElementById("aas");
+               
+                if(tag == 1){
+                    //表示现在收藏帖子
+                    axios.post('/Forum/CollectPost',{
+                        tag:1,
+                        postid:postid
+                    }).then(res=>{
+                        self.kk = !self.kk;
+                        self.$notify({
+                            title:"收藏成功",
+                            message:'可以前往个人中心查看已收藏的帖子',
+                            type:'success',
+                            duration:3000
+                        })
+                    })
+                    .catch(error=>{
+                        console.log(error);
+                    })
+                }else{
+                    //取消收藏
+                    axios.post('/Forum/CollectPost',{
+                        tag:2,
+                        postid:postid
+                    }).then(res => {
+                        self.kk = !self.kk;
+                        self.$notify({
+                            title:"取消收藏",
+                            message:"收藏的帖子已经删除",
+                            type:'info',
+                            duration:2500
+                        })
+                    })
+                }
+
+            }
+        }
+    })
+</script>
+
 <script type="text/javascript">
     //格式化帖子内容
     let value = $('#post_content').val();
@@ -42,6 +158,137 @@
         let it = `<p>${item}</p>`;
         $('.post_content').append(it);
     });
+    //格式化时间函数
+    function fd(){
+        let date = new Date(),
+                    year = date.getFullYear(),
+                    month = date.getMonth() + 1,
+                    day = date.getDate(),
+                    h = date.getHours(),
+                    m = date.getMinutes(),
+                    s = date.getSeconds();
+        m = m < 10 ? '0' + m : m;
+        s = s < 10 ? '0' + s : s;
+        let now = `${year}-${month}-${day} ${h}:${m}:${s}`;
+        return now;
+    }
+
+</script>
+<script type="text/javascript">
+    $(function(){
+        $('.comment-show').on('click','.hf-a',function(){
+            //弹出回复区域
+            $(this).parents('.date-dz-right').siblings('.hf-con').toggle();
+            //获取回复目标用户
+            var hfName = $(this).parents('.date-dz').siblings('.pl-text').find('.comment-size-name').html();
+            var a = '@("回复@")';
+            var hfN=a+hfName+"："
+            if ($(this).attr("data-type") == 1) {
+                //新浪微博形式 回复楼主时不会在输入框内显示完整“回复@username” 而是用水印代替
+                //否则去掉判断语句 直接写else中的赋值
+                $(this).parent('.date-dz-right').siblings('.hf-con').find('.el-textarea__inner').val('').attr('placeholder', hfN);
+            } else {
+                $(this).parents('.date-dz-right').siblings('.hf-con').find('.el-textarea__inner').val(hfN);
+            }
+        });
+
+        //提交回复内容
+        $('.comment-show').on('click','.hf-btn',function(){
+            var now = fd();
+            var postid = @Model.p.PostID;
+            //获取回复的目标
+            var target = parseInt($(this).parents('.date-dz').siblings('.pl-text').find('.comment-size-name').attr('data-user-id'),10);
+            //获取回复所处的楼层
+            var parentComId = parseInt($(this).parents(".comment-show-con-list").attr("data-id"),10);
+            var allval = $(this).parent().siblings('textarea').val();
+            var HfName = $(this).parents('.date-dz').siblings('.pl-text').find('.comment-size-name').html();
+            var oAll ='@("回复@")' +HfName + "：";
+
+            var splitlength = HfName.length+4;
+            //如果对评论中的其他人回复 截取内容
+            var splitVal = allval.substring(splitlength);
+            var Hf_Obj = {
+                rep_to_userid: target,
+                date: now,
+                Com_id:parentComId,
+                postid:postid
+            };
+
+            if(allval == oAll || allval.trim() == ''){
+                $(this).parent().siblings('textarea').focus(); 
+                return false;
+            }else if($(this).is('.parent') || allval.length < splitlength){
+                //如果对其他人的回复字数少于splitlength 则直接形成对楼主的回复
+                Hf_Obj.Com_type=2;
+                Hf_Obj.Com_content=allval;
+            }else{
+                Hf_Obj.Com_type=3;
+                Hf_Obj.Com_content = splitVal;
+            }
+            $.ajax({
+                url:'/Forum/CommentSummery',
+                type:'post',
+                data:JSON.stringify(Hf_Obj),
+                contentType: 'application/json;charset=utf-8',
+                success:function(data){
+                    $('.comment-show').html(data);
+                },
+                error:function(){
+                    console.log("回复失败");
+                }
+            })
+        })
+        //点赞逻辑 
+        $('.comment-show').on('click','.date-dz-z',function(){
+            var $this = $(this);
+            //获取点赞数量
+            var zNum = parseInt($this.find('.num').eq(0).html(), 10);
+            var id=parseInt($this.attr("data-id"),10);
+            var Pr_object = {
+            };
+            var da_t = $this.siblings('.hf-a').attr("data-type");
+            //若为1则表示点赞评论 否则点赞回复
+            if (da_t == 1) {
+                Pr_object.ComId = id;
+            } else {
+                Pr_object.RepId = id;
+            }
+            if ($this.children().is('.noz')) {
+                if (Number.isNaN(zNum)) {
+                    zNum = 1;
+                } else
+                    zNum++;
+                Pr_object.creNum = 1;
+                //单纯的在页面上更新点赞数量
+                $this.find('.num').html(zNum);
+                $this.attr("title", "取消赞").children('span').removeClass('noz').addClass('UI_ani_praised tiao');
+                
+            }else{
+                Pr_object.creNum = -1;
+                zNum = (zNum - 1 == 0) ? "赞" : zNum - 1;
+                $this.find('.num').html(zNum);
+                $this.attr("title", "赞").children('span').removeClass('UI_ani_praised tiao').addClass('noz');
+            }
+
+            $.ajax({
+                url:'/Forum/dop',
+                type:'post',
+                data:JSON.stringify(Pr_object),
+                contentType: 'application/json;charset=utf-8',
+                success:function(res){
+                    console.log(res.message);
+                },
+                error:function(){
+                    console.log("请求失败");
+                }
+            })
+        })
+
+
+    })
+   
+
+   
 </script>
 
 

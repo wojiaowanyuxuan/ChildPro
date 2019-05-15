@@ -33,6 +33,13 @@ namespace ChildPro.Infrastructure
 			kernel.Bind<IUserInfoRepository>().To<EFUserInfoRepository>();
 			// 添加绑定 --论坛帖子
 			kernel.Bind<IPostRepository>().To<EFPostRepository>();
+			//添加绑定 --评论
+			kernel.Bind<ICommentRepository>().To<EFCommentRepository>();
+			// --回复
+			kernel.Bind<IReplyRepository>().To<EFReplyRepository>();
+			//点赞
+			kernel.Bind<IPraisedRepository>().To<EFPraisedRepository>();
+		
 		}
 	}
 }

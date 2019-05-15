@@ -76,7 +76,7 @@
           <Property Name="Com_Date" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="User_Id" Type="int" Nullable="false" />
           <Property Name="Com_Praise_Num" Type="int" />
-          <Property Name="Post_Id" Type="int" />
+          <Property Name="Post_Id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Comment_Course">
           <Key>
@@ -483,7 +483,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Comment_Post">
-          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="1" />
           <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Post">
@@ -1258,7 +1258,7 @@
           <Property Name="Com_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="User_Id" Type="Int32" Nullable="false" />
           <Property Name="Com_Praise_Num" Type="Int32" />
-          <Property Name="Post_Id" Type="Int32" />
+          <Property Name="Post_Id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Post" Relationship="Self.FK_Comment_Post" FromRole="Comment" ToRole="Post" />
           <NavigationProperty Name="User" Relationship="Self.FK_Comment_User" FromRole="Comment" ToRole="User" />
           <NavigationProperty Name="Praised" Relationship="Self.FK_Praised_Comment" FromRole="Comment" ToRole="Praised" />
@@ -1742,7 +1742,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Comment_Post">
-          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="1" />
           <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Post">

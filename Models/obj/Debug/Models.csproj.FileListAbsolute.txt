@@ -9,4 +9,3 @@ E:\201626705036VS\少儿编程\Models\bin\Debug\zh-Hans\EntityFramework.resource
 E:\201626705036VS\少儿编程\Models\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
 E:\201626705036VS\少儿编程\Models\obj\Debug\Models.dll
 E:\201626705036VS\少儿编程\Models\obj\Debug\Models.pdb
-E:\201626705036VS\少儿编程\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache

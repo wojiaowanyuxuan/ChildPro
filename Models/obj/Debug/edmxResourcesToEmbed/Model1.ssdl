@@ -71,7 +71,7 @@
     <Property Name="Com_Date" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="User_Id" Type="int" Nullable="false" />
     <Property Name="Com_Praise_Num" Type="int" />
-    <Property Name="Post_Id" Type="int" />
+    <Property Name="Post_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Comment_Course">
     <Key>
@@ -478,7 +478,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Comment_Post">
-    <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+    <End Role="Post" Type="Self.Post" Multiplicity="1" />
     <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Post">

@@ -283,6 +283,11 @@
         $('.Create_btn').on('click', function () {
             window.location.href = '/Register/Index';
         });
+        $('body').on('keyup', function (e) {
+            if (e.keyCode == 13){
+                $('.DL').click();
+            }
+        })
 
         $('.DL').on('click', function () {
             var checkover = 0;

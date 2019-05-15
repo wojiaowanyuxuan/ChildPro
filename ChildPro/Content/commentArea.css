@@ -1,0 +1,260 @@
+﻿
+.commentAll{
+    padding: 20px;
+    border: 1px solid #ededed;
+    margin: 20px auto;
+    margin-top: 40px;
+}
+a{
+    text-decoration: none;
+}
+.clearfix{
+    zoom: 1;
+}
+.clearfix::after,.clearfix::before{
+    content: '';
+    display: table;
+}
+.clearfix::after{
+    clear: both;
+}
+.flex-text-wrap{
+    margin: 0 !important;
+    outline: 0;
+}
+.pl-btn-area{
+    margin-top: 15px;
+    text-align: right;
+}
+.comment-show-con-img{
+    width: 48px;
+    height: 48px;
+    overflow: hidden;
+    margin-top: 5px;
+    text-align:center;
+}
+.comment_header{
+    position:relative;
+    top:5px;
+}
+.pull-left{
+    float: left;
+}
+.comment-show-con{
+    width: 100%;
+    padding: 10px 0;
+    border-top: 1px solid #ededed;
+}
+.comment-show-con-list {
+    width: 85%;
+}
+.pl-text{
+    width: 100%;
+    margin-top: 7px;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+.my-pl-con{
+    font-size: 12px;
+    color: #606266;
+}
+.comment-size-name{
+    font-size: 12px;
+    color: #eb7350;
+}
+.comment-size-name:hover{
+    color:#eb7350
+}
+.comment-show-con-list .date-dz{
+    width: 100%;
+    float: left;
+}
+.date-dz .comment-time{
+    padding-top: 7px;
+}
+.date-dz .date-dz-left{
+    font-size: 12px;
+    color: #8b8b8b;
+    display: block;
+}
+.date-dz .date-dz-right{
+    display: block;
+    padding-top: 6px;
+    padding-right: 18px;
+    position: relative;
+    overflow: hidden;
+}
+.pull-right{
+    float: right !important;
+}
+.date-dz .comment-pl-block{
+    margin: 0;
+}
+.comment-pl-block .removeBlock{
+    float: left;
+    opacity: 0;
+    color: #8b8b8b;
+    margin-right: 24px;
+    display: block;
+    font-size: 12px;
+}
+.comment-pl-block .hf-a{
+    display: block;
+    font-size: 12px;
+    color: #8b8b8b;
+}
+.comment-pl-block .hf-a:hover{
+    color: #eb7350;
+}
+.comment-pl-block .date-dz-z{
+    font-size: 12px;
+    color: #8b8b8b;
+}
+.comment-pl-block .date-dz-line{
+    display: block;
+    padding: 0 15px;
+    font-size: 12px;
+    color: #8b8b8b;
+}
+.date-dz-z em{
+    margin-left: 11px;
+    font-style: normal;
+    font-weight: normal;
+
+}
+.date-dz-z:hover{
+    color: #eb7350;
+}
+.date-dz-z span{
+    position: relative;
+    line-height: 12px;
+}
+.date-dz-z .noz:before{
+    display: inline-block;
+    content: ' ';
+    position: absolute;
+    left: -4px;
+    top: -11px;
+    width: 23px;
+    height: 28px;
+    background: url("../img/steps_praised.png") left;
+    background-repeat: no-repeat;
+    background-size: 483px 28px;
+}
+.date-dz-z .praised{
+    margin-right: -10px;
+    color: #8b8b8b;
+    font-size: 16px;
+    display: inline-block;
+    width: 15px;
+    height: 14px;
+    text-decoration: none;
+    vertical-align: bottom;
+}
+.UI_ani_praised i.praised{
+
+}
+.UI_ani_praised{
+    position: relative;
+}
+.UI_ani_praised:before{
+    display: inline-block;
+    content: ' ';
+    position: absolute;
+    left: -4px;
+    top: -11px;
+    width: 23px;
+    height: 28px;
+    background: url("../img/steps_praised.png") right;
+    background-repeat: no-repeat;
+    background-size: 483px 28px;
+}
+.op{
+    position: relative;
+    cursor: pointer;
+}
+.op:before{
+    display: inline-block;
+    content: ' ';
+    position: absolute;
+    left: -4px;
+    top: -11px;
+    width: 23px;
+    height: 28px;
+    background: url("../img/steps_praised.png") left;
+    background-repeat: no-repeat;
+    background-size: 483px 28px;
+}
+.tiao:before{
+    animation-name: step1;
+    animation-duration: 0.65s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: steps(20);
+}
+@keyframes step1 {
+    0%{
+        background-position: left;
+    }
+    100%{
+        background-position: right;
+    }
+}
+.date-dz .hf-con{
+    display: none;
+    width: 100%;
+    margin-top: 20px;
+}
+.hf-btn-area{
+    margin-top: 8px;
+    text-align: right;
+}
+.hf-btn-area .hf-btn{
+    padding: 10px 16px;
+}
+/* 回复区域背景 */
+.comment-show-con-list .hf-list-con{
+    background: #eaeaec;
+    margin-top: 7px;
+    float: left;
+    width: 100%;
+}
+.w-icon{
+    background: url("../img/icon.png");
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+.icon-member{
+    display: inline-block;
+    width: 16px;
+    height: 14px;
+}
+.icon-member-l3{
+    background-position: -25px -50px;
+    vertical-align:-1px;
+}
+.icon-member-l7{
+    background-position:-125px -125px;
+}
+/* 鼠标选中样式 */
+::selection {
+    background: #eb7350;
+    color: #fff;
+}
+/* 回复的子节点 */
+.hf-list-con .all-pl-con{
+    border-top: 0;
+    padding: 2% 0;
+    margin: 0 2%;
+    /* 父元素浮动 子元素浮动  子元素填充父元素 父元素拥有高度
+       父元素不浮动 子元素浮动 子元素不填充父元素 此时父元素的高度取决于有多少不浮动的子元素
+    */
+    float: left;
+    width: 96%;
+    padding-bottom: 12px;
+}
+.ko{
+    font: 12px/1.3 Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+    padding: 5px 8px;
+}
+
