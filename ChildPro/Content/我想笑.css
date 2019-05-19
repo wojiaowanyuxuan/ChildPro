@@ -1,0 +1,137 @@
+﻿.clasfic_wrap{
+    width: 100%;
+    margin: 60px auto;
+}
+.clasfic_top_box{
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    height: 160px;
+    box-sizing: border-box;
+    background-color: #fff;
+    width: 900px;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,.2);
+}
+.clasfic_flex_wrap{
+    display: flex;
+}
+.left_img{
+    width: 120px;
+    height: 120px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.left_img imh{
+    width: 100%;
+    height: 100%;
+}
+.right_info{
+    padding-left: 10px;
+    /* */
+    flex: 1;
+}
+.info_title{
+    font-size: 20px;
+    color: #333;
+    font-weight: normal;
+}
+.info_des{
+    margin-top: 10px;
+    color: #999;
+}
+.back{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 14px;
+    color: #39A5EF;
+    letter-spacing: 0;
+}
+.back:hover{
+    color: #39A5EF;
+}
+.back i{
+    vertical-align: middle;
+    margin-right: 4px;
+    font-size: 18px;
+}
+
+/* 主体部分嗷 */
+.clasfic_body_wrap{
+    width: 900px;
+    background-color: #FFF;
+    margin: 0 auto;
+    padding: 20px 0;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+}
+.ui_post_card{
+    display: block;
+    height: 121px;
+    box-sizing: border-box;
+    padding: 15px 21px;
+}
+.p_wrap{
+    height: 100%;
+    position: relative;
+}
+.write_post{
+    display: flex;
+    justify-content: space-between;
+}
+.p_content{
+    display: flex;
+    justify-content: space-between;
+}
+.trick_area{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 28px;
+    font-size: 20px;
+    color: #333;
+}
+.p_title,.p_part_content{
+    color: inherit;
+    font-size: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.p_title:hover{
+    color: #39A5EF;
+}
+.p_part_content{
+    font-size: 14px;
+    color: #666;
+    margin: 3px 0 13px 0;
+}
+
+/* 发帖人信息 */
+.p_info{
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 12px;
+    color: #999;
+}
+.p_info_userhead{
+    display: flex;
+    height: 20px;
+    cursor: pointer;
+    margin-right: 30px;
+}
+.p_info_userhead img{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 8px;
+    border-radius: 50%;
+}
+.comment_num,.p_pd{
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 38px;
+}

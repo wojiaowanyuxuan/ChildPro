@@ -124,6 +124,8 @@
     <Content Include="Content\pdetails.css" />
     <Content Include="Content\PostHeader.css" />
     <Content Include="Content\register.css" />
+    <Content Include="Content\userpage.css" />
+    <Content Include="Content\我想笑.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\iconfont.css" />
     <Content Include="fonts\iconfont.svg" />
@@ -143,6 +145,8 @@
     <Content Include="img\1\3.png" />
     <Content Include="img\1\4.jpg" />
     <Content Include="img\forumbg.png" />
+    <Content Include="img\nopost.png" />
+    <Content Include="img\userbg.png" />
     <Content Include="img\xuanshao.jpg" />
     <Content Include="img\轮播图\1.jpg" />
     <Content Include="img\轮播图\2.png" />
@@ -192,6 +196,7 @@
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\PostViewModel.cs" />
     <Compile Include="Models\tip.cs" />
+    <Compile Include="Models\userViewModel.cs" />
     <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -211,6 +216,10 @@
     <Content Include="Views\Forum\PostDetails.cshtml" />
     <Content Include="Views\Home\headerSummery.cshtml" />
     <Content Include="Views\Forum\CommentSummery.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Forum\Topic.cshtml" />
+    <Content Include="Views\Forum\UserHeaderSummery1.cshtml" />
+    <Content Include="Views\Forum\UserHeaderSummery2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -220,7 +229,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DALFactory\DALFactory.csproj">

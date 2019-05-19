@@ -158,6 +158,16 @@
     <NavigationProperty Name="Course" Relationship="Self.FK_Course_Class_Course" FromRole="Course_Class" ToRole="Course" />
     <NavigationProperty Name="Video" Relationship="Self.FK_Video_Course_Class" FromRole="Course_Class" ToRole="Video" />
   </EntityType>
+  <EntityType Name="Follow">
+    <Key>
+      <PropertyRef Name="FollowID" />
+    </Key>
+    <Property Name="FollowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Followed_Person" Type="Int32" Nullable="false" />
+    <Property Name="Fans" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Follow_User" FromRole="Follow" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="Self.FK_Follow_User1" FromRole="Follow" ToRole="User" />
+  </EntityType>
   <EntityType Name="Order">
     <Key>
       <PropertyRef Name="Order_ID" />
@@ -213,6 +223,7 @@
     <Property Name="Post_Tag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Post_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Post_heat" Type="Int32" Nullable="false" />
+    <Property Name="Post_Type" Type="Int32" />
     <NavigationProperty Name="Collect" Relationship="Self.FK_Collect_Post" FromRole="Post" ToRole="Collect" />
     <NavigationProperty Name="Comment" Relationship="Self.FK_Comment_Post" FromRole="Post" ToRole="Comment" />
     <NavigationProperty Name="User" Relationship="Self.FK_Post_User" FromRole="Post" ToRole="User" />
@@ -393,6 +404,8 @@
     <NavigationProperty Name="Comment_Course" Relationship="Self.FK_Comment_Course_User" FromRole="User" ToRole="Comment_Course" />
     <NavigationProperty Name="Comment_Product" Relationship="Self.FK_Comment_Product_User" FromRole="User" ToRole="Comment_Product" />
     <NavigationProperty Name="Comment_Works" Relationship="Self.FK_Comment_Works_User" FromRole="User" ToRole="Comment_Works" />
+    <NavigationProperty Name="Follow" Relationship="Self.FK_Follow_User" FromRole="User" ToRole="Follow" />
+    <NavigationProperty Name="Follow1" Relationship="Self.FK_Follow_User1" FromRole="User" ToRole="Follow" />
     <NavigationProperty Name="Order" Relationship="Self.FK_Order_User" FromRole="User" ToRole="Order" />
     <NavigationProperty Name="Order_Detail" Relationship="Self.FK_Order_Detail_User" FromRole="User" ToRole="Order_Detail" />
     <NavigationProperty Name="Post" Relationship="Self.FK_Post_User" FromRole="User" ToRole="Post" />
@@ -769,6 +782,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Follow_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Follow" Type="Self.Follow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Follow">
+        <PropertyRef Name="Followed_Person" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Follow_User1">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Follow" Type="Self.Follow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Follow">
+        <PropertyRef Name="Fans" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Order_Order_Detail1">
     <End Role="Order_Detail" Type="Self.Order_Detail" Multiplicity="1" />
     <End Role="Order" Type="Self.Order" Multiplicity="*" />
@@ -1046,6 +1083,7 @@
     <EntitySet Name="Comment_Works" EntityType="Self.Comment_Works" />
     <EntitySet Name="Course" EntityType="Self.Course" />
     <EntitySet Name="Course_Class" EntityType="Self.Course_Class" />
+    <EntitySet Name="Follow" EntityType="Self.Follow" />
     <EntitySet Name="Order" EntityType="Self.Order" />
     <EntitySet Name="Order_Detail" EntityType="Self.Order_Detail" />
     <EntitySet Name="Order_Product_Detail" EntityType="Self.Order_Product_Detail" />
@@ -1176,6 +1214,14 @@
     <AssociationSet Name="FK_Video_Course_Class" Association="Self.FK_Video_Course_Class">
       <End Role="Course_Class" EntitySet="Course_Class" />
       <End Role="Video" EntitySet="Video" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Follow_User" Association="Self.FK_Follow_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Follow" EntitySet="Follow" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Follow_User1" Association="Self.FK_Follow_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Follow" EntitySet="Follow" />
     </AssociationSet>
     <AssociationSet Name="FK_Order_Order_Detail1" Association="Self.FK_Order_Order_Detail1">
       <End Role="Order_Detail" EntitySet="Order_Detail" />

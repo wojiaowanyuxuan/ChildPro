@@ -29,5 +29,12 @@ namespace ChildPro.Controllers
 		{
 			return PartialView((User)Session["user"]);
 		}
+
+		public RedirectToRouteResult LoginOut()
+		{
+			Session["user"] = null;
+			Session["userid"] = null;
+			return RedirectToRoute(new { controller = "Home", action = "Index" });
+		}
     }
 }

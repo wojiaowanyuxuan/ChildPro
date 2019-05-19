@@ -1,0 +1,218 @@
+﻿@model ChildPro.Models.userViewModel
+
+@{
+    ViewBag.Title = "个人中心 - 少儿编程";
+    Layout = "~/Views/Shared/_PostLayout.cshtml";
+}
+<link href="~/Content/userpage.css" rel="stylesheet" />
+
+<div class="user_page_content" id="app">
+    <div class="page_ui">
+        <div class="user_info_wrap">
+            <div class="img_wrap">
+                <img class="info_pic" src="//edu-image.nosdn.127.net/d686b6f6-95c4-479d-8c99-263791b186d1.png?imageView&quality=100&thumbnail=300y300" />
+            </div>
+            <div class="info_data">
+                <div class="user_name"><p>@Model.u.UserName</p></div>
+                <div class="intro">叶凡：“尝尽人间绚烂，难补一生辛酸、遗憾。”</div>
+                <div class="attention_fans">
+                    <span class="attention_num">
+                        <span class="num">142</span> 关注
+                    </span>
+                    <span class="fans_num">
+                        <span class="num" id="fans_num">514</span> 粉丝
+                    </span>
+                    @if (!Model.IsOwner)
+                    {
+                        if (!Model.IsAttention)
+                        {
+                            <el-button v-if="kk" size="mini" v-on:click="handleAttention(1)">关注</el-button>
+                            <el-button title="取消关注" type="info" v-else size="mini" v-on:click="handleAttention(2)">已关注</el-button>
+                        }
+                        else
+                        {
+                            <el-button v-if="kk" title="取消关注" size="mini" type="info" v-on:click="handleAttention(2)">已关注</el-button>
+                            <el-button v-else size="mini" v-on:click="handleAttention(1)">关注</el-button>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="user_info_content">
+            <ul class="user_nav">
+                <li class="user_nav_item" v-on:click="current = index" v-bind:class="{'active_nav':current==index}" v-for="(item,index) of usertab">{{item}}</li>
+            </ul>
+            <div class="nav_content_body p-r">
+                <!-- 个人发布或者回复的帖子 -->
+                <div class="nav_body_item" v-bind:class="{'active_con':current==0}">
+                    <div class="nav_body_inner">
+                        <el-tabs :tab-position="tabPosition">
+                            <el-tab-pane label="发表的帖子">
+                                @if (Model.pub_posts.Count() != 0)
+                                {
+                                    <div class="user_post_list">
+                                        @foreach (var item in Model.pub_posts)
+                                        {
+                                            <div class="post_list_item">
+                                                <a class="post_item_title" href=@Url.Action("PostDetails","Forum",new { postid = item.PostID})>@item.Post_Title</a>
+                                                <div class="f-r post_item_right">
+                                                    <span>
+                                                        <i class="el-icon-chat-dot-round"></i> 15
+                                                    </span>
+                                                    <el-tooltip effect="light" placement="top" content="@item.Post_Date">
+                                                        <div class="post_pub_date">@item.Post_Date.Substring(0, 9)</div>
+                                                    </el-tooltip>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>}
+                                else
+                                {
+                                    <div class="ui_comment_wrap">
+                                        <div class="ui_comment_blank">
+                                            <img src="~/img/nopost.png" width="200" height="200" />
+                                        </div>
+                                        <div style="width: 200px;margin: 0 auto">
+                                            <el-alert title="暂时还没有发表任何帖子" type="info" effect="dark" :closable="false"></el-alert>
+                                        </div>
+                                    </div>
+                                }
+                            </el-tab-pane>
+                            <el-tab-pane label="评论过的帖子">
+                                @if (Model.com_posts.Count() != 0)
+                                {
+                                    <div class="user_post_list">
+                                        @foreach (var item in Model.pub_posts)
+                                        {
+                                            <div class="post_list_item">
+                                                <a class="post_item_title" href=@Url.Action("PostDetails","Forum",new { postid = item.PostID})>@item.Post_Title</a>
+                                                <div class="f-r post_item_right">
+                                                    <span>
+                                                        <i class="el-icon-chat-dot-round"></i> 15
+                                                    </span>
+                                                    <el-tooltip effect="light" placement="top" content="@item.Post_Date">
+                                                        <div class="post_pub_date">@item.Post_Date.Substring(0, 9)</div>
+                                                    </el-tooltip>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="ui_comment_wrap">
+                                        <div class="ui_comment_blank">
+                                            <img src="~/img/nopost.png" width="200" height="200" />
+                                        </div>
+                                        <div style="width: 346px;margin: 0 auto">
+                                            <el-alert title="暂时还没有评论过任何帖子(不包含自己发布的帖子)" type="info" effect="dark" :closable="false"></el-alert>
+                                        </div>
+                                    </div>
+                                }
+                            </el-tab-pane>
+                        </el-tabs>
+                    </div>
+                </div>
+                <!-- 收藏的东西 -->
+                <div class="nav_body_item" v-bind:class="{'active_con':current==1}">
+                    <div class="nav_body_inner">
+                        <el-tabs :tab-position="tabPosition">
+                            <el-tab-pane label="收藏的帖子">
+                                @if (Model.coll_posts.Count() != 0)
+                                {
+                                    <div class="user_post_list">
+                                        @foreach (var item in Model.pub_posts)
+                                        {
+                                            <div class="post_list_item">
+                                                <a class="post_item_title" href=@Url.Action("PostDetails","Forum",new { postid = item.PostID})>@item.Post_Title</a>
+                                                <div class="f-r post_item_right">
+                                                    <span>
+                                                        <i class="el-icon-chat-dot-round"></i> 15
+                                                    </span>
+                                                    <el-tooltip effect="light" placement="top" content="@item.Post_Date">
+                                                        <div class="post_pub_date">@item.Post_Date.Substring(0, 9)</div>
+                                                    </el-tooltip>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="ui_comment_wrap">
+                                        <div class="ui_comment_blank">
+                                            <img src="~/img/nopost.png" width="200" height="200" />
+                                        </div>
+                                        <div style="width: 200px;margin: 0 auto">
+                                            <el-alert title="暂时还没有收藏任何帖子" type="info" effect="dark" :closable="false"></el-alert>
+                                        </div>
+                                    </div>
+                                }
+                            </el-tab-pane>
+                            <el-tab-pane label="收藏的其他东西">
+
+                            </el-tab-pane>
+                            <el-tab-pane label="收藏的其他东西2">
+
+                            </el-tab-pane>
+                        </el-tabs>
+                    </div>
+                </div>
+                <!-- 比赛荣誉 -->
+                <div class="nav_body_item" v-bind:class="{'active_con':current==2}"></div>
+                <!-- 好友 -->
+                <div class="nav_body_item" v-bind:class="{'active_con':current==3}"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            tabPosition: "left",
+            current: 0,
+            usertab: ['帖子', '收藏', '荣誉', '好友'],
+            kk:true
+        },
+        methods: {
+            handleAttention(tag) {
+                //关注逻辑
+                let self = this,
+                    id = @Model.u.UserID,
+                    ele=document.getElementById("fans_num"),
+                    fans_num = parseInt(ele.innerHTML,10);
+                if(tag == 1){
+                    axios.post('/User/Attention',{
+                        Followed_Userid:id,
+                        tag:tag
+                    }).then(res=>{
+                        self.kk = !self.kk;
+                        self.$message({
+                            message:'关注成功啦',
+                            type:'success'
+                        });
+                        ele.innerHTML = fans_num+1;
+                    })
+                    .catch(err=>{
+                        console.log(err);
+                    });
+                }else{
+                    axios.post('/User/Attention',{
+                        Followed_Userid:id,
+                        tag:tag
+                    }).then(res=>{
+                        self.kk = !self.kk;
+                        ele.innerHTML = fans_num - 1;
+                    })
+                    .catch(err=>{
+                        console.log(err);
+                    });
+                }
+            }
+        }
+    })
+</script>
+
+

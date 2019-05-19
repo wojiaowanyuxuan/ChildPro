@@ -30,6 +30,10 @@ namespace ChildPro.Controllers
         // GET: Forum
         public ActionResult Index()
         {
+			if (Session["userid"] != null)
+			{
+				ViewBag.userid = (int)Session["userid"];
+			}
 			return View();
         }
 
@@ -42,7 +46,7 @@ namespace ChildPro.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult PostSummery(int sort_by,string title=null,string content=null,string date=null,string tag=null)
+		public ActionResult PostSummery(int sort_by,int? post_type,string title=null,string content=null,string date=null,string tag=null)
 		{
 			IEnumerable<Post> posts = null;
 			if (sort_by == 1)
@@ -55,6 +59,7 @@ namespace ChildPro.Controllers
 					Post_Date = date,
 					Post_Tag = tag,
 					Post_heat = 1,
+					Post_Type=post_type
 				};
 				//存入数据库默认按照热度排序 
 				post_repository.WritePost(p);		
@@ -75,7 +80,11 @@ namespace ChildPro.Controllers
 
 		public ActionResult PostDetails(int postid)
 		{
-			int userid = (int)Session["userid"];
+			int userid = 0;
+			if (Session["userid"] != null)
+			{
+			    userid = (int)Session["userid"];
+			}
 			bool coll = false;
 			Post p = lpe.Post.Include("User").Where(e => e.PostID == postid).FirstOrDefault();
 			Collect c = lpe.Collect.Where(e => (e.User_Id == userid && e.Post_Id == postid)).FirstOrDefault();
@@ -194,6 +203,44 @@ namespace ChildPro.Controllers
 			return vmss;
 		}
 
+		//分类帖子页
+		public ActionResult Topic()
+		{
+			IEnumerable<Post> postlists = null;
+			string sid = RouteData.Values["id"].ToString();
+			int id;
+			if(int.TryParse(sid,out id))
+			{
+				switch (id)
+				{
+					case 1:
+						ViewBag.src = "//edu-image.nosdn.127.net/fa8a4ea7-fc09-4c31-852c-e1aee620e3a4.png";
+						ViewBag.title = "编程宝典";
+						ViewBag.content = "欢迎在这里分享和获取编程技巧，优秀作品教案，以及各类高级功能，比如云变量、自定义、扩展功能等。";
+						break;
+					case 2:
+						ViewBag.src = "//edu-image.nosdn.127.net/efae8b2f-4ab0-4d65-84c6-4818b3558994.png";
+						ViewBag.title = "你问我答";
+						ViewBag.content = "在Scratch的学习或创作中，如果遇到了无法解决的疑难问题，可以随时在这里发帖寻求帮助， 发帖时请注意描述完整你的问题。";
+						break;
+					case 3:
+						ViewBag.src = "//edu-image.nosdn.127.net/f1dcac85-887c-4af7-ae32-18010a642683.png";
+						ViewBag.title = "作品Show";
+						ViewBag.content = "好的作品值得被更多的人关注，来这里Show出你的得意之作 ，或者向大家推荐你最欣赏的scratch作品吧！ 帖子格式：【作品秀】作品名称+推荐语";
+						break;
+					case 4:
+						ViewBag.src = "//edu-image.nosdn.127.net/ec30c2fd-8e1a-437e-b0de-b59b4d8b5a2f.jpg";
+						ViewBag.title = "站务反馈";
+						ViewBag.content = "使用卡搭社区遇到的bug反馈、举报/投诉信息集聚地，也可以展望你需要的功能或建议。 同时，社区的更新内容及官方活动也将汇聚于此。同步论坛更新内容、发布官方活动。";
+						break;
+					default:
+						break;
+				}
+				postlists = lpe.Post.Include("User").Where(e => e.Post_Type == id);
+			}
+			return View(postlists);
+		}
+
 
 
 		//收藏帖子
@@ -240,5 +287,15 @@ namespace ChildPro.Controllers
 		}
 		
 
-    }
+		public ActionResult UserHeaderSummery1()
+		{
+			return PartialView((User)Session["user"]);
+		}
+		public ActionResult UserHeaderSummery2()
+		{
+			return PartialView((User)Session["user"]);
+		}
+
+
+	}
 }

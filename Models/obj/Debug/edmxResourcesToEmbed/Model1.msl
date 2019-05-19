@@ -140,6 +140,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Follow">
+      <EntityTypeMapping TypeName="LessProModel.Follow">
+        <MappingFragment StoreEntitySet="Follow">
+          <ScalarProperty Name="FollowID" ColumnName="FollowID" />
+          <ScalarProperty Name="Followed_Person" ColumnName="Followed_Person" />
+          <ScalarProperty Name="Fans" ColumnName="Fans" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Order">
       <EntityTypeMapping TypeName="LessProModel.Order">
         <MappingFragment StoreEntitySet="Order">
@@ -188,6 +197,7 @@
           <ScalarProperty Name="Post_Tag" ColumnName="Post_Tag" />
           <ScalarProperty Name="Post_Title" ColumnName="Post_Title" />
           <ScalarProperty Name="Post_heat" ColumnName="Post_heat" />
+          <ScalarProperty Name="Post_Type" ColumnName="Post_Type" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\ICommentRepository.cs" />
+    <Compile Include="Abstract\IFollowRepository.cs" />
     <Compile Include="Abstract\IPostRepository.cs" />
     <Compile Include="Abstract\IPraisedRepository.cs" />
     <Compile Include="Abstract\IReplyRepository.cs" />
@@ -87,6 +88,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Concrete\EFCommentRepository.cs" />
+    <Compile Include="Concrete\EFFollowRepository.cs" />
     <Compile Include="Concrete\EFPostRepository.cs" />
     <Compile Include="Concrete\EFPraisedRepository.cs" />
     <Compile Include="Concrete\EFReplyRepository.cs" />
@@ -95,6 +97,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Course_Class.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Follow.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model1.Context.cs">

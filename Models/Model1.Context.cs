@@ -37,6 +37,7 @@ namespace Models
         public virtual DbSet<Comment_Works> Comment_Works { get; set; }
         public virtual DbSet<Course> Course { get; set; }
         public virtual DbSet<Course_Class> Course_Class { get; set; }
+        public virtual DbSet<Follow> Follow { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<Order_Detail> Order_Detail { get; set; }
         public virtual DbSet<Order_Product_Detail> Order_Product_Detail { get; set; }

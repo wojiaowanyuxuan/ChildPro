@@ -127,6 +127,14 @@
     <Property Name="CourseId" Type="int" Nullable="false" />
     <Property Name="ClassName" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="Follow">
+    <Key>
+      <PropertyRef Name="FollowID" />
+    </Key>
+    <Property Name="FollowID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Followed_Person" Type="int" Nullable="false" />
+    <Property Name="Fans" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Order">
     <Key>
       <PropertyRef Name="Order_ID" />
@@ -173,6 +181,7 @@
     <Property Name="Post_Tag" Type="nvarchar" MaxLength="50" />
     <Property Name="Post_Title" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Post_heat" Type="int" Nullable="false" />
+    <Property Name="Post_Type" Type="int" />
   </EntityType>
   <EntityType Name="Praise_Product">
     <Key>
@@ -573,6 +582,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Follow_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Follow" Type="Self.Follow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Follow">
+        <PropertyRef Name="Followed_Person" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Follow_User1">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Follow" Type="Self.Follow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Follow">
+        <PropertyRef Name="Fans" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Order_Cart">
     <End Role="Cart" Type="Self.Cart" Multiplicity="1" />
     <End Role="Order" Type="Self.Order" Multiplicity="*" />
@@ -946,6 +979,7 @@
     <EntitySet Name="Comment_Works" EntityType="Self.Comment_Works" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Course_Class" EntityType="Self.Course_Class" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Follow" EntityType="Self.Follow" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Order_Detail" EntityType="Self.Order_Detail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Order_Product_Detail" EntityType="Self.Order_Product_Detail" Schema="dbo" store:Type="Tables" />
@@ -1044,6 +1078,14 @@
     <AssociationSet Name="FK_Course_Teacher" Association="Self.FK_Course_Teacher">
       <End Role="Teacher" EntitySet="Teacher" />
       <End Role="Course" EntitySet="Course" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Follow_User" Association="Self.FK_Follow_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Follow" EntitySet="Follow" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Follow_User1" Association="Self.FK_Follow_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Follow" EntitySet="Follow" />
     </AssociationSet>
     <AssociationSet Name="FK_Order_Cart" Association="Self.FK_Order_Cart">
       <End Role="Cart" EntitySet="Cart" />

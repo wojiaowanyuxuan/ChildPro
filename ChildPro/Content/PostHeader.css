@@ -105,3 +105,104 @@ a.logo{
 .scroll_style .header_nav_item:hover{
     background-color: #39A5EF;
 }
+
+/* 补上的搜索框 */
+.search_box_wrap{
+    margin-top: 25px;
+    margin-right: 25px;
+}
+.search_box_inner{
+    width: 231px;
+}
+.scroll_style .search_box_wrap{
+    margin-top: 15px;
+}
+
+.message_notice{
+    margin-right: 25px;
+}
+
+.message_notice_area{
+    height: 80px;
+    line-height: 80px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+}
+.scroll_style .message_notice_area{
+    height: 60px;
+    line-height: 60px;
+}
+.message_notice_area i{
+    color: #ccd0d4;
+}
+.message_notice_area i:hover{
+    color: #aaa;
+}
+.leader:hover .user_login_show{
+    display: block;
+}
+.user_hear_img{
+    height: 60px;
+    box-sizing: border-box;
+    padding: 25px 0;
+    margin-right: 12px;
+    width: 30px;
+}
+.user_login_show{
+    display: none;
+    position: absolute;
+    z-index: 5;
+    right: 0;
+    top: 61px;
+    padding-top: 15px;
+    box-sizing: border-box;
+}
+.user_login_nav{
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.2);
+    width: 100px;
+    text-align: center;
+    font-size: 14px;
+}
+.user_nav_item{
+    border-radius: 6px 6px 0 0;
+    line-height: 40px;
+    box-sizing: border-box;
+}
+.user_nav_link:hover{
+    color: #39A5EF;
+}
+
+.user_nav_link{
+    color: #666;
+    padding: 0 8px;
+    display: block;
+}
+.user_login_show i{
+    position: absolute;
+    top: 0px;
+    right: 19px;
+    display: inline-block;
+    color: #fff;
+    font-size: 22px;
+}
+.scroll_style .user_hear_img{
+    padding: 16px 0;
+}
+
+/* 未登录时 */
+.unlogin_area{
+    height: 80px;
+    line-height: 80px;
+}
+.unlogin_area a{
+    display: inline-block;
+    color: #fff;
+    font-size: 16px;
+}
+.login_in{
+    margin-right: 10px;
+}

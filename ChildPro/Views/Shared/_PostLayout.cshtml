@@ -30,7 +30,19 @@
                             </ul>
                         </div>
                         <div class="f-r">
-                            <div></div>
+                            <div class="search_box_wrap f-l">
+                                <div class="search_box_inner">
+                                    <el-input size="small" placeholder="请输入内容"
+                                              v-model="searchValue"
+                                              suffix-icon="el-icon-search">
+
+                                    </el-input>
+                                </div>
+                            </div>
+                            
+                            <!-- 用户头像 登陆注册区域 -->
+                            @Html.Action("UserHeaderSummery1", "Forum")
+                            <div style="clear: both;"></div>
                         </div>
                     </div>
                 </div>
@@ -48,7 +60,18 @@
                                 </ul>
                             </div>
                             <div class="f-r">
-                                <div></div>
+                                <div class="search_box_wrap f-l">
+                                    <div class="search_box_inner">
+                                        <el-input size="small" placeholder="请输入内容"
+                                                  v-model="searchValue"
+                                                  suffix-icon="el-icon-search">
+
+                                        </el-input>
+                                    </div>
+                                </div>     
+                                <!-- 用户头像 登陆注册区域 -->
+                                @Html.Action("UserHeaderSummery2", "Forum")
+                                <div style="clear: both;"></div>
                             </div>
                         </div>
                     </div>
@@ -67,6 +90,7 @@
                     { name: '创作', path: '' },
                     { name: '论坛', path: '' },
                     { name: '赛事', path: '' }],
+                searchValue: '',
             }
         })
     </script>
