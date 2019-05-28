@@ -1,0 +1,102 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style type="text/css">
+        body{
+            background-color: #f2f2f2;
+        }
+        .admin_wrap{
+            width:400px;
+            margin:200px auto 0;
+            height:300px;
+            box-shadow:0 2px 2px 0 rgba(0,0,0,.2);
+            border-radius:6px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .login_wrap{
+            padding:25px;
+            text-align:center;
+        }
+        .el-row{
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="admin" class="admin_wrap">
+         <div class="login_wrap" v-loading="loading" element-loading-text="正在登录">
+             <el-row>
+                 <el-col :span="24">
+                     <el-input autofocus v-model="account" prefix-icon="el-icon-user"></el-input>
+                 </el-col>
+             </el-row>
+             <el-row>
+                 <el-col :span="24">
+                     <el-input v-model="password" type="password" prefix-icon="el-icon-key"></el-input>
+                 </el-col>
+             </el-row>
+             <el-row>
+                 <el-col :span="6" :offset="7">
+                     <el-button type="primary" v-on:click="login">登录</el-button>
+                 </el-col>
+             </el-row>
+         </div>
+    </div>
+    <script src="~/Scripts/vue.min.js"></script>
+    <script src="~/Scripts/axios.min.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script type="text/javascript">
+    var app = new Vue({
+        el:'#admin',
+        data:{
+            account:'',
+            password:'',
+            loading:false,
+        },
+        methods:{
+            login(){
+                let self = this;
+                self.loading = true;
+                if (!self.account || !self.password) {
+                    self.$message({
+                        message: '管理员账号或密码不能为空',
+                        type: 'error'
+                    });
+                    self.loading = false;
+                } else {
+                    axios.post('/Admin/Login', {
+                        account: self.account,
+                        password: self.password
+                    })
+                    .then(res => {
+                        if (res.data.code == 200){
+                            setTimeout(() => {
+                                window.location.href = '/Home/Index';
+                            }, 1000);
+                        } else{
+                            setTimeout(() => {
+                                self.loading = false;
+                            },800)
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+                }
+            }
+        }
+    })
+    </script>
+</body>
+</html>

@@ -42,7 +42,7 @@
                             <div class="p_content">
                                 <div class="trick_area">
                                     <p class="p_title">@item.Post_Title</p>
-                                    <p class="p_part_content">@item.Post_Content</p>
+                                    @Html.Raw(item.Post_Content)
                                 </div>
                                 <!-- 如果帖子包含了图片 -->
                                 <div v-if="img"></div>
@@ -66,4 +66,17 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(function () {
+        //主页帖子列表中的图片修掉
+        var $_p = $('.p_title').next()
+        $_p.addClass('p_part_content');
+        var a = $_p.prop("outerHTML");
+        var text = a.toString();
+        var c = text.replace(/(<img[^>]+>)/g, ' ');
+        var img = RegExp.$1;
+        $_p.html(c)
+    })
+</script>
+
 

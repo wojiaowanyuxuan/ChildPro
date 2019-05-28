@@ -198,6 +198,7 @@
           <ScalarProperty Name="Post_Title" ColumnName="Post_Title" />
           <ScalarProperty Name="Post_heat" ColumnName="Post_heat" />
           <ScalarProperty Name="Post_Type" ColumnName="Post_Type" />
+          <ScalarProperty Name="Accessibility" ColumnName="Accessibility" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -349,6 +350,8 @@
           <ScalarProperty Name="RealName" ColumnName="RealName" />
           <ScalarProperty Name="ImageMineType" ColumnName="ImageMineType" />
           <ScalarProperty Name="ImageData" ColumnName="ImageData" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Signature" ColumnName="Signature" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

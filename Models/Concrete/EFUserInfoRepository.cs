@@ -61,5 +61,27 @@ namespace Models.Concrete
 			return ls;
 		}
 
+		//实现编辑
+		public void SaveEditor(int userid,string username = null, string phone = null, string signature = null, string birthday = null, string sex = null)
+		{
+			User u = LPE.User.Find(userid);
+			if (u != null)
+			{
+				u.Birthday = birthday;
+				u.Phone = phone;
+				u.Signature = signature;
+				u.UserName = username;
+				u.Sex = sex;
+			}
+			try
+			{
+				LPE.SaveChanges();
+			}
+			catch(Exception e)
+			{
+				throw e;
+			}
+		}
+
 	}
 }

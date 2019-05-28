@@ -41,6 +41,8 @@ namespace ChildPro.Infrastructure
 			kernel.Bind<IPraisedRepository>().To<EFPraisedRepository>();
 			//关注
 			kernel.Bind<IFollowRepository>().To<EFFollowRepository>();
+			//管理员
+			kernel.Bind<IAdminRepository>().To<EFAdminRepository>();
 		}
 	}
 }

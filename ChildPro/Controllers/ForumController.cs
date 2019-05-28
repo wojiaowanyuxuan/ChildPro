@@ -40,9 +40,20 @@ namespace ChildPro.Controllers
 		[HttpGet]
 		public ActionResult PostSummery()
 		{
+			//普通用户只能看到accessibility为3的帖子
+			IEnumerable<Post> posts= lpe.Post.Include("User").Where(e=>e.Accessibility==3).OrderByDescending(e => e.Post_heat);
 			//启用贪婪加载
-			IEnumerable<Post> posts = lpe.Post.Include("User").OrderByDescending(e => e.Post_heat);
-			return PartialView(posts);
+			if (Session["admin"] != null)
+			{
+				//管理员能看到所有帖子
+				posts = lpe.Post.Include("User").OrderByDescending(e => e.Post_heat);
+			}
+			AdminPermission ap = new AdminPermission()
+			{
+				posts = posts,
+				a = (Admin)Session["admin"]
+			};
+			return PartialView(ap);
 		}
 
 		[HttpPost]
@@ -59,7 +70,9 @@ namespace ChildPro.Controllers
 					Post_Date = date,
 					Post_Tag = tag,
 					Post_heat = 1,
-					Post_Type=post_type
+					Post_Type=post_type,
+					//初始发布的帖子 可访问程度为3
+					Accessibility=3
 				};
 				//存入数据库默认按照热度排序 
 				post_repository.WritePost(p);		
@@ -68,14 +81,21 @@ namespace ChildPro.Controllers
 			else if(sort_by == 2)
 			{
 				//按时间从最近开始排序
-				posts = lpe.Post.Include("User").OrderByDescending(e => e.PostID);
+				posts = lpe.Post.Include("User").Where(e=>e.Accessibility==3).OrderByDescending(e => e.PostID);
 			}
 			else
 			{
-				posts = lpe.Post.Include("User").OrderByDescending(e => e.Post_heat);
+				posts = lpe.Post.Include("User").Where(e=>e.Accessibility==3).OrderByDescending(e => e.Post_heat);
 			}
-			
-			return PartialView(posts);
+			//管理员看到的帖子均按照时间排列
+			if (Session["admin"] != null)
+				posts = lpe.Post.Include("User").OrderByDescending(e => e.PostID);
+			AdminPermission ap = new AdminPermission()
+			{
+				posts = posts,
+				a = null
+			};
+			return PartialView(ap);
 		}
 
 		public ActionResult PostDetails(int postid)
@@ -87,6 +107,9 @@ namespace ChildPro.Controllers
 			}
 			bool coll = false;
 			Post p = lpe.Post.Include("User").Where(e => e.PostID == postid).FirstOrDefault();
+			//增加帖子热度
+			p.Post_heat += 10;
+			lpe.SaveChanges();
 			Collect c = lpe.Collect.Where(e => (e.User_Id == userid && e.Post_Id == postid)).FirstOrDefault();
 			if (c != null)
 			{
@@ -105,15 +128,27 @@ namespace ChildPro.Controllers
 		[HttpGet]
 		public ActionResult CommentSummery(int postid)
 		{
+			if (Session["admin"] != null)
+			{
+				ViewBag.admin = (Admin)Session["admin"];
+			}
 			IEnumerable<ViewModel> vmss = GetComAndRep(postid);
-			return PartialView(vmss.Reverse());
+			return PartialView(vmss);
 		}
 
 		//对帖子的评论回复
 		[HttpPost]
 		public ActionResult CommentSummery(int Com_type,int postid,int? rep_to_userid,int? Com_id,string Com_content=null,string date=null)
 		{
-			int userid = (int)Session["userid"];
+			int userid = 0;
+			if (Session["userid"] != null)
+			{
+				userid = (int)Session["userid"];
+			}
+			if (Session["admin"] != null)
+			{
+				ViewBag.admin = (Admin)Session["admin"];
+			}
 			// Com_type==1表示对帖子的评论 Com_type==2表示对楼主的回复 Com_type==3表示对其他人的回复
 			switch (Com_type)
 			{
@@ -125,6 +160,10 @@ namespace ChildPro.Controllers
 					break;
 				case 3:
 					reply_repository.AddReply((int)Com_id, userid, (int)rep_to_userid, date, Com_content, 2);
+					break;
+				case 4:
+					//删除评论逻辑
+					comment_repository.RemoveComment((int)Com_id);
 					break;
 				default:
 					break;
@@ -166,7 +205,7 @@ namespace ChildPro.Controllers
 				now_userid = (int)Session["userid"];
 			}
 			//查找当前帖子下所有评论
-			IEnumerable<Comment> coms = lpe.Comment.Include("User").Where(e => e.Post_Id == postid);
+			IEnumerable<Comment> coms = lpe.Comment.Include("User").Where(e => e.Post_Id == postid).OrderByDescending(e=>e.Com_Praise_Num);
 			IList<ViewModel> vms = new List<ViewModel>();
 			foreach(var com in coms)
 			{
@@ -188,7 +227,7 @@ namespace ChildPro.Controllers
 				}
 
 				//获取该评论所有回复
-				IQueryable<Replys> rs = lpe.Replys.Include("User").Where(e => e.Com_Id == com.CommentID);
+				IQueryable<Replys> rs = lpe.Replys.Include("User").Where(e => e.Com_Id == com.CommentID).OrderByDescending(e=>e.ReplyID);
 				//初始化一个viewmodel实例
 				ViewModel vm = new ViewModel()
 				{

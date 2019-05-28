@@ -19,8 +19,6 @@ namespace Models
         public Nullable<int> Com_Id { get; set; }
         public Nullable<int> Rep_Id { get; set; }
     
-        public virtual Comment Comment { get; set; }
-        public virtual Replys Replys { get; set; }
         public virtual User User { get; set; }
     }
 }

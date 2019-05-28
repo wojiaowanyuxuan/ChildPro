@@ -1,0 +1,166 @@
+﻿@model Models.User
+
+@{
+    ViewBag.Title = "设置 - 少儿编程";
+    Layout = "~/Views/Shared/_PostLayout.cshtml";
+}
+<link href="~/Content/userset.css" rel="stylesheet" />
+
+<div id="userset" class="user_set_wrap">
+    <div>
+        <el-tabs>
+            <el-tab-pane label="账号信息" v-loading="loading">
+                <div class="user_info_top">
+                    <h2>个人信息&nbsp;<small>&nbsp;ID：3054785</small></h2>
+                </div>
+                <div class="user_info_bottom">
+                    <!-- 头像区域 -->
+                    <el-row>
+                        <el-col :span="5">
+                            头像上传
+                        </el-col>
+                        <el-col :span="16">
+                            <el-upload action="/User/UploadHeaderPic"
+                                       class="avatar-uploader"
+                                       :show-file-list="false"
+                                       :on-success="handleAvatarSuccess">
+                                @if (Model.ImageData == null)
+                                {
+                                    <img v-if="imgUrl" :src="imgUrl" class="avatar">
+                                }
+                                else
+                                {
+                                    <img src="@Url.Action("GetImage","User",new { userid = Model.UserID})" class="avatar">
+                                }
+                                <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                            </el-upload>
+                        </el-col>
+                    </el-row>
+                    <!-- 昵称 -->
+                    <el-row>
+                        <el-col :span="5">*昵称</el-col>
+                        <el-col :span="11">
+                            <el-input size="small" maxlength="16" v-model="username"></el-input>
+                        </el-col>
+                    </el-row>
+                    <!-- 出生日期 性别-->
+                    <el-row>
+                        <el-col :span="5">出生日期</el-col>
+                        <el-col :span="7">
+                            <el-date-picker type="date" size="small"
+                                            :editable="false"
+                                            format="yyyy 年 MM 月 dd 日"
+                                            value-format="yyyy-MM-dd"
+                                            placeholder="请选择出生日期"
+                                            v-model="birthday">
+
+                            </el-date-picker>
+                        </el-col>
+                        <el-col :span="1">性别</el-col>
+                        <el-col :span="3">
+                            <el-select size="small" clearable v-model="sex" placeholder="请选择">
+                                <el-option value="男">男</el-option>
+                                <el-option value="女">女</el-option>
+                            </el-select>
+                        </el-col>
+                    </el-row>
+                    <!-- 常用手机 -->
+                    <el-row>
+                        <el-col :span="5">
+                            常用手机
+                        </el-col>
+                        <el-col :span="6">
+                            <el-input clearable
+                                      v-model="phone" size="small">
+
+                            </el-input>
+                        </el-col>
+                    </el-row>
+                    <!-- 签名 -->
+                    <el-row>
+                        <el-col :span="5">
+                            *个性签名
+                        </el-col>
+                        <el-col :span="10">
+                            <el-input type="textarea"
+                                      clearable
+                                      maxlength="35"
+                                      :rows="2"
+                                      resize="none"
+                                      show-word-limit
+                                      v-model="signature">
+
+                            </el-input>
+                        </el-col>
+                    </el-row>
+                    <el-row>
+                        <el-col :span="5" :offset="6">
+                            <el-button type="primary" v-on:click="handleSaveEditor">保存</el-button>
+                        </el-col>
+                    </el-row>
+                </div>
+            </el-tab-pane>
+            <el-tab-pane label="收货地址">
+
+            </el-tab-pane>
+        </el-tabs>
+    </div>
+    <div style="display:none">
+        <input id="un" value="@Model.UserName" />
+        <input id="ph" value="@Model.Phone" />
+        <input id="sex" value="@Model.Sex" />
+        <input id="signa" value="@Model.Signature" />
+        <input id="birth" value="@Model.Birthday" />
+    </div>
+</div>
+
+<script type="text/javascript">
+    var userset = new Vue({
+        el: '#userset',
+        data: {
+            username:'',
+            birthday: '',
+            sex: '',
+            imgUrl: '',
+            phone: '',
+            signature: '',
+            loading:false,
+            upload_url:'/User/UploadHeaderPic'
+        },
+        methods: {
+            initValue() {
+                let self = this;
+                self.username = document.getElementById("un").value;
+                self.phone = document.getElementById("ph").value;
+                self.signature = document.getElementById("signa").value;
+                self.sex = document.getElementById("sex").value;
+                self.birthday = document.getElementById("birth").value;
+            },
+            handleAvatarSuccess(res, file) {
+                this.imgUrl = window.URL.createObjectURL(file.raw);
+            },
+            handleSaveEditor() {
+                let self = this;
+                self.loading = true;
+                if (!self.username && !self.phone){
+                    self.username = @Model.UserName;
+                    self.phone = @Model.Phone;
+                }
+                axios.post('/User/UserSetting',{
+                    username:self.username,
+                    phone:self.phone,
+                    signature:self.signature,
+                    birthday:self.birthday,
+                    sex:self.sex
+                }).then(res => {
+                    console.log(res.message);
+                    self.loading=false;
+                })
+            }
+        },
+        mounted() {
+            this.initValue()
+        }
+    })
+</script>
+

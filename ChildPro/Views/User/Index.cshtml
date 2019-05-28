@@ -14,7 +14,14 @@
             </div>
             <div class="info_data">
                 <div class="user_name"><p>@Model.u.UserName</p></div>
-                <div class="intro">叶凡：“尝尽人间绚烂，难补一生辛酸、遗憾。”</div>
+                @if (Model.u.Signature == "" || Model.u.Signature==null)
+                {
+                    <div class="intro">练习时长两年半，喜欢唱、跳、Rap和篮球</div>
+                }
+                else
+                {
+                    <div class="intro">@Model.u.Signature</div>
+                }
                 <div class="attention_fans">
                     <span class="attention_num">
                         <span class="num">142</span> 关注
@@ -82,7 +89,7 @@
                                 @if (Model.com_posts.Count() != 0)
                                 {
                                     <div class="user_post_list">
-                                        @foreach (var item in Model.pub_posts)
+                                        @foreach (var item in Model.com_posts)
                                         {
                                             <div class="post_list_item">
                                                 <a class="post_item_title" href=@Url.Action("PostDetails","Forum",new { postid = item.PostID})>@item.Post_Title</a>
@@ -121,7 +128,7 @@
                                 @if (Model.coll_posts.Count() != 0)
                                 {
                                     <div class="user_post_list">
-                                        @foreach (var item in Model.pub_posts)
+                                        @foreach (var item in Model.coll_posts)
                                         {
                                             <div class="post_list_item">
                                                 <a class="post_item_title" href=@Url.Action("PostDetails","Forum",new { postid = item.PostID})>@item.Post_Title</a>
@@ -158,8 +165,19 @@
                         </el-tabs>
                     </div>
                 </div>
-                <!-- 比赛荣誉 -->
-                <div class="nav_body_item" v-bind:class="{'active_con':current==2}"></div>
+                <!-- 消费记录 -->
+                <div class="nav_body_item" v-bind:class="{'active_con':current==2}">
+                    <div class="nav_body_inner">
+                        <el-tabs :tab-position="tabPosition">
+                            <el-tab-pane label="购物车">
+                                购物车
+                            </el-tab-pane>
+                            <el-tab-pane label="订单记录">
+                                订单
+                            </el-tab-pane>
+                        </el-tabs>
+                    </div>
+                </div>
                 <!-- 好友 -->
                 <div class="nav_body_item" v-bind:class="{'active_con':current==3}"></div>
             </div>
@@ -173,7 +191,7 @@
         data: {
             tabPosition: "left",
             current: 0,
-            usertab: ['帖子', '收藏', '荣誉', '好友'],
+            usertab: ['帖子', '收藏', '消费', '好友'],
             kk:true
         },
         methods: {

@@ -53,6 +53,8 @@ namespace Models
         public string RealName { get; set; }
         public string ImageMineType { get; set; }
         public byte[] ImageData { get; set; }
+        public string Birthday { get; set; }
+        public string Signature { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Add_Course> Add_Course { get; set; }

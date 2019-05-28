@@ -33,7 +33,7 @@ namespace ChildPro.Controllers
 
 			User u = lpe.User.Where(e => e.UserID == userid).FirstOrDefault();
 			//用户发布过的帖子 
-			IEnumerable<Post> pub_posts = lpe.Post.Include("User").Where(e => e.User_Id == userid);
+			IEnumerable<Post> pub_posts = lpe.Post.Include("User").Where(e=>e.Accessibility==3).Where(e => e.User_Id == userid);
 			//用户评论过的帖子
 			IEnumerable<Comment> coms = lpe.Comment.Where(e => e.User_Id == userid);
 			//非用户发布帖子 评论过的帖子不包含自己发布的帖子
@@ -100,6 +100,74 @@ namespace ChildPro.Controllers
 			return base.Json(t);
 		}
 
+		//信息设置
+		[HttpGet]
+		public ActionResult UserSetting()
+		{
+			int userid = (int)Session["userid"];
+			User u = lpe.User.Find(userid);
+			return View(u);
+		}
+
+		[HttpPost]
+		public JsonResult UserSetting(string username=null,string phone=null,string signature=null,string birthday=null,string sex =null)
+		{
+			int userid = (int)Session["userid"];
+			tip t = null;
+			try
+			{
+				user_repository.SaveEditor(userid, username, phone, signature, birthday, sex);
+				t = new tip()
+				{
+					message = "编辑成功",
+					code = 200
+				};
+			}
+			catch(Exception e)
+			{
+				throw e;
+			}
+			return base.Json(t);
+		}
+
+		//上传头像
+		[HttpPost]
+		public JsonResult UploadHeaderPic(HttpPostedFileBase file = null)
+		{
+			int userid = (int)Session["userid"];
+			User u = lpe.User.Find(userid);
+			tip t = null;
+			if(file!=null && u != null)
+			{
+				u.ImageData = new byte[file.ContentLength];
+				u.ImageMineType = file.ContentType;
+				file.InputStream.Read(u.ImageData, 0, file.ContentLength);
+				try
+				{
+					lpe.SaveChanges();
+					t = new tip()
+					{
+						message = "上传成功",
+						code = 200
+					};
+				}
+				catch(Exception e)
+				{
+					throw e;
+				}
+			}
+			else
+			{
+				t = new tip()
+				{
+					message = "上传失败",
+					code = 200
+				};
+			}
+			return base.Json(t);
+			
+		}
+
 		//获取自定义头像
 		public FileContentResult GetImage(int userid)
 		{
@@ -114,5 +182,7 @@ namespace ChildPro.Controllers
 				return null;
 			}
 		}
+
+
     }
 }

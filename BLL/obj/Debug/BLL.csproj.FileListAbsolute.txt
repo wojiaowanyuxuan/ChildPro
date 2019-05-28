@@ -1,0 +1,14 @@
+E:\201626705036VS\少儿编程\BLL\bin\Debug\BLL.dll
+E:\201626705036VS\少儿编程\BLL\bin\Debug\BLL.pdb
+E:\201626705036VS\少儿编程\BLL\bin\Debug\DALFactory.dll
+E:\201626705036VS\少儿编程\BLL\bin\Debug\IDAL.dll
+E:\201626705036VS\少儿编程\BLL\bin\Debug\Models.dll
+E:\201626705036VS\少儿编程\BLL\bin\Debug\EntityFramework.dll
+E:\201626705036VS\少儿编程\BLL\bin\Debug\DALFactory.pdb
+E:\201626705036VS\少儿编程\BLL\bin\Debug\IDAL.pdb
+E:\201626705036VS\少儿编程\BLL\bin\Debug\Models.pdb
+E:\201626705036VS\少儿编程\BLL\bin\Debug\EntityFramework.xml
+E:\201626705036VS\少儿编程\BLL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\201626705036VS\少儿编程\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+E:\201626705036VS\少儿编程\BLL\obj\Debug\BLL.dll
+E:\201626705036VS\少儿编程\BLL\obj\Debug\BLL.pdb

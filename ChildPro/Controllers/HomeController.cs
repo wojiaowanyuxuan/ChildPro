@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Models.Abstract;
 using Models;
+using ChildPro.Models;
 
 
 namespace ChildPro.Controllers
@@ -27,7 +28,12 @@ namespace ChildPro.Controllers
 
 		public ActionResult headerSummery()
 		{
-			return PartialView((User)Session["user"]);
+			UserType yt = new UserType()
+			{
+				u = (User)Session["user"],
+				a = (Admin)Session["admin"]
+			};
+			return PartialView(yt);
 		}
 
 		public RedirectToRouteResult LoginOut()

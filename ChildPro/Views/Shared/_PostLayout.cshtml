@@ -4,9 +4,9 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href="~/Content/global.css" rel="stylesheet" />
-    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-    <link href="~/Content/PostHeader.css" rel="stylesheet" />
+    <link href="~/Content/postheader.css" rel="stylesheet" />
+    <link href="~/fonts/iconfont1.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/vue.min.js"></script>
     <script src="~/Scripts/axios.min.js"></script>
@@ -86,9 +86,9 @@
             data:{
                 current: 3,
                 navlist: [{ name: '首页', path: '/Home/Index' },
-                    { name: '发现', path: '' },
+                    { name: '商城', path: '' },
                     { name: '创作', path: '' },
-                    { name: '论坛', path: '' },
+                    { name: '论坛', path: '/Forum/Index' },
                     { name: '赛事', path: '' }],
                 searchValue: '',
             }
@@ -112,5 +112,6 @@
         }
     })
     </script>
+   
 </body>
 </html>

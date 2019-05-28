@@ -1,0 +1,69 @@
+﻿/* 用户设置区域 */
+.user_set_wrap{
+    margin: 0 auto;
+    width: 900px;
+    margin-top: 55px;
+    padding: 22px 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
+}
+.user_info_top{
+    margin: 0 0 15px 15px;
+    padding-bottom: 10px;
+}
+.user_info_top h2{
+    font-weight: normal;
+}
+.user_info_top small{
+    color: #999;
+    font-size: 14px;
+}
+.user_info_bottom{
+    margin-top: 5px;
+    padding: 0 20px;
+}
+.el-row{
+    margin-bottom: 26px;
+}
+.el-col-5,.el-col-1{
+    text-align: right;
+    margin-right: 15px;
+    line-height: 32px;
+}
+.el-col-1{
+    text-align: left;
+    margin-right: 15px;
+}
+.user_header{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.user_header_pic{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+.avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.avatar-uploader .el-upload:hover {
+    border-color: #409EFF;
+}
+.avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 118px;
+    height: 118px;
+    line-height: 118px;
+    text-align: center;
+}
+.avatar {
+    width: 118px;
+    height: 118px;
+    display: block;
+}

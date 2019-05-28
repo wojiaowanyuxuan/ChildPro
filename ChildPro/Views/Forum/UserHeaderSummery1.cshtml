@@ -22,13 +22,13 @@ else
         </div>
         <div class="user_login_show">
             <div class="user_login_nav">
-                <div class="user_nav_item">
+                <div class="user_nav_login_item">
                     <a href=@Url.Action("Index","User",new { userid = Model.UserID}) class="user_nav_link">我的主页</a>
                 </div>
-                <div class="user_nav_item">
-                    <a href="javascript:;" class="user_nav_link">账号设置</a>
+                <div class="user_nav_login_item">
+                    <a href="/User/UserSetting" class="user_nav_link">账号设置</a>
                 </div>
-                <div class="user_nav_item">
+                <div class="user_nav_login_item">
                     <a href="/Home/LoginOut" class="user_nav_link">退出登录</a>
                 </div>
             </div>

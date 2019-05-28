@@ -14,12 +14,6 @@ namespace Models
     
     public partial class Replys
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Replys()
-        {
-            this.Praised = new HashSet<Praised>();
-        }
-    
         public int ReplyID { get; set; }
         public int Com_Id { get; set; }
         public string Rep_Content { get; set; }
@@ -29,9 +23,6 @@ namespace Models
         public Nullable<int> Rep_Type { get; set; }
         public Nullable<int> Rep_Praise_Num { get; set; }
     
-        public virtual Comment Comment { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Praised> Praised { get; set; }
         public virtual User User { get; set; }
         public virtual User User1 { get; set; }
     }

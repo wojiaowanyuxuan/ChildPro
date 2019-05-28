@@ -32,5 +32,21 @@ namespace Models.Concrete
 				throw ex;
 			}
 		}
+
+		//删除评论
+		public void RemoveComment(int comid)
+		{
+			Comment c = lpe.Comment.Find(comid);
+			try
+			{
+				lpe.Comment.Remove(c);
+				lpe.SaveChanges();
+			}
+			catch(Exception e)
+			{
+				throw e;
+			}
+
+		}
 	}
 }

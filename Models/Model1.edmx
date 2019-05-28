@@ -187,6 +187,7 @@
           <Property Name="Post_Title" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Post_heat" Type="int" Nullable="false" />
           <Property Name="Post_Type" Type="int" />
+          <Property Name="Accessibility" Type="int" />
         </EntityType>
         <EntityType Name="Praise_Product">
           <Key>
@@ -325,6 +326,8 @@
           <Property Name="RealName" Type="nvarchar" MaxLength="50" />
           <Property Name="ImageMineType" Type="varchar" MaxLength="50" />
           <Property Name="ImageData" Type="varbinary(max)" />
+          <Property Name="Birthday" Type="nvarchar" MaxLength="20" />
+          <Property Name="Signature" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Video">
           <Key>
@@ -731,30 +734,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Praised_Comment">
-          <End Role="Comment" Type="Self.Comment" Multiplicity="0..1" />
-          <End Role="Praised" Type="Self.Praised" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Comment">
-              <PropertyRef Name="CommentID" />
-            </Principal>
-            <Dependent Role="Praised">
-              <PropertyRef Name="Com_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Praised_Replys">
-          <End Role="Replys" Type="Self.Replys" Multiplicity="0..1" />
-          <End Role="Praised" Type="Self.Praised" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Replys">
-              <PropertyRef Name="ReplyID" />
-            </Principal>
-            <Dependent Role="Praised">
-              <PropertyRef Name="Rep_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Praised_User">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Praised" Type="Self.Praised" Multiplicity="*" />
@@ -812,18 +791,6 @@
             </Principal>
             <Dependent Role="Product_Reply">
               <PropertyRef Name="Rep_UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Replys_Comment">
-          <End Role="Comment" Type="Self.Comment" Multiplicity="1" />
-          <End Role="Replys" Type="Self.Replys" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Comment">
-              <PropertyRef Name="CommentID" />
-            </Principal>
-            <Dependent Role="Replys">
-              <PropertyRef Name="Com_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1132,14 +1099,6 @@
             <End Role="User" EntitySet="User" />
             <End Role="Praise_Product" EntitySet="Praise_Product" />
           </AssociationSet>
-          <AssociationSet Name="FK_Praised_Comment" Association="Self.FK_Praised_Comment">
-            <End Role="Comment" EntitySet="Comment" />
-            <End Role="Praised" EntitySet="Praised" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Praised_Replys" Association="Self.FK_Praised_Replys">
-            <End Role="Replys" EntitySet="Replys" />
-            <End Role="Praised" EntitySet="Praised" />
-          </AssociationSet>
           <AssociationSet Name="FK_Praised_User" Association="Self.FK_Praised_User">
             <End Role="User" EntitySet="User" />
             <End Role="Praised" EntitySet="Praised" />
@@ -1159,10 +1118,6 @@
           <AssociationSet Name="FK_Product_Reply_User" Association="Self.FK_Product_Reply_User">
             <End Role="User" EntitySet="User" />
             <End Role="Product_Reply" EntitySet="Product_Reply" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Replys_Comment" Association="Self.FK_Replys_Comment">
-            <End Role="Comment" EntitySet="Comment" />
-            <End Role="Replys" EntitySet="Replys" />
           </AssociationSet>
           <AssociationSet Name="FK_Replys_Course_Course" Association="Self.FK_Replys_Course_Course">
             <End Role="Comment_Course" EntitySet="Comment_Course" />
@@ -1303,8 +1258,6 @@
           <Property Name="Post_Id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Post" Relationship="Self.FK_Comment_Post" FromRole="Comment" ToRole="Post" />
           <NavigationProperty Name="User" Relationship="Self.FK_Comment_User" FromRole="Comment" ToRole="User" />
-          <NavigationProperty Name="Praised" Relationship="Self.FK_Praised_Comment" FromRole="Comment" ToRole="Praised" />
-          <NavigationProperty Name="Replys" Relationship="Self.FK_Replys_Comment" FromRole="Comment" ToRole="Replys" />
         </EntityType>
         <EntityType Name="Comment_Course">
           <Key>
@@ -1442,6 +1395,7 @@
           <Property Name="Post_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Post_heat" Type="Int32" Nullable="false" />
           <Property Name="Post_Type" Type="Int32" />
+          <Property Name="Accessibility" Type="Int32" />
           <NavigationProperty Name="Collect" Relationship="Self.FK_Collect_Post" FromRole="Post" ToRole="Collect" />
           <NavigationProperty Name="Comment" Relationship="Self.FK_Comment_Post" FromRole="Post" ToRole="Comment" />
           <NavigationProperty Name="User" Relationship="Self.FK_Post_User" FromRole="Post" ToRole="User" />
@@ -1466,8 +1420,6 @@
           <Property Name="User_Id" Type="Int32" Nullable="false" />
           <Property Name="Com_Id" Type="Int32" />
           <Property Name="Rep_Id" Type="Int32" />
-          <NavigationProperty Name="Comment" Relationship="Self.FK_Praised_Comment" FromRole="Praised" ToRole="Comment" />
-          <NavigationProperty Name="Replys" Relationship="Self.FK_Praised_Replys" FromRole="Praised" ToRole="Replys" />
           <NavigationProperty Name="User" Relationship="Self.FK_Praised_User" FromRole="Praised" ToRole="User" />
         </EntityType>
         <EntityType Name="Product">
@@ -1534,8 +1486,6 @@
           <Property Name="Rep_To_UserId" Type="Int32" Nullable="false" />
           <Property Name="Rep_Type" Type="Int32" />
           <Property Name="Rep_Praise_Num" Type="Int32" />
-          <NavigationProperty Name="Comment" Relationship="Self.FK_Replys_Comment" FromRole="Replys" ToRole="Comment" />
-          <NavigationProperty Name="Praised" Relationship="Self.FK_Praised_Replys" FromRole="Replys" ToRole="Praised" />
           <NavigationProperty Name="User" Relationship="Self.FK_Replys_User" FromRole="Replys" ToRole="User" />
           <NavigationProperty Name="User1" Relationship="Self.FK_Replys_User1" FromRole="Replys" ToRole="User" />
         </EntityType>
@@ -1613,6 +1563,8 @@
           <Property Name="RealName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ImageMineType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ImageData" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Birthday" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Signature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Add_Course" Relationship="Self.FK_Add_Course_User" FromRole="User" ToRole="Add_Course" />
           <NavigationProperty Name="Adress" Relationship="Self.FK_Adress_User" FromRole="User" ToRole="Adress" />
           <NavigationProperty Name="Cart" Relationship="Self.FK_Cart_User" FromRole="User" ToRole="Cart" />
@@ -1817,30 +1769,6 @@
             </Principal>
             <Dependent Role="Comment">
               <PropertyRef Name="User_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Praised_Comment">
-          <End Role="Comment" Type="Self.Comment" Multiplicity="0..1" />
-          <End Role="Praised" Type="Self.Praised" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Comment">
-              <PropertyRef Name="CommentID" />
-            </Principal>
-            <Dependent Role="Praised">
-              <PropertyRef Name="Com_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Replys_Comment">
-          <End Role="Comment" Type="Self.Comment" Multiplicity="1" />
-          <End Role="Replys" Type="Self.Replys" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Comment">
-              <PropertyRef Name="CommentID" />
-            </Principal>
-            <Dependent Role="Replys">
-              <PropertyRef Name="Com_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2132,18 +2060,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Praised_Replys">
-          <End Role="Replys" Type="Self.Replys" Multiplicity="0..1" />
-          <End Role="Praised" Type="Self.Praised" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Replys">
-              <PropertyRef Name="ReplyID" />
-            </Principal>
-            <Dependent Role="Praised">
-              <PropertyRef Name="Rep_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Praised_User">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Praised" Type="Self.Praised" Multiplicity="*" />
@@ -2373,14 +2289,6 @@
             <End Role="User" EntitySet="User" />
             <End Role="Comment" EntitySet="Comment" />
           </AssociationSet>
-          <AssociationSet Name="FK_Praised_Comment" Association="Self.FK_Praised_Comment">
-            <End Role="Comment" EntitySet="Comment" />
-            <End Role="Praised" EntitySet="Praised" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Replys_Comment" Association="Self.FK_Replys_Comment">
-            <End Role="Comment" EntitySet="Comment" />
-            <End Role="Replys" EntitySet="Replys" />
-          </AssociationSet>
           <AssociationSet Name="FK_Comment_Course_Course" Association="Self.FK_Comment_Course_Course">
             <End Role="Course" EntitySet="Course" />
             <End Role="Comment_Course" EntitySet="Comment_Course" />
@@ -2476,10 +2384,6 @@
           <AssociationSet Name="FK_Praise_Product_User" Association="Self.FK_Praise_Product_User">
             <End Role="User" EntitySet="User" />
             <End Role="Praise_Product" EntitySet="Praise_Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Praised_Replys" Association="Self.FK_Praised_Replys">
-            <End Role="Replys" EntitySet="Replys" />
-            <End Role="Praised" EntitySet="Praised" />
           </AssociationSet>
           <AssociationSet Name="FK_Praised_User" Association="Self.FK_Praised_User">
             <End Role="User" EntitySet="User" />
@@ -2733,6 +2637,7 @@
                 <ScalarProperty Name="Post_Title" ColumnName="Post_Title" />
                 <ScalarProperty Name="Post_heat" ColumnName="Post_heat" />
                 <ScalarProperty Name="Post_Type" ColumnName="Post_Type" />
+                <ScalarProperty Name="Accessibility" ColumnName="Accessibility" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2884,6 +2789,8 @@
                 <ScalarProperty Name="RealName" ColumnName="RealName" />
                 <ScalarProperty Name="ImageMineType" ColumnName="ImageMineType" />
                 <ScalarProperty Name="ImageData" ColumnName="ImageData" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Signature" ColumnName="Signature" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

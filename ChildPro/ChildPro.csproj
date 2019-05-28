@@ -113,7 +113,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\commentArea.css" />
+    <Content Include="Content\CommentArea.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Forum.css" />
@@ -122,12 +122,13 @@
     <Content Include="Content\Home.css" />
     <Content Include="Content\logina.css" />
     <Content Include="Content\pdetails.css" />
-    <Content Include="Content\PostHeader.css" />
+    <Content Include="Content\postheader.css" />
     <Content Include="Content\register.css" />
     <Content Include="Content\userpage.css" />
+    <Content Include="Content\userset.css" />
     <Content Include="Content\我想笑.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="fonts\iconfont.css" />
+    <Content Include="fonts\iconfont1.css" />
     <Content Include="fonts\iconfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\FontAwesome.otf" />
@@ -185,6 +186,7 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -194,8 +196,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
+    <Compile Include="Models\AdminPermission.cs" />
     <Compile Include="Models\PostViewModel.cs" />
     <Compile Include="Models\tip.cs" />
+    <Compile Include="Models\UserType.cs" />
     <Compile Include="Models\userViewModel.cs" />
     <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -220,6 +224,8 @@
     <Content Include="Views\Forum\Topic.cshtml" />
     <Content Include="Views\Forum\UserHeaderSummery1.cshtml" />
     <Content Include="Views\Forum\UserHeaderSummery2.cshtml" />
+    <Content Include="Views\User\UserSetting.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

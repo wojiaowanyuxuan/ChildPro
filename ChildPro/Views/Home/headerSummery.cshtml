@@ -1,18 +1,41 @@
-﻿@model Models.User
+﻿@model ChildPro.Models.UserType
 
-@if (Model == null)
+@if (Model.u == null && Model.a ==null)
 {
     <a href="/Register/Index" class="register_btn f-r m-l10">注册</a>
     <a href="/Login/index" class="login_btn f-r">登录</a>
 }
-else
+else if(Model.a == null && Model.u!=null)
 {
     <div class="headimg f-r">
         <div class="headimg_box">
-            <img width="32" height="32" src="//img-ph-mirror.nosdn.127.net/ndJaDC3tdNFNsrL5YWikwA==/6631687890259807058.jpg?imageView&quality=100&thumbnail=30y30" />
+            @if (Model.u.ImageData == null)
+            {
+                //默认头像
+                <img width="32" height="32" src="~/img/xuanshao.jpg"/>
+            }
+            else
+            {
+                <img width="32" height="32" src="@Url.Action("GetImage","User",new { userid=Model.u.UserID})"/>
+            }
         </div>
     </div>
-    <a href="javascript:;" class="my_username f-r">
-        <span>@Model.UserName</span>
+    <a href="@Url.Action("Index","User",new { userid = Model.u.UserID})" class="my_username f-r">
+        <span>@Model.u.UserName</span>
     </a>
+    <i class="f-r line"></i>
+    <a class="my_cart f-r p-r" title="查看我的购物车" href="javascript:;">
+        <i class="fa fa-shopping-cart f-s20"></i>
+    </a>
+    <a class="notice_message f-r p-r" title="查看更多消息" href="javascript:;">
+        <i class="fa fa-envelope f-s20"></i>
+    </a>
+    <a href="javascript:;" class="my_study f-r">我的学习</a>
+}
+else
+{
+    <div>
+        <h3 class="f-l">管理员：@Model.a.AdminName </h3>    
+        <a href="/Admin/LoginOut" style="color:#343d42;margin-left:20px">退出</a>
+    </div>
 }

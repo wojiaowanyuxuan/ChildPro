@@ -17,5 +17,8 @@ namespace Models.Abstract
 		//登录接口
 		LoginStatus LoginIn(string key, string password);
 
+		//修改用户信息 不包含头像 
+		void SaveEditor(int userid,string username = null, string phone = null, string signature = null, string birthday = null, string sex = null);
+
 	}
 }

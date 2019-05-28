@@ -1,6 +1,6 @@
-﻿@model IEnumerable<Models.Post>
+﻿@model ChildPro.Models.AdminPermission
 
-@if(Model.Count() == 0)
+@if(Model.posts.Count() == 0)
 {
     <div style="display:flex;justify-content:center;height:200px;align-items:center">
         <h2 style="color:#999">暂时还没有任何人发帖哦，赶快发表帖子分享给大家吧</h2>
@@ -8,17 +8,19 @@
 }
 else
 {
-    foreach (var item in Model)
+    foreach (var item in Model.posts)
     {
         <a target="_blank" href=@Url.Action("PostDetails","Forum",new { postid = item.PostID}) class="ui_post_card">
             <div class="p_wrap ">
                 <div class="p_content">
                     <div class="trick_area">
                         <p class="p_title">@item.Post_Title</p>
-                        <p class="p_part_content">@item.Post_Content</p>
+                        @Html.Raw(item.Post_Content)
                     </div>
                     <!-- 如果帖子包含了图片 -->
-                    <div v-if="img"></div>
+                    <div v-if="img">
+
+                    </div>
                 </div>
                 <div class="p_info">
                     <div href="javascript:;" class="p_info_userhead">
@@ -26,12 +28,40 @@ else
                         <span>@item.User.UserName</span>
                     </div>
                     <span class="comment_num">
-                        <i class="fa fa-comment"></i>
-                        <span class="num_text">1500</span>
+                        <i class="iconfont iconredu"></i>
+                        <span class="num_text" style="position:relative;top:-1px">@item.Post_heat</span>
                     </span>
                     <span class="p_pd">@item.Post_Date</span>
                 </div>
+                @if (Model.a != null)
+                {
+                    if (item.Accessibility == 3)
+                    {
+                        <span id="@item.PostID" class="posttag el-tag el-tag--success">可信任</span>
+                    }
+                    else if (item.Accessibility == 2)
+                    {
+                        <span id="@item.PostID" class="posttag el-tag el-tag--warning">等待审核</span>
+                    }
+                    else if(item.Accessibility ==1)
+                    {
+                        <span id="@item.PostID" class="posttag el-tag el-tag--danger">不可访问</span>
+                    }
+                    <div class="admin">
+                        <el-dropdown v-on:command="handleDeal">
+                            <span class="el-dropdown-link">
+                                访问权限<i class="el-icon-arrow-down el-icon--right"></i>
+                            </span>
+                            <el-dropdown-menu slot="dropdown">
+                                <el-dropdown-item v-bind:command="{name:'Trustworthy',postid:@item.PostID,userid:@item.User_Id}">可信任</el-dropdown-item>
+                                <el-dropdown-item v-bind:command="{name:'wait',postid:@item.PostID,userid:@item.User_Id}">等待审核结果</el-dropdown-item>
+                                <el-dropdown-item v-bind:command="{name:'danger',postid:@item.PostID,userid:@item.User_Id}" divided>危险帖子<i style="color: #d50000;margin-left: 5px" class="el-icon-warning"></i></el-dropdown-item>
+                            </el-dropdown-menu>
+                        </el-dropdown>
+                    </div>
+                }
             </div>
         </a>
     }
+   
 }

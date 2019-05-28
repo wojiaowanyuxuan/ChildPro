@@ -4,18 +4,20 @@
     ViewBag.Title = Model.p.Post_Title;
     Layout = "~/Views/Shared/_PostLayout.cshtml";
 }
-<link href="~/Content/commentArea.css" rel="stylesheet" />
+<link href="~/Content/CommentArea.css" rel="stylesheet" />
 <link href="~/Content/pdetails.css" rel="stylesheet"/>
 
 <div id="contentaa" class="wrapper p-r">
     <div id="post_wrap" class="p-r">
         <div class="text_wrap">
             <div class="post_title">
-                <h3 class="post_title_text">第一章 此间少年</h3>
+                <h3 class="post_title_text">@Model.p.Post_Title</h3>
                 <div class="post_userinfo">
                     <div class="f-l info">
-                        <a href="javascript:;" class="post_tag">作品Show</a>
-                        <a href="javascript:;" class="post_tag">你问我答</a>
+                        @for (var i = 0; i < Model.p.Post_Tag.Split(',').Length; i++)
+                        {
+                            <a href="javascript:;" class="post_tag">@Model.p.Post_Tag.Split(',')[i]</a>
+                        }
                         <span class="post_data"><i class="iconfont iconshizhong"></i>@Model.p.Post_Date</span>
                     </div>
                     <div class="f-r p-r pen">
@@ -28,7 +30,7 @@
             <input style="display:none" id="post_content" value="@Model.p.Post_Content">
 
             <div class="post_content">
-
+                @Html.Raw(Model.p.Post_Content)
             </div>
         </div>
         <div class="action_wrap">
@@ -84,6 +86,29 @@
                 s = s < 10 ? '0' + s : s;
                 let now = `${year}-${month}-${day} ${h}:${m}:${s}`;
                 return now;
+            },
+            handleRemove(com_id){
+                let post_id = @Model.p.PostID,
+                    self = this,
+                    cs = document.getElementById("comment-show");
+                self.$confirm('此操作将永久删除该评论，是否继续?','提示',{
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    axios.post('/Forum/CommentSummery',{
+                        postid:post_id,
+                        Com_type:4,
+                        Com_id:com_id
+                    }).then(res => {
+                        cs.innerHTML = res.data;
+                    })
+                }).catch(() => {
+                    self.$message({
+                        type:'info',
+                        message:'已取消删除'
+                    });
+                });
             },
             PL(){
                 let self = this,
@@ -154,10 +179,7 @@
 <script type="text/javascript">
     //格式化帖子内容
     let value = $('#post_content').val();
-    value.replace(/[\n\r\s]/g, ',').split(',').map(item => {
-        let it = `<p>${item}</p>`;
-        $('.post_content').append(it);
-    });
+    
     //格式化时间函数
     function fd(){
         let date = new Date(),
@@ -173,6 +195,14 @@
         return now;
     }
 
+    $(function(){
+        //管理员删除评论
+        @*$('.comment-show').on('click','.removeBlock',function(){
+            let com_id = parseInt($(this).attr("data-id"),10),
+                post_id = parseInt(@Model.p.PostID,10);
+
+        })*@
+    })
 </script>
 <script type="text/javascript">
     $(function(){

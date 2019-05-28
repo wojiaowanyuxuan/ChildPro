@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IAdminRepository.cs" />
     <Compile Include="Abstract\ICommentRepository.cs" />
     <Compile Include="Abstract\IFollowRepository.cs" />
     <Compile Include="Abstract\IPostRepository.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Comment_Works.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Concrete\EFAdminRepository.cs" />
     <Compile Include="Concrete\EFCommentRepository.cs" />
     <Compile Include="Concrete\EFFollowRepository.cs" />
     <Compile Include="Concrete\EFPostRepository.cs" />
@@ -172,6 +174,7 @@
     <Compile Include="Video.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\AdminLoginStatus.cs" />
     <Compile Include="ViewModel\LoginStatus.cs" />
     <Compile Include="Works.cs">
       <DependentUpon>Model1.tt</DependentUpon>

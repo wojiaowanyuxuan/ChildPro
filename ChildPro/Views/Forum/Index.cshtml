@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/_PostLayout.cshtml";
 }
 <link href="~/Content/Forum.css" rel="stylesheet" />
-
 <div class="body_content" id="app">
     <div class="flex_layout">
         <!-- 侧边话题导航 -->
@@ -63,6 +62,8 @@
                :modal="false"
                top="85px"
                width="72%"
+               v-on:opened="opend"
+               v-on:closed="closed"
                v-on:close="centerDialogVisible = false"
                custom-class="dialog_write"
                :close-on-press-escape="false"
@@ -76,15 +77,7 @@
         </el-row>
         <el-row>
             <el-col :span="24">
-                <el-input type="textarea"
-                          minlength="10"
-                          v-model="content"
-                          placeholder="请输入要发表的帖子内容"
-                          :show-word-limit="true"
-                          resize="none"
-                          :rows="16">
-
-                </el-input>
+                <div class="col-lg-8" id="editor"></div>
             </el-col>
         </el-row>
         <el-row class="pop_tip">
@@ -136,7 +129,7 @@
     </el-dialog>
 </div>
 
-
+<script src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
 <script type="text/javascript">
     var app = new Vue({
         el: '#app',
@@ -158,14 +151,76 @@
             inputVisible: false,
             tagvalue: '',
             img: false,
-            pubType:'',
+            pubType: '',
+            editor:null,
         },
         methods: {
+            handleDeal(item) {
+                let self = this,
+                    accessibility,
+                    user_id = item.userid,
+                    post_id = item.postid;
+                let tag = document.getElementById(item.postid.toString());
+                console.log(item.userid);
+                if (item.name == "Trustworthy") {
+                    tag.className = "posttag el-tag el-tag--success";
+                    tag.innerHTML = "可信任";
+                    accessibility = 3;
+                } else if (item.name == "wait") {
+                    tag.className = "posttag el-tag el-tag--warning";
+                    tag.innerHTML = "等待审核";
+                    accessibility = 2;
+                } else {
+                    tag.className = "posttag el-tag el-tag--danger";
+                    tag.innerHTML = "不可访问";
+                    accessibility = 1;
+                }
+                axios.post('/Admin/ModifyAccess', {
+                    accessibility: accessibility,
+                    postid: post_id,
+                    userid:user_id
+                })
+                .then(res => {
+                    self.$message({
+                        message: res.data.message,
+                        type:'success'
+                    })
+                })
+            },
             showInput() {
                 this.inputVisible = true;
                 this.$nextTick(() => {
                     this.$refs.saveTagInput.$refs.input.focus();
                 });
+            },
+            opend() {
+                var E = window.wangEditor;
+                var editor = new E('#editor');
+                editor.customConfig.uploadImgShowBase64 = true
+                editor.customConfig.showLinkImg = false
+                editor.create();
+                this.editor = editor;
+            },
+            closed() {
+                $('#editor').empty();
+            },
+            //该方法用来解决局部刷新后jQuery代码失效问题
+            FormatP() {
+                let trick_area = document.getElementsByClassName('trick_area');
+                for(var item of trick_area) {
+                    let p = item.firstElementChild,
+                        p_2 = item.firstElementChild.nextElementSibling;
+
+                    if (p_2.firstChild.nodeName == '#text') {
+                        p_2.className = "p_part_content";
+                    } else if (p_2.firstElementChild.nodeName == 'IMG') {
+                        p_2.firstElementChild.style.width = "30px";
+                        p_2.firstElementChild.style.height = "30px";
+                    }
+                    item.innerHTML = '';
+                    item.append(p);
+                    item.append(p_2);
+                }
             },
             handleInputConfirm() {
                 let tag = this.tagvalue;
@@ -196,15 +251,17 @@
             },
             handlePublishPost() {
                 let self = this;
+                let content = self.editor.txt.html();
                 let post_type_value = 0;
                 if (!!self.pubType){
                     post_type_value = self.pubType;
                 }
+
                 //存储的是单击按钮瞬间的时间
                 let time = self.formatTime(),
                     p_t = self.dynamicTags.join(),
                     p_l = document.getElementById('clearlove');
-                if (self.title.trim() && self.content.trim()) {
+                if (self.title.trim() && content.trim()) {
                     axios({
                         //post请求服务器路径 localhost:8080/Forum/PostSummery
                         method: 'post',
@@ -213,7 +270,7 @@
                             sort_by: 1,
                             post_type:post_type_value,
                             title: self.title,
-                            content: self.content,
+                            content: content,
                             date: time,
                             tag: p_t
                         }
@@ -227,6 +284,7 @@
                         self.dynamicTags = [];
                         self.centerDialogVisible = false;
                         p_l.innerHTML = res.data;
+                        self.FormatP();
 
                     }).catch(err => {
                         console.log(err);
@@ -246,6 +304,7 @@
                     sort_by: typenum
                 }).then(res => {
                     p_l.innerHTML = res.data;
+                    self.FormatP();
                 })
             },
             //时间格式化函数
@@ -275,9 +334,14 @@
                 let num = 4 - this.dynamicTags.length;
                 return num == 0 ? `做多可以添加4个标签` : `您还可以添加${num}个标签`;
             }
+        },
+        mounted() {
+            //vue实例挂载后初始化
+            this.FormatP();
         }
     })
 </script>
+
 
 
 

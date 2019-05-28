@@ -29,6 +29,7 @@ namespace Models
         public string Post_Title { get; set; }
         public int Post_heat { get; set; }
         public Nullable<int> Post_Type { get; set; }
+        public Nullable<int> Accessibility { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Collect> Collect { get; set; }
