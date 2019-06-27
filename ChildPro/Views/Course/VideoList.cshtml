@@ -1,0 +1,75 @@
+﻿@model ChildPro.Models.CourseViewModel
+
+@{
+    Layout = null;
+}
+
+<div class="panel-body">
+    <div class="course-detail-content js-course-detail-content">
+        @foreach (var item in Model.video)
+        {
+            <ul class="task-list task-list-md task-list-hover infinite-container">
+                <li class="child_row_01 task-item task-content mouse-control infinite-item color-gray bg-gray-lighter">
+                    <i class="fa fa-circle-o"></i>
+                    <a class="title" href="#modal" data-toggle="modal" style="margin-top:-6px">
+                        <span display-if="true" class="label label-warning mrm">观看</span>课时 : @item.VideoName
+                    </a>
+                    <span class="right-menu">10:30</span>
+                </li>
+            </ul>
+        }
+    </div>
+</div>
+
+<div id="modal" class="modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="cd-icon cd-icon-close"></i>
+                </button>
+                <h4 class="modal-title"><span class="color-gray">任务预览:</span> 勇往直前</h4>
+            </div>
+
+            <div class="modal-body">
+
+                @*<iframe src="http://localhost:65238/Video/Index"></iframe>*@
+                @*<iframe src="http://localhost:65238/Video/Index" id="=viewerIframe" width="100%" height="100%" allowfullscreen></iframe>*@
+            </div>
+            <div class="modal-footer">
+                <a id="js-buy-btn" type="button" class="btn btn-primary js-buy-btn js-task-preview-buy-btn" href="javascript:" style="display:inline">
+                    觉得不错？点击加入此课程
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    /*-----------网页选项卡---------------*/
+    $(function(){
+        var $div_li =$("div.nav-btn-tab ul li");
+        $div_li.click(function(){
+            $(this).addClass("selected")            //当前<li>元素高亮
+                .siblings().removeClass("selected");//去掉其它同辈<li>元素的高亮
+            var index = $div_li.index(this);
+            $("div.box > div")
+                .eq(index).show()
+                .siblings().hide();
+        }).hover(function () {
+            $(this).addClass("hover");
+        },function () {
+            $(this).removeClass("hover");
+        })
+    });
+
+    /*-----------表格展开关闭---------------*/
+    $(function () {
+        //获取父行元素
+        //添加删除高亮
+        //隐藏显示子行
+        $("li.parent").click(function () {
+            $(this).siblings(".child_"+this.id).toggle();//类名+id的目的：在于控制兄弟节点中不同和相同的行为
+        });
+    })
+</script>

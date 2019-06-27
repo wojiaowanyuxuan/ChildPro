@@ -1,0 +1,168 @@
+﻿
+@model ChildPro.Models.CourseViewModel
+
+@{
+    ViewBag.Title = "课程体系页";
+    Layout = "~/Views/Shared/Layout01.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课程体系页</title>
+    <link href="~/Content/程就未来CSS代码/课程体系样式.css" rel="stylesheet" />
+    <link href="~/Content/程就未来CSS代码/swiper-3.4.2.min.css" rel="stylesheet" />
+    <script src="~/Scripts/程就未来js代码/swiper.min.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <link href="~/Content/程就未来CSS代码/课堂首页样式.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="swiper-container-solution">
+        <div class="selected-solution">
+            <div>
+                <div class="swiper-container swiper-container-horizontal">
+                    <div class="layer-title">金牌讲师</div>
+                    <div class="solution-cardlist swiper-wrapper" style="transform: translate3d(-1200px, 0px, 0px); transition-duration: 0ms;">
+                        @foreach (var item in Model.teachers)
+                        {
+                            <div class="col-sm-4 swiper-slide swiper-slide-active" data-swiper-slide-index="" style="width: 300px;">
+                                <div class="solution-card" style="height: 480px">
+                                    <div class="cf" style="border-radius: 60px;">
+                                        <img src="@item.ImageHead" width="100">
+                                    </div>
+                                    <h3>@item.TeacherName</h3>
+                                    <p>从研发设计仿真到生产车间现场的全流程数字化。</p>
+                                    <p>国内最具影响力的Office导师，超100万人正在和秋叶一起学PPT！</p>
+
+                                    <span><a href="@Url.Action("Index1","Teacher" ,new { teacherid = item.TeacherID})"><span class="arrow-more">了解详情</span><span class="arrow-f"></span></a></span>
+                                </div>
+                            </div>
+                        }
+                        @*<div class="col-sm-4 swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 300px;">
+                            <div class="solution-card" style="height: 480px">
+                                <div class="cf" style="border-radius: 60px;">                                  
+                                    <img src="~/Image/Accounter/teachers/3134889_10.jpg" width="100">
+                                </div>                              
+                                <h3>达摩祖师</h3>
+                                <p>从研发设计仿真到生产车间现场的全流程数字化。</p>
+                                <p>国内最具影响力的Office导师，超100万人正在和秋叶一起学PPT！</p>
+
+                                <span><a href="@Url.Action("Index","Teacher")"><span class="arrow-more">了解详情</span><span class="arrow-f"></span></a></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 swiper-slide swiper-slide-next" data-swiper-slide-index="1" style="width: 300px;">
+                            <div class="solution-card" style="height: 480px">
+                                <div class="cf" style="border-radius: 60px;">
+                                    <img src="~/Image/Accounter/teachers/3134889_10.jpg" width="100">
+                                </div>
+                                <h3>达摩祖师</h3>
+                                <p>从研发设计仿真到生产车间现场的全流程数字化。</p>
+                                <p>国内最具影响力的Office导师，超100万人正在和秋叶一起学PPT！</p>
+
+                                <span><a href="@Url.Action("Index","Teacher")"><span class="arrow-more">了解详情</span><span class="arrow-f"></span></a></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 swiper-slide swiper-slide-next" data-swiper-slide-index="1" style="width: 300px;">
+                            <div class="solution-card" style="height: 480px">
+                                <div class="cf" style="border-radius: 60px;">
+                                    <img src="~/Image/Accounter/teachers/3134889_10.jpg" width="100">
+                                </div>
+                                <h3>达摩祖师</h3>
+                                <p>从研发设计仿真到生产车间现场的全流程数字化。</p>
+                                <p>国内最具影响力的Office导师，超100万人正在和秋叶一起学PPT！</p>
+
+                                <span><a href="@Url.Action("Index","Teacher")"><span class="arrow-more">了解详情</span><span class="arrow-f"></span></a></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 swiper-slide swiper-slide-next" data-swiper-slide-index="1" style="width: 300px;">
+                            <div class="solution-card" style="height: 480px">
+                                <div class="cf" style="border-radius: 60px;">
+                                    <img src="~/Image/Accounter/teachers/3134889_10.jpg" width="100">
+                                </div>
+                                <h3>达摩祖师</h3>
+                                <p>从研发设计仿真到生产车间现场的全流程数字化。</p>
+                                <p>国内最具影响力的Office导师，超100万人正在和秋叶一起学PPT！</p>
+
+                                <span><a href="@Url.Action("Index","Teacher")"><span class="arrow-more">了解详情</span><span class="arrow-f"></span></a></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 swiper-slide" data-swiper-slide-index="2" style="width: 300px;">
+                            <div class="solution-card" style="height: 480px">
+                                <div class="cf" style="border-radius: 60px;">
+                                    <img src="~/Image/Accounter/teachers/3134889_10.jpg" width="100">
+                                </div>
+                                <h3>达摩祖师</h3>
+                                <p>从研发设计仿真到生产车间现场的全流程数字化。</p>
+                                <p>国内最具影响力的Office导师，超100万人正在和秋叶一起学PPT！</p>
+
+                                <span><a href="@Url.Action("Index","Teacher")"><span class="arrow-more">了解详情</span><span class="arrow-f"></span></a></span>
+                            </div>
+                        </div>*@
+                    </div>
+                    <div class="swiper-pagination solution-pagination swiper-pagination-clickable swiper-pagination-bullets">
+                        <span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1"></span>
+                        <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span>
+                        <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span>
+                    </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                </div>
+                <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide"></div>
+                <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="u-gray">
+        <div class="m-r-index">
+            <div class="m-r-person"></div>
+            <div class="uc-recommend-list">
+                <div class="uc-recommend-list-row-wrap m1">
+                    <div class="uc-recommend-list-row-tit">
+                        体系课程
+                    </div>
+                    <!--一类视频的具体内容-->
+                    <div class="course-list" id="getCourseSystem">
+                        @{Html.RenderAction("GetCourseSystem", "Course");}
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    @*教师介绍栏的效果展示*@
+    <script type="text/javascript">
+    $(function() {
+        new Swiper(".swiper-container", {
+
+            //默认功能属性
+            speed: 250,
+            slidesPerView: 4,
+            spaceBetween: 0,
+            slidesPerGroup: 4,
+            loop: true,
+            autoplay: false,
+
+            //分页索引
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+
+            //分页按钮
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            }
+
+        });
+    })
+    </script>
+</body>
+</html>
+

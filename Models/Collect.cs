@@ -20,7 +20,9 @@ namespace Models
         public Nullable<int> Post_Id { get; set; }
         public Nullable<int> Product_Id { get; set; }
         public Nullable<int> Works_Id { get; set; }
+        public Nullable<int> Course_Id { get; set; }
     
+        public virtual Course Course { get; set; }
         public virtual Post Post { get; set; }
         public virtual User User { get; set; }
     }

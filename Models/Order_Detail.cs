@@ -14,22 +14,17 @@ namespace Models
     
     public partial class Order_Detail
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Order_Detail()
-        {
-            this.Order = new HashSet<Order>();
-            this.Return_Product = new HashSet<Return_Product>();
-        }
-    
-        public int Order_ID { get; set; }
         public int Product_ID { get; set; }
         public int Order_Detail_ID { get; set; }
-        public int UserID { get; set; }
+        public System.DateTime Pay_Time { get; set; }
+        public string Users_Remarks { get; set; }
+        public string Adress { get; set; }
+        public int Pro_Num { get; set; }
+        public int Pro_Norm_ID { get; set; }
+        public Nullable<int> User_ID { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Order { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual Product_Norms Product_Norms { get; set; }
         public virtual User User { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Return_Product> Return_Product { get; set; }
     }
 }

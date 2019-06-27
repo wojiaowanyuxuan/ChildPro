@@ -17,7 +17,8 @@ namespace Models
         public int AddID_Course { get; set; }
         public int UserId { get; set; }
         public int CourseId { get; set; }
-        public System.DateTime AddTime { get; set; }
+        public Nullable<System.DateTime> AddTime { get; set; }
+        public int TeacherId { get; set; }
     
         public virtual Course Course { get; set; }
         public virtual User User { get; set; }

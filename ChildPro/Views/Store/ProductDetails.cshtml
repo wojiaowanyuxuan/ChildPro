@@ -1,0 +1,667 @@
+﻿@model ChildPro.Models.ProductDetailViewModel
+
+@{
+    Layout = "~/Views/Shared/_PostLayout.cshtml";
+}
+
+<link href="~/Content/商城首页.css" rel="stylesheet" />
+<link href="~/Content/商品详情1.css" rel="stylesheet" />
+<link href="~/Content/商品中心.css" rel="stylesheet" />
+<link href="~/Content/AddtoOrder.css" rel="stylesheet" />
+<link href="~/Content/Cart.css" rel="stylesheet" />
+<link href=" ~/Content/Product_Comment.css" rel="stylesheet" />
+<link rel="stylesheet" href="//cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="//cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+
+    .curr {
+        border: 1px solid #ff541f;
+    }
+
+    .look_goods20:hover {
+        border: 1px solid #ff541f;
+        border-radius: 2px;
+    }
+
+    .product_center123456 {
+        text-decoration: none;
+        display: inline-block;
+        max-width: 120px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .product_center123456:hover {
+            color: aqua;
+    }
+
+    .guide1314:hover {
+        color: #CCCCFF;
+    }
+    .btnarea:hover {
+        background-color: aquamarine;
+    }
+</style>
+
+
+<div style="margin: 0 auto;width:1200px;height: 2741px">
+   
+
+    <!--轮播图-->
+    <div class="picture1" style="top:100px">
+        <div class="picture2">
+            <div class="picture3">
+                <div class="html5zoo-wrapper-0">
+                    <div class="html5zoo-slider-0 html5zoo_slider_div">
+                        <div class="html5zoo-box-0">
+                            <div class="html5zoo-box-0">
+                                <div class="html5zoo-img-box-0" style="overflow: hidden">
+                                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                        <!-- 轮播（Carousel）指标 -->
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                                        </ol>
+                                        <!-- 轮播（Carousel）项目 -->
+                                        <div class="carousel-inner">
+                                            <div class="item active">
+                                                <img src="~/img/slider-img-2.jpg" alt="First slide" style="height: 600px;width:1920px">
+                                            </div>
+                                            <div class="item">
+                                                <img src="~/img/slider-img-3.jpg" alt="Second slide" style="height: 600px;width:1920px">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--轮播between-->
+    <div class="picture-over">
+        <div class="picture-over1">
+            <div class="picture-over2">
+                <div class="picture-over3">
+                    <div style="text-align: center">
+                        <span class="picture-over4">点亮你的学习生活乐趣</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="picture-over5">
+        <div class="picture-over6">
+            <div class="picture-over7">
+                <div class="wp-title_content picture-over8">
+                    <div style="text-align: center">
+                        <span class="ziti">
+                            <strong>
+                                创意书籍
+                                <span class="ziti1">
+                                    <em>营造学习气氛</em>
+                                </span>
+                            </strong>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class=" picture-over9">
+                <div class="picture-over10">
+                    <a href="@Url.Action("ProductCenter","Store")" class="btnarea" style="text-decoration:none">
+                        <span class=" picture-over11">查看产品</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--商品详情-->
+    <div class="look_goods">
+        <div class="look_goods1">
+            <div class="look_goods2">
+                <div class="look_goods3">
+                    <div class="look_goods4">
+                        <img src="https://gifts-1022594-hkpic1.websiteonline.cn/upload/37a45a436340105b0ac2aaac4e8347bc.png" class="look_goods5">
+                    </div>
+                </div>
+            </div>
+            <div class="look_goods6">
+                <div class="look_goods7">
+                    <div class="">
+                        <span class="">
+                            <a href="@Url.Action("Index","Store")" class="look_goods8" style="text-decoration:none">首页</a>
+                        </span>
+                        <span class="look_goods9">>></span>
+                        <span class="">
+                            <a href="@Url.Action("ProductCenter","Store")" class="look_goods8" style="text-decoration:none">产品中心</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="look_goods15" style="top:780px">
+        <div class="look_goods16">
+            <div class="look_goods17"></div>
+        </div>
+    </div>
+    <div class="pro_detail" style="top:800px">
+        <div class="pro_detail1">
+            <form method="post" action="#">
+                <div class="pro_detail2">
+                    <div class="pro_detail3">
+                        <div class="pro_detail4">
+                            <div class="pro_detail5">
+                                <div class="pro_detail6"></div>
+                                <span class="pro_detail7"></span>
+                                <img class="pro_detail8" src="@Model.pro_detail.Product_Main_Image" alt="名字链接">
+
+                            </div>
+                            <div class="pro_detail19">
+                                <div class="pro_detail20">
+                                    <img src="https://gifts-1022594-hkpic1.websiteonline.cn/upload/pro-12.jpg">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pro_detail21">
+                            <div class="pro_detail22">
+                                <h2 style="font-size: 20px;margin-bottom: 0">@Model.pro_detail.Product_Name</h2>
+                                <div class="pro_detail23"></div>
+                                <div style="padding: 5px 0 10px;color: #666;">
+                                    <h1 class="pro_detail26">
+                                        @Model.pro_detail.Product_Description
+                                    </h1>
+                                </div>
+                                <div class="pro_detail25">
+                                    <label class="title1">
+                                        价格：
+                                        <span>@Model.pro_detail.Product_Price</span>
+                                    </label>
+                                </div>
+                                <ul class="tm-ind-panel">
+                                    <li class="tm-ind-item">
+                                        <div>
+                                            <span class="tm-label">月销量</span>
+                                            <span class="tm-count">@Model.pro_detail.Sales_Num</span>
+                                        </div>
+                                    </li>
+                                    <li class="tm-ind-item">
+                                        <div>
+                                            <span class="tm-label">评价量</span>
+                                            <span class="tm-count">2131313</span>
+                                        </div>
+                                    </li>
+                                    <li class="tm-ind-item">
+                                        <div>
+                                            <span class="tm-label">运费</span>
+                                            <span class="tm-count">0.00</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="pro_detail27">
+                                    <div class="pro_detail28">
+                                        <div class="pro_detail29">
+                                            <dl class="pro_detail30">
+                                                <dt class="pro_detail31">规格</dt>
+                                                <div style="width: 340px;float: left">
+                                                    <ul class="pro_detail32">
+                                                        @foreach (var item in Model.pro_no)
+                                                        {
+                                                            <li class="pro_detail33">
+                                                                <span class="lpls" data-id="@item.Product_Norms_ID">@item.Specs</span>
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                                <dl class="pro_detail34">
+                                    <dt class="pro_detail35">数量</dt>
+                                    <dd class="J_Amount">
+                                        <span class="pro_detail36">
+                                            <input id="num" min="1" max="10000" type="number"  class="pro_detail37" style="width:45px"  title="请输入购买数量" />
+                                            <span class="pro_detail41">件</span>
+                                        </span>
+                                        <em class="pro_detail42" style="display: inline">
+                                            库存
+                                            <span>@Model.pro_detail.Stock</span>
+                                        </em>
+                                    </dd>
+                                </dl>
+                                <div class="pro_detail43">
+                                    <div class="pro_detail44">
+                                        <a href="#" rel="nofollow" title="点击此按钮，到下一步确认购买详情" role="button">
+
+                                            <span class="pro_detail45" data-toggle="modal" data-target="#myModal" style="z-index:500">立即购买</span>
+                                        </a>
+                                    </div>
+                                    <div class="pro_detail46">
+                                        @*<a href="#" rel="nofollow" role="button" id="addtocart">
+                                                <i></i>
+
+                                                <span  class="pro_detail47">加入购物车</span>
+                                            </a>*@
+                                        <button class="pro_detail47" type="button" id="addtocart" style="z-index:500">加入购物车</button>
+                                    </div>
+                                </div>
+                                <div class="pro_detail48" style="top:15px">
+                                    <dl class="pro_detail49">
+                                        <dt class="pro_detail50">服务承诺</dt>
+                                        <dd class="pro_detail51">
+                                            <ul class="pro_detail52">
+                                                <li class="pro_detail53">正品保证</li>
+                                                <li class="pro_detail53">极速退款</li>
+                                                <li class="pro_detail53">七天无理由退换</li>
+                                            </ul>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--评论和推荐-->
+    <div class="look_goods15" style="top: 1302px">
+        <div class="look_goods16">
+            <div class="look_goods17" style="border-top: 3px double #c9c9c9"></div>
+        </div>
+    </div>
+    <div class="look_goods10" style="top: 1320px;left: 275px;padding-left: 104px;width: 998px;height: 55px;border-bottom: 1px solid #c9c9c9">
+        <div class="look_goods11">
+            <div class="">
+                <ul class="look_goods12">
+                    <li class="look_goods13 part1 active1">
+                        <a class="ahover" href="javascript:;" style="text-decoration: none">
+                            <span class="look_goods14">累计评价（12123）</span>
+                        </a>
+                    </li>
+                    <li class="look_goods13" style="width: 2px;height: 55px;border: 1px solid #c9c9c9"></li>
+                    <li class="look_goods13 part2">
+                        <a class="ahover" href="javascript:;" style="text-decoration: none">
+                            <span class="look_goods14">精品推荐</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="look_goods18" style="top: 1374px">
+        <!--评论-->
+        <div class="look_goods19 tab1" style="display: block;border: 1px solid #c9c9c9;height: 870px">
+            <div class="" style="display: none"></div>
+
+            @foreach (var item in Model.pro_com)
+            {
+                <div class="" style="overflow: hidden">
+                    <div style="width: 100%">
+                        <table style="margin: 10px 0 0 30px">
+                            <tbody>
+                                <tr>
+                                    <td class="Comment">
+                                            <div class="Comment1">
+                                                <div class="Comment2">@item.Com_Content</div>
+                                                <div class="Comment3">@item.Com_Data</div>
+                                            </div>
+                                        </td>
+                                    <td class="Comment4">
+                                            <div class="Comment5">
+                                                <p title="商品规格">
+                                                    <span></span>
+
+                                                </p>
+                                            </div>
+                                        </td>
+                                    <td class="Comment6" style=" width: 200px">
+                                            <div class="Comment8">
+                                                <span style="background-color: transparent;border-color: transparent">
+                                                    <img class="Comment9" src="~/img/点赞.png">
+                                                </span>
+                                                <span style="margin: 5px"></span>
+                                            </div>
+                                            <div class="Comment7">
+                                                <span class="Comment8">@item.User.UserName</span>
+                                                <span>(匿名)</span>
+                                            </div>
+                                        </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+}
+        </div>
+        <!--精品推荐-->
+        <div class="look_goods19 tab2" style="display: none;border: 1px solid #c9c9c9;padding: 15px 0 15px 0;height: 870px">
+            <div class="" style="display: none"></div>
+            <div class="" style="overflow: hidden">
+                <ul style="margin: 0;padding-left: 55px">
+                    @foreach (var item in Model.tuijian)
+                    {
+                        <li class="look_goods20">
+                            <div class="look_goods21">
+                                <a href="@Url.Action("ProductDetails","Store",new { id=item.Product_ID})" class="look_goods22">
+                                    <img src="@item.Product_Main_Image" class="look_goods23" style="margin-left:15px;width:180px" alt="舵轮挂饰">
+                                </a>
+                            </div>
+                            <div class="look_goods24">
+                                <p class="title" style="font: normal 105% 'Microsoft yahei', Arial, Verdana;">
+                                    <a class="product_center123456" href="@Url.Action("ProductDetails","Store",new { id=item.Product_ID})">@item.Product_Name</a>
+                                </p>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+!--提交订单-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="margin: 50px 0 0 310px;width: 1000px;height: auto">
+        <div class="modal-content" style="width: 1000px;height: auto">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    提交订单
+                </h4>
+            </div>
+            <div class="modal-body ch_cart4" style="margin: 10px 0 20px 0;float: left;border-bottom: 1px dotted #ccc;">
+                <div class="ch_cart5">
+                    <div class="ch_cart6">
+                        <div class="AddtoOrder">
+                            <h3 class="AddtoOrder1">
+                                <span>确认收货地址：</span>
+                            </h3>
+                        </div>
+                        <div class="ch_cart4" style="float: left">
+                            <div class="ch_cart5" style="min-height: 180px;border-bottom: 1px dotted #cecece">
+                                <div class="ch_cart6">
+                                    <span style="width: 100px;float: left;line-height: 44px;padding-left: 10px;margin-left: 30px">寄送至：</span>
+                                    
+                                    <select id="addre" class="Address"  style="float: left;;height: 44px;width: 800px;background-color: #fff0e8;border-radius: 2px;font-size: 14px;padding-left: 10px;">
+
+                                        @foreach (var item in Model.adresses)
+                                        {
+                                            <option class="AddtoOrder3" value="@item.Adress_Detail">
+                                              @item.Adress_Detail
+                                            </option>
+                                        }
+                                    </select>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ch_cart4" style="margin-left:45px;margin-top:70px;float: left;">
+                            <div class="ch_cart5">
+                                <div class="ch_cart6">
+                                    <ul class="ch_cart7" style="padding: 0px">
+                                        <li class="ch_cart8">
+                                            <a href="#" class="ch_cart9" style="padding: 0;text-decoration: none">
+                                                <em style="color: #f40">确认订单信息</em>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="ch_cart16">
+                                        <div class="ch_cart17" style="width: 220px; left: 0;background: #f40"></div>
+                                    </div>
+                                    <div class="ch_cart18">
+                                        <div class="ch_cart19">
+                                            <div class="ch_cart25">
+                                                <div class="ch_cart26" style="padding-left: 70px">商品信息</div>
+                                            </div>
+                                            <div class="ch_cart28" style="margin-left: 190px">
+                                                <div class="ch_cart26">单价</div>
+                                            </div>
+                                            <div class="ch_cart29" style="margin-left: 50px">
+                                                <div class="ch_cart26">数量</div>
+                                            </div>
+                                            <div class="ch_cart30">
+                                                <div class="ch_cart26">小计</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="height: auto">
+                                        <!--订单商品展示-->
+                                        <div class="clearfix" style="margin-bottom: 15px">
+                                            <div class="ch_cart32 clearfix"></div>
+                                            <div class="ch_cart33">
+                                                <div class="ch_cart34" style="border-bottom: 1px dotted #ccc">
+                                                    <div class="ch_cart35">
+                                                        <div class="ch_cart36">
+                                                            <div class="ch_cart37">
+                                                                <ul class="ch_cart38" style="padding: 0">
+                                                                    <li class="ch_cart43">
+                                                                        <div class="ch_cart44">
+                                                                            <div class="ch_cart45">
+                                                                                <a href="@Url.Action("ProductDetails","Store",new { id=Model.pro_detail.Product_ID})" target="_blank" class="ch_cart46">
+                                                                                    <img src="@Model.pro_detail.Product_Main_Image" class="ch_cart47">
+                                                                                </a>
+                                                                            </div>
+                                                                            <div class="ch_cart1212">
+                                                                                <div class="ch_cart48">
+                                                                                    <a href="@Url.Action("ProductDetails","Store",new { id = Model.pro_detail.Product_ID })" target="_blank" class="ch_cart45454" title="#" style="text-decoration: none">@Model.pro_detail.Product_Name</a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="ch_cart49" style="width: 150px">
+                                                                        <div class="ch_cart50">
+                                                                            <p class="ch_cart51">规格<p>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="ch_cart52" style="width: 100px">
+                                                                        <div class="ch_cart53">
+                                                                            <div class="ch_cart54">
+                                                                                <div class="ch_cart55">
+                                                                                    <div class="ch_cart56">
+                                                                                        <em class="ch_cart57" style="text-decoration:none;color:#f40">￥@Model.pro_detail.Product_Price</em>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="ch_cart58">
+                                                                        <div class="ch_cart59" style="padding-top:25px">
+                                                                            <div class="ch_cart60">
+                                                                                <div class="ch_cart61">
+                                                                                    <p style="padding-left: 12px">1</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="ch_cart65" style="width: 100px">
+                                                                        <div class="ch_cart66">
+                                                                            <em class="ch_cart67 oo" style="color: #f40">￥@Model.pro_detail.Product_Price</em>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="AddtoOrder5">
+                                                    <div class="AddtoOrder6">
+                                                        <div class="AddtoOrder7">
+                                                            <label class="AddtoOrder8">给卖家留言：</label>
+                                                            <div class="AddtoOrder9">
+                                                                <input class="AddtoOrder10" placeholder="选填，请先和商家协商一致">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                    <div class="AddtoOrder12">
+                                        <div class="AddtoOrder13">
+                                            <div class="AddtoOrder14">
+                                                <div class="AddtoOrder15">
+                                                    <span class="AddtoOrder16">实付款：</span>
+                                                    <span class="AddtoOrder17">￥</span>
+                                                    <span class="AddtoOrder18">@Model.pro_detail.Product_Price</span>
+                                                </div>
+                                            </div>
+                                            <div class="AddtoOrder19">
+                                                <div class="AddtoOrder20">
+                                                    <span class="AddtoOrder21">收货人：</span>
+                                                    <span class="AddtoOrder22">
+                                                        <span class="AddtoOrder23">@Model.users.UserName</span>
+                                                        <input class="AddtoOrder24" value="@Model.users.Phone" style="border:1px dashed #cecece;padding-left:13px;margin-left:40px">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="margin-bottom: 20px">
+                <button id="addtoOrder" type="button" class="btn btn-default AddtoOrder25" data-dismiss="modal" style="float: right;margin-right: 45px;background-color: #f40;border: 1px solid transparent;font-weight: 700;color: #cecece">
+                    提交订单
+                </button>
+                @*<button type="button" class="btn btn-primary AddtoOrder25" id="addtoOrder" style="background-color: #f40;border:1px solid transparent;margin-right: 45px">
+                    提交订单
+                </button>*@
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<script>
+    $(function () {
+        var lis = $(".pro_detail33");
+        var spans = $(".lpls");
+        //var address = $(".Address");
+        //var phone=$(".tele")
+       
+        for (var i = 0; i < spans.length; i++) {
+            $(spans[i]).on('click', function () {
+                a = parseInt($(this).attr('data-id'));
+                $(this).parent("li").addClass("curr");
+                $(this).parent("li").siblings().removeClass("curr");
+            })
+        }
+
+       
+        
+
+        $('#addtocart').on('click', function () {
+            alert("添加成功")
+            let a, num = $('#num').val(),
+                id = parseInt(@Model.pro_detail.Product_ID);
+            a = parseInt($(spans).attr('data-id'));
+            let obj = {
+                "pro_id": id,
+                "type_id": a,
+                "num": num,
+
+            };
+            $.ajax({
+                url: '/Store/AddToCart',
+                type: 'Post',
+                dataType:"Json",
+                //contentType: 'application/json;charset=utf-8',
+                data: {
+                    "pro_id": id,
+                    "type_id": a,
+                    "num": num
+                },
+                //data: JSON.stringify(obj),
+                success: function (res) {
+                    console.log(res.message);
+                },
+                error: function () {
+                    console.log("error");
+                }
+            })
+        })
+
+
+
+        
+
+       
+        
+        $('#addtoOrder').on('click', function () {
+            //alert("购买成功")
+            var address = $("#addre option:selected").text();
+            let a,sum,
+                num = $('#num').val(),
+                id = parseInt(@Model.pro_detail.Product_ID),
+                price = parseInt(@Model.pro_detail.Product_Price);
+
+            a = parseInt($(spans).attr('data-id'));
+            sum = num * price;
+         
+            console.log(address)
+            var marks = $('.AddtoOrder10').val();
+            var name = $('.AddtoOrder23').val();
+            var tele = $('.AddtoOrder24').val();
+            let abj = {
+                "pro_id": id,
+                "type_id": a,
+                "num": num,
+                "address": address,
+                "name": name,
+                "tele":tele
+
+            };
+            $.ajax({
+                url: '/Store/AddToOrder',
+                type: 'Post',
+                dataType: "Json",
+                //contentType: 'application/json;charset=utf-8',
+                data: {
+                    "pro_id": id,
+                    "type_id": a,
+                    "num": num,
+                    "address": address,
+                    "marks": marks,
+                    "name": name,
+                    "tele":tele
+                },
+                //data: JSON.stringify(obj),
+                success: function (res) {
+                    console.log(res.message);
+                },
+                error: function () {
+                    console.log("error");
+                }
+            })
+        })
+
+       
+    })
+</script>
+<script type="text/javascript">
+    <!--    判断js-- >
+        $(document).ready(function () {
+            $('.part1').on('click', function () {
+                $(this).addClass("active1").siblings().removeClass("active1");
+                $('.tab1').show(500).siblings().hide();
+            });
+            $('.part2').on('click', function () {
+                $(this).addClass("active1").siblings().removeClass("active1");
+                $('.tab2').show(500).siblings().hide();
+            });
+        })
+</script>

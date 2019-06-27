@@ -21,10 +21,10 @@ namespace Models
         }
     
         public int ClassID { get; set; }
-        public int VideoId { get; set; }
         public string Class_Num { get; set; }
         public int CourseId { get; set; }
         public string ClassName { get; set; }
+        public System.DateTime UpdateTime { get; set; }
     
         public virtual Course Course { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

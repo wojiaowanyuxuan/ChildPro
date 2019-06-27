@@ -26,6 +26,9 @@
                     <!-- 清除浮动 -->
                     <div style="clear:both"></div>
                 </div>
+                <div>
+                    作者：<a style="color:#999" href="@Url.Action("Index","User",new { userid = Model.p.User_Id})">@Model.p.User.UserName</a>
+                </div>
             </div>
             <input style="display:none" id="post_content" value="@Model.p.Post_Content">
 

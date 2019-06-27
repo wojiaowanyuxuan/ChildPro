@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <link href="~/Content/font-awesome.min.css" rel="stylesheet"/>
     <link href="~/Content/global.css" rel="stylesheet" />
-    <link href="~/Content/Header.css" rel="stylesheet" />
+    <link href="~/Content/header.css" rel="stylesheet" />
     <title>@ViewBag.Title</title>
 </head>
 <body>
@@ -61,8 +61,8 @@
                                                 <div :class="{'left_line':index==current}"></div>
                                             </div>
                                         </div>
-                                        <div class="course_category_menu_right fade_in_out" :class="{'show':current!=-1,'hide':current==-1}">
-                                            <div v-for="(item,index) of courseList" class="menu_right_item" :class="{'showright':current==index,'hideright':current!=index}">
+                                        <div class="course_category_menu_right fade_in_out" v-bind:class="{'show':current!=-1,'hide':current==-1}">
+                                            <div v-for="(item,index) of courseList" class="menu_right_item" v-bind:class="{'showright':current==index,'hideright':current!=index}">
                                                 <div>
                                                     <a href="javascript:;" class="menu_right_item_top_link">
                                                         <span>{{item.title}}</span>
@@ -73,15 +73,51 @@
                                     </div>
                                 </div>
                             </div>
-                            <a class="f-l header_menu_item">微商城</a>
+                            <a class="f-l header_menu_item" href="/Store/Index" style="color:#343d42">微商城</a>
                             <a class="f-l header_menu_item" href="/Forum/Index" style="color:#343d42">论坛中心</a>
                             <a class="f-r member_center_link" href="javascript:;">会员中心</a>
+                            <a class="f-l header_menu_item" href="/Course/Index" style="color:#343d42">学习中心</a>
+                            <a class="f-l header_menu_item" href="~/CodeInlie/index.html" style="color:#343d42">创作乐园</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         @RenderBody()
+        <!-- 页脚 -->
+        <div class="footer_wrapper">
+            <div class="footer_bg">
+                <div class="footer_wrap">
+                    <!-- 左边 -->
+                    <div class="f-l footer_body_left">
+                        <p class="footer_des">少儿编程网 是16级商务网站应用与开发工作室（163.com）旗下专注编程技能提升的在线学习平台。</p>
+                        <div class="footer_about_wrap">
+                            <a href="javascript:;">关于我们</a>
+                            <a href="javscript:;">联系我们</a>
+                            <a href="javascript:;">帮助中心</a>
+                            <a href="https://www.icourse163.org/">中国大学MOOC</a>
+                            <a href="/Forum/Index">论坛中心</a>
+                            <a href="/Admin/Login">管理员入口</a>
+                        </div>
+                        <div class="footer_copy">
+                            ©<span>2019-2020</span> 少儿编程 版权所有
+                        </div>
+                    </div>
+                    <!-- 右边-->
+                    <div class="f-r footer_body_right">
+                        <div class="footer_sup">
+                            <a href="javascript:;" class="footer_appstpre footer_sub"></a>
+                            <a href="javascript:;" class="footer_android footer_sub"></a>
+                        </div>
+                        <div class="footer_share">
+                            <span class="aaas">关注我们：</span>
+                            <a target="_blank" href="https://weibo.com/u/5650846803?from=myfollow_all" class="aas"><img src="//edu-image.nosdn.127.net/16f92d45ee7445e99ddc17cb542deaad.png?imageView&quality=100" /></a>
+                            <a href="javascript:;"><img src="//edu-image.nosdn.127.net/9cb303b948d3464d956443004ef900f6.png?imageView&quality=100" /> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
@@ -97,9 +133,7 @@
                     { name: "产品与运营", title: '互联网产品与运营课程体系', img: '//edu-image.nosdn.127.net/29696616fe6e495a9b191244f2bd0bea.png?imageView&quality=100' },
                     { name: "设计创意", title: '设计创意课程体系', img: '//edu-image.nosdn.127.net/96ee5f4a9b954c1991b17ca577aaa00a.png?imageView&quality=100' },
                     { name: "电商运营", title: '电商运营课程体系', img: '//edu-image.nosdn.127.net/9957cb6a888e40f08c36ce6a96804d32.png?imageView&quality=100' },
-                    { name: "语言学习", title: '' },
-                    { name: "职业考试", title: '' },
-                    { name: "生活兴趣", title: '' }],
+                    ],
                 current: -1,
                 show: false,
             }

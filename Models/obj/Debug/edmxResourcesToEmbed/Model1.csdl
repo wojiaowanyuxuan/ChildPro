@@ -4,10 +4,11 @@
     <Key>
       <PropertyRef Name="AddID_Course" />
     </Key>
-    <Property Name="AddID_Course" Type="Int32" Nullable="false" />
+    <Property Name="AddID_Course" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserId" Type="Int32" Nullable="false" />
     <Property Name="CourseId" Type="Int32" Nullable="false" />
-    <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddTime" Type="DateTime" Precision="3" />
+    <Property Name="TeacherId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Course" Relationship="Self.FK_Add_Course_Course" FromRole="Add_Course" ToRole="Course" />
     <NavigationProperty Name="User" Relationship="Self.FK_Add_Course_User" FromRole="Add_Course" ToRole="User" />
   </EntityType>
@@ -23,31 +24,25 @@
     <Key>
       <PropertyRef Name="Adress_ID" />
     </Key>
-    <Property Name="Adress_ID" Type="Int32" Nullable="false" />
+    <Property Name="Adress_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserID" Type="Int32" Nullable="false" />
-    <Property Name="Country" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Province" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="City" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Town" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Adress_Detail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="PostalCode" Type="Int32" Nullable="false" />
+    <Property Name="Adress_Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_Adress_User" FromRole="Adress" ToRole="User" />
   </EntityType>
   <EntityType Name="Cart">
     <Key>
       <PropertyRef Name="Cart_ID" />
     </Key>
-    <Property Name="Cart_ID" Type="Int32" Nullable="false" />
+    <Property Name="Cart_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserID" Type="Int32" Nullable="false" />
-    <Property Name="Product_ID" Type="Int32" Nullable="false" />
-    <Property Name="Num" Type="Int32" Nullable="false" />
     <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Product_Class_ID" Type="Int32" Nullable="false" />
-    <Property Name="Order_Product_Detail_ID" Type="Int32" Nullable="false" />
+    <Property Name="Product_ID" Type="Int32" Nullable="false" />
+    <Property Name="Pro_Num" Type="Int32" Nullable="false" />
+    <Property Name="Pro_Norm_id" Type="Int32" Nullable="false" />
+    <Property Name="Flag" Type="Int32" />
     <NavigationProperty Name="Product" Relationship="Self.FK_Cart_Product" FromRole="Cart" ToRole="Product" />
     <NavigationProperty Name="Product_Norms" Relationship="Self.FK_Cart_Product_Norms" FromRole="Cart" ToRole="Product_Norms" />
     <NavigationProperty Name="User" Relationship="Self.FK_Cart_User" FromRole="Cart" ToRole="User" />
-    <NavigationProperty Name="Order" Relationship="Self.FK_Order_Cart" FromRole="Cart" ToRole="Order" />
   </EntityType>
   <EntityType Name="Collect">
     <Key>
@@ -59,6 +54,8 @@
     <Property Name="Post_Id" Type="Int32" />
     <Property Name="Product_Id" Type="Int32" />
     <Property Name="Works_Id" Type="Int32" />
+    <Property Name="Course_Id" Type="Int32" />
+    <NavigationProperty Name="Course" Relationship="Self.FK_Collect_Course" FromRole="Collect" ToRole="Course" />
     <NavigationProperty Name="Post" Relationship="Self.FK_Collect_Post" FromRole="Collect" ToRole="Post" />
     <NavigationProperty Name="User" Relationship="Self.FK_Collect_User" FromRole="Collect" ToRole="User" />
   </EntityType>
@@ -66,7 +63,7 @@
     <Key>
       <PropertyRef Name="CollectID_Work" />
     </Key>
-    <Property Name="CollectID_Work" Type="Int32" Nullable="false" />
+    <Property Name="CollectID_Work" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Collect_Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="User_Id" Type="Int32" Nullable="false" />
     <Property Name="Work_Id" Type="Int32" Nullable="false" />
@@ -90,7 +87,7 @@
     <Key>
       <PropertyRef Name="CommentID_Course" />
     </Key>
-    <Property Name="CommentID_Course" Type="Int32" Nullable="false" />
+    <Property Name="CommentID_Course" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Com_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Com_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="User_Id" Type="Int32" Nullable="false" />
@@ -104,22 +101,20 @@
     <Key>
       <PropertyRef Name="Comment_Product_ID" />
     </Key>
-    <Property Name="Comment_Product_ID" Type="Int32" Nullable="false" />
+    <Property Name="Comment_Product_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserID" Type="Int32" Nullable="false" />
     <Property Name="Com_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Com_Data" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Com_Praise_Num" Type="Int32" />
+    <Property Name="Com_Data" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Product_ID" Type="Int32" Nullable="false" />
+    <Property Name="Praise_Num" Type="Int32" />
     <NavigationProperty Name="Product" Relationship="Self.FK_Comment_Product_Product" FromRole="Comment_Product" ToRole="Product" />
     <NavigationProperty Name="User" Relationship="Self.FK_Comment_Product_User" FromRole="Comment_Product" ToRole="User" />
-    <NavigationProperty Name="Praise_Product" Relationship="Self.FK_Praise_Product_Comment_Product" FromRole="Comment_Product" ToRole="Praise_Product" />
-    <NavigationProperty Name="Product_Reply" Relationship="Self.FK_Product_Reply_Comment_Product" FromRole="Comment_Product" ToRole="Product_Reply" />
   </EntityType>
   <EntityType Name="Comment_Works">
     <Key>
       <PropertyRef Name="CommentID_Works" />
     </Key>
-    <Property Name="CommentID_Works" Type="Int32" Nullable="false" />
+    <Property Name="CommentID_Works" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Com_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Com_Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="User_Id" Type="Int32" Nullable="false" />
@@ -132,29 +127,43 @@
     <Key>
       <PropertyRef Name="CourseID" />
     </Key>
-    <Property Name="CourseID" Type="Int32" Nullable="false" />
+    <Property Name="CourseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CourseName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CourseType" Type="Int32" />
+    <Property Name="CourseType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="ImageData" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="ImageMineType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Course_Time" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="TeacherId" Type="Int32" Nullable="false" />
+    <Property Name="Number" Type="Int32" />
+    <Property Name="Value" Type="Int32" />
+    <Property Name="CourseTypeID" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Add_Course" Relationship="Self.FK_Add_Course_Course" FromRole="Course" ToRole="Add_Course" />
+    <NavigationProperty Name="Collect" Relationship="Self.FK_Collect_Course" FromRole="Course" ToRole="Collect" />
     <NavigationProperty Name="Comment_Course" Relationship="Self.FK_Comment_Course_Course" FromRole="Course" ToRole="Comment_Course" />
     <NavigationProperty Name="Course_Class" Relationship="Self.FK_Course_Class_Course" FromRole="Course" ToRole="Course_Class" />
+    <NavigationProperty Name="CourseType1" Relationship="Self.FK_Course_CourseType" FromRole="Course" ToRole="CourseType" />
     <NavigationProperty Name="Teacher" Relationship="Self.FK_Course_Teacher" FromRole="Course" ToRole="Teacher" />
   </EntityType>
   <EntityType Name="Course_Class">
     <Key>
       <PropertyRef Name="ClassID" />
     </Key>
-    <Property Name="ClassID" Type="Int32" Nullable="false" />
-    <Property Name="VideoId" Type="Int32" Nullable="false" />
+    <Property Name="ClassID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Class_Num" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="CourseId" Type="Int32" Nullable="false" />
     <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Course" Relationship="Self.FK_Course_Class_Course" FromRole="Course_Class" ToRole="Course" />
     <NavigationProperty Name="Video" Relationship="Self.FK_Video_Course_Class" FromRole="Course_Class" ToRole="Video" />
+  </EntityType>
+  <EntityType Name="CourseType">
+    <Key>
+      <PropertyRef Name="CourseTypeID" />
+    </Key>
+    <Property Name="CourseTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Course" Relationship="Self.FK_Course_CourseType" FromRole="CourseType" ToRole="Course" />
   </EntityType>
   <EntityType Name="Follow">
     <Key>
@@ -166,49 +175,30 @@
     <NavigationProperty Name="User" Relationship="Self.FK_Follow_User" FromRole="Follow" ToRole="User" />
     <NavigationProperty Name="User1" Relationship="Self.FK_Follow_User1" FromRole="Follow" ToRole="User" />
   </EntityType>
-  <EntityType Name="Order">
+  <EntityType Name="Guanzhu">
     <Key>
-      <PropertyRef Name="Order_ID" />
+      <PropertyRef Name="Guanzhu_id" />
     </Key>
-    <Property Name="Order_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Order_State" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Order_Time" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Pay_Time" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="UserID" Type="Int32" Nullable="false" />
-    <Property Name="User_Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Adress_ID" Type="Int32" Nullable="false" />
-    <Property Name="Order_Detail_ID" Type="Int32" Nullable="false" />
-    <Property Name="Cart_ID" Type="Int32" Nullable="false" />
-    <Property Name="Order_Product_Detail_ID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Cart" Relationship="Self.FK_Order_Cart" FromRole="Order" ToRole="Cart" />
-    <NavigationProperty Name="Order_Detail" Relationship="Self.FK_Order_Order_Detail1" FromRole="Order" ToRole="Order_Detail" />
-    <NavigationProperty Name="Order_Product_Detail" Relationship="Self.FK_Order_Product_Detail_Order" FromRole="Order" ToRole="Order_Product_Detail" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Order_User" FromRole="Order" ToRole="User" />
+    <Property Name="Guanzhu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserA" Type="Int32" Nullable="false" />
+    <Property Name="UserB" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Guanzhu_User" FromRole="Guanzhu" ToRole="User" />
   </EntityType>
   <EntityType Name="Order_Detail">
     <Key>
       <PropertyRef Name="Order_Detail_ID" />
     </Key>
-    <Property Name="Order_ID" Type="Int32" Nullable="false" />
     <Property Name="Product_ID" Type="Int32" Nullable="false" />
-    <Property Name="Order_Detail_ID" Type="Int32" Nullable="false" />
-    <Property Name="UserID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Order" Relationship="Self.FK_Order_Order_Detail1" FromRole="Order_Detail" ToRole="Order" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Order_Detail_User" FromRole="Order_Detail" ToRole="User" />
-    <NavigationProperty Name="Return_Product" Relationship="Self.FK_Return_Product_Order_Detail" FromRole="Order_Detail" ToRole="Return_Product" />
-  </EntityType>
-  <EntityType Name="Order_Product_Detail">
-    <Key>
-      <PropertyRef Name="Order_Product_Detail_ID" />
-    </Key>
-    <Property Name="Order_Product_Detail_ID" Type="Int32" Nullable="false" />
-    <Property Name="Product_ID" Type="Int32" Nullable="false" />
+    <Property Name="Order_Detail_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Pay_Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Users_Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Adress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Pro_Num" Type="Int32" Nullable="false" />
-    <Property Name="Pro_Norms" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Cart_ID" Type="Int32" Nullable="false" />
-    <Property Name="Order_ID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Order" Relationship="Self.FK_Order_Product_Detail_Order" FromRole="Order_Product_Detail" ToRole="Order" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_Order_Product_Detail_Product" FromRole="Order_Product_Detail" ToRole="Product" />
+    <Property Name="Pro_Norm_ID" Type="Int32" Nullable="false" />
+    <Property Name="User_ID" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Order_Detail_Product" FromRole="Order_Detail" ToRole="Product" />
+    <NavigationProperty Name="Product_Norms" Relationship="Self.FK_Order_Detail_Product_Norms" FromRole="Order_Detail" ToRole="Product_Norms" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Order_Detail_User" FromRole="Order_Detail" ToRole="User" />
   </EntityType>
   <EntityType Name="Post">
     <Key>
@@ -227,18 +217,6 @@
     <NavigationProperty Name="Comment" Relationship="Self.FK_Comment_Post" FromRole="Post" ToRole="Comment" />
     <NavigationProperty Name="User" Relationship="Self.FK_Post_User" FromRole="Post" ToRole="User" />
   </EntityType>
-  <EntityType Name="Praise_Product">
-    <Key>
-      <PropertyRef Name="Product_Praise_ID" />
-    </Key>
-    <Property Name="Product_Praise_ID" Type="Int32" Nullable="false" />
-    <Property Name="Product_ID" Type="Int32" Nullable="false" />
-    <Property Name="UserID" Type="Int32" Nullable="false" />
-    <Property Name="Comment_Product_ID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Comment_Product" Relationship="Self.FK_Praise_Product_Comment_Product" FromRole="Praise_Product" ToRole="Comment_Product" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_Praise_Product_Product" FromRole="Praise_Product" ToRole="Product" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Praise_Product_User" FromRole="Praise_Product" ToRole="User" />
-  </EntityType>
   <EntityType Name="Praised">
     <Key>
       <PropertyRef Name="PraisedID" />
@@ -253,53 +231,30 @@
     <Key>
       <PropertyRef Name="Product_ID" />
     </Key>
-    <Property Name="Product_ID" Type="Int32" Nullable="false" />
-    <Property Name="Product_Name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Product_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Product_Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Product_Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Product_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Product_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Product_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Product_Price" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="Product_Main_Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Image_ID" Type="Int32" Nullable="false" />
-    <Property Name="Product_Norms_ID" Type="Int32" Nullable="false" />
     <Property Name="Stock" Type="Int32" />
+    <Property Name="Sales_Num" Type="Int32" />
     <NavigationProperty Name="Cart" Relationship="Self.FK_Cart_Product" FromRole="Product" ToRole="Cart" />
     <NavigationProperty Name="Comment_Product" Relationship="Self.FK_Comment_Product_Product" FromRole="Product" ToRole="Comment_Product" />
-    <NavigationProperty Name="Order_Product_Detail" Relationship="Self.FK_Order_Product_Detail_Product" FromRole="Product" ToRole="Order_Product_Detail" />
-    <NavigationProperty Name="Praise_Product" Relationship="Self.FK_Praise_Product_Product" FromRole="Product" ToRole="Praise_Product" />
-    <NavigationProperty Name="Product_Image" Relationship="Self.FK_Product_Image_Product" FromRole="Product" ToRole="Product_Image" />
+    <NavigationProperty Name="Order_Detail" Relationship="Self.FK_Order_Detail_Product" FromRole="Product" ToRole="Order_Detail" />
     <NavigationProperty Name="Product_Norms" Relationship="Self.FK_Product_Norms_Product" FromRole="Product" ToRole="Product_Norms" />
-  </EntityType>
-  <EntityType Name="Product_Image">
-    <Key>
-      <PropertyRef Name="Image_ID" />
-    </Key>
-    <Property Name="Product_ID" Type="Int32" Nullable="false" />
-    <Property Name="Image_ID" Type="Int32" Nullable="false" />
-    <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_Product_Image_Product" FromRole="Product_Image" ToRole="Product" />
   </EntityType>
   <EntityType Name="Product_Norms">
     <Key>
-      <PropertyRef Name="Product_Class_ID" />
+      <PropertyRef Name="Product_Norms_ID" />
     </Key>
     <Property Name="Product_ID" Type="Int32" Nullable="false" />
-    <Property Name="Product_Class_ID" Type="Int32" Nullable="false" />
+    <Property Name="Product_Norms_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Specs" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
     <NavigationProperty Name="Cart" Relationship="Self.FK_Cart_Product_Norms" FromRole="Product_Norms" ToRole="Cart" />
+    <NavigationProperty Name="Order_Detail" Relationship="Self.FK_Order_Detail_Product_Norms" FromRole="Product_Norms" ToRole="Order_Detail" />
     <NavigationProperty Name="Product" Relationship="Self.FK_Product_Norms_Product" FromRole="Product_Norms" ToRole="Product" />
-  </EntityType>
-  <EntityType Name="Product_Reply">
-    <Key>
-      <PropertyRef Name="Reply_Product_ID" />
-    </Key>
-    <Property Name="Reply_Product_ID" Type="Int32" Nullable="false" />
-    <Property Name="Comment_Product_ID" Type="Int32" Nullable="false" />
-    <Property Name="Rep_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Rep_Data" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Rep_UserID" Type="Int32" Nullable="false" />
-    <Property Name="Rep_to_UserID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Comment_Product" Relationship="Self.FK_Product_Reply_Comment_Product" FromRole="Product_Reply" ToRole="Comment_Product" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Product_Reply_User" FromRole="Product_Reply" ToRole="User" />
   </EntityType>
   <EntityType Name="Replys">
     <Key>
@@ -320,7 +275,7 @@
     <Key>
       <PropertyRef Name="ReplyID_Course" />
     </Key>
-    <Property Name="ReplyID_Course" Type="Int32" Nullable="false" />
+    <Property Name="ReplyID_Course" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Com_Id_Course" Type="Int32" Nullable="false" />
     <Property Name="Rep_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Rep_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -329,14 +284,13 @@
     <Property Name="Rep_Type" Type="Int32" Nullable="false" />
     <Property Name="Rep_Praise_Num" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Comment_Course" Relationship="Self.FK_Replys_Course_Course" FromRole="Replys_Course" ToRole="Comment_Course" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Replys_Course_User" FromRole="Replys_Course" ToRole="User" />
-    <NavigationProperty Name="User1" Relationship="Self.FK_Replys_Course_User1" FromRole="Replys_Course" ToRole="User" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Replys_Course_User1" FromRole="Replys_Course" ToRole="User" />
   </EntityType>
   <EntityType Name="Replys_Work">
     <Key>
       <PropertyRef Name="ReplyID_Works" />
     </Key>
-    <Property Name="ReplyID_Works" Type="Int32" Nullable="false" />
+    <Property Name="ReplyID_Works" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Com_Id_Works" Type="Int32" Nullable="false" />
     <Property Name="Rep_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Rep_Date" Type="DateTime" Nullable="false" Precision="3" />
@@ -347,17 +301,6 @@
     <NavigationProperty Name="Comment_Works" Relationship="Self.FK_Replys_Work_Replys_Work" FromRole="Replys_Work" ToRole="Comment_Works" />
     <NavigationProperty Name="User" Relationship="Self.FK_Replys_Work_User" FromRole="Replys_Work" ToRole="User" />
     <NavigationProperty Name="User1" Relationship="Self.FK_Replys_Work_User1" FromRole="Replys_Work" ToRole="User" />
-  </EntityType>
-  <EntityType Name="Return_Product">
-    <Key>
-      <PropertyRef Name="Return_Product_ID" />
-    </Key>
-    <Property Name="Return_Product_ID" Type="Int32" Nullable="false" />
-    <Property Name="Order_Detail_ID" Type="Int32" Nullable="false" />
-    <Property Name="Delivery_Company" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="UserID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Order_Detail" Relationship="Self.FK_Return_Product_Order_Detail" FromRole="Return_Product" ToRole="Order_Detail" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Return_Product_User" FromRole="Return_Product" ToRole="User" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -375,6 +318,13 @@
     </Key>
     <Property Name="TeacherID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TeacherName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImageHead" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Course" Relationship="Self.FK_Course_Teacher" FromRole="Teacher" ToRole="Course" />
   </EntityType>
   <EntityType Name="User">
@@ -403,19 +353,15 @@
     <NavigationProperty Name="Comment_Works" Relationship="Self.FK_Comment_Works_User" FromRole="User" ToRole="Comment_Works" />
     <NavigationProperty Name="Follow" Relationship="Self.FK_Follow_User" FromRole="User" ToRole="Follow" />
     <NavigationProperty Name="Follow1" Relationship="Self.FK_Follow_User1" FromRole="User" ToRole="Follow" />
-    <NavigationProperty Name="Order" Relationship="Self.FK_Order_User" FromRole="User" ToRole="Order" />
+    <NavigationProperty Name="Guanzhu" Relationship="Self.FK_Guanzhu_User" FromRole="User" ToRole="Guanzhu" />
     <NavigationProperty Name="Order_Detail" Relationship="Self.FK_Order_Detail_User" FromRole="User" ToRole="Order_Detail" />
     <NavigationProperty Name="Post" Relationship="Self.FK_Post_User" FromRole="User" ToRole="Post" />
-    <NavigationProperty Name="Praise_Product" Relationship="Self.FK_Praise_Product_User" FromRole="User" ToRole="Praise_Product" />
     <NavigationProperty Name="Praised" Relationship="Self.FK_Praised_User" FromRole="User" ToRole="Praised" />
-    <NavigationProperty Name="Product_Reply" Relationship="Self.FK_Product_Reply_User" FromRole="User" ToRole="Product_Reply" />
     <NavigationProperty Name="Replys" Relationship="Self.FK_Replys_User" FromRole="User" ToRole="Replys" />
     <NavigationProperty Name="Replys1" Relationship="Self.FK_Replys_User1" FromRole="User" ToRole="Replys" />
-    <NavigationProperty Name="Replys_Course" Relationship="Self.FK_Replys_Course_User" FromRole="User" ToRole="Replys_Course" />
-    <NavigationProperty Name="Replys_Course1" Relationship="Self.FK_Replys_Course_User1" FromRole="User" ToRole="Replys_Course" />
+    <NavigationProperty Name="Replys_Course" Relationship="Self.FK_Replys_Course_User1" FromRole="User" ToRole="Replys_Course" />
     <NavigationProperty Name="Replys_Work" Relationship="Self.FK_Replys_Work_User" FromRole="User" ToRole="Replys_Work" />
     <NavigationProperty Name="Replys_Work1" Relationship="Self.FK_Replys_Work_User1" FromRole="User" ToRole="Replys_Work" />
-    <NavigationProperty Name="Return_Product" Relationship="Self.FK_Return_Product_User" FromRole="User" ToRole="Return_Product" />
     <NavigationProperty Name="Works" Relationship="Self.FK_Works_User" FromRole="User" ToRole="Works" />
   </EntityType>
   <EntityType Name="Video">
@@ -424,16 +370,17 @@
     </Key>
     <Property Name="VideoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="VideoName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Teacher_Id" Type="Int32" Nullable="false" />
+    <Property Name="Teacher_Id" Type="Int32" />
     <Property Name="ClassId" Type="Int32" Nullable="false" />
-    <Property Name="Video_Content" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Video_Content" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VideoLength" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Course_Class" Relationship="Self.FK_Video_Course_Class" FromRole="Video" ToRole="Course_Class" />
   </EntityType>
   <EntityType Name="Works">
     <Key>
       <PropertyRef Name="WorkID" />
     </Key>
-    <Property Name="WorkID" Type="Int32" Nullable="false" />
+    <Property Name="WorkID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="WorkName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="UserId" Type="Int32" Nullable="false" />
     <Property Name="WorkContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -442,6 +389,77 @@
     <NavigationProperty Name="Collect_Work" Relationship="Self.FK_Collect_Work_Works" FromRole="Works" ToRole="Collect_Work" />
     <NavigationProperty Name="Comment_Works" Relationship="Self.FK_Comment_Works_Works" FromRole="Works" ToRole="Comment_Works" />
     <NavigationProperty Name="User" Relationship="Self.FK_Works_User" FromRole="Works" ToRole="User" />
+  </EntityType>
+  <EntityType Name="View_CourseAllTable">
+    <Key>
+      <PropertyRef Name="CourseID" />
+      <PropertyRef Name="CourseName" />
+      <PropertyRef Name="Course_Time" />
+      <PropertyRef Name="TeacherId" />
+      <PropertyRef Name="CourseTypeID" />
+      <PropertyRef Name="CourseTypeName" />
+      <PropertyRef Name="ClassID" />
+      <PropertyRef Name="ClassName" />
+      <PropertyRef Name="VideoID" />
+    </Key>
+    <Property Name="CourseID" Type="Int32" Nullable="false" />
+    <Property Name="CourseName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CourseType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ImageData" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ImageMineType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Course_Time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TeacherId" Type="Int32" Nullable="false" />
+    <Property Name="Number" Type="Int32" />
+    <Property Name="Value" Type="Int32" />
+    <Property Name="CourseTypeID" Type="Int32" Nullable="false" />
+    <Property Name="CourseTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClassID" Type="Int32" Nullable="false" />
+    <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VideoID" Type="Int32" Nullable="false" />
+    <Property Name="VideoName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="View_Guanzhu">
+    <Key>
+      <PropertyRef Name="Guanzhu_id" />
+      <PropertyRef Name="UserA" />
+      <PropertyRef Name="UserB" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="UserName1" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="Email1" />
+      <PropertyRef Name="Phone" />
+      <PropertyRef Name="Phone1" />
+      <PropertyRef Name="Password" />
+      <PropertyRef Name="Password1" />
+      <PropertyRef Name="TeacherID" />
+      <PropertyRef Name="TeacherName" />
+      <PropertyRef Name="teacherpass" />
+      <PropertyRef Name="Phone2" />
+    </Key>
+    <Property Name="Guanzhu_id" Type="Int32" Nullable="false" />
+    <Property Name="UserA" Type="Int32" Nullable="false" />
+    <Property Name="UserB" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserName1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Sex1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RealName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RealName1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ImageMineType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ImageMineType1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ImageData" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ImageData1" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="TeacherID" Type="Int32" Nullable="false" />
+    <Property Name="TeacherName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="teacherpass" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImageHead" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <Association Name="FK_Add_Course_Course">
     <End Role="Course" Type="Self.Course" Multiplicity="1" />
@@ -496,10 +514,10 @@
     <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Product_Norms">
-        <PropertyRef Name="Product_Class_ID" />
+        <PropertyRef Name="Product_Norms_ID" />
       </Principal>
       <Dependent Role="Cart">
-        <PropertyRef Name="Product_Class_ID" />
+        <PropertyRef Name="Pro_Norm_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -515,15 +533,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Order_Cart">
-    <End Role="Cart" Type="Self.Cart" Multiplicity="1" />
-    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+  <Association Name="FK_Collect_Course">
+    <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
+    <End Role="Collect" Type="Self.Collect" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Cart">
-        <PropertyRef Name="Cart_ID" />
+      <Principal Role="Course">
+        <PropertyRef Name="CourseID" />
       </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="Cart_ID" />
+      <Dependent Role="Collect">
+        <PropertyRef Name="Course_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -659,30 +677,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Praise_Product_Comment_Product">
-    <End Role="Comment_Product" Type="Self.Comment_Product" Multiplicity="1" />
-    <End Role="Praise_Product" Type="Self.Praise_Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Comment_Product">
-        <PropertyRef Name="Comment_Product_ID" />
-      </Principal>
-      <Dependent Role="Praise_Product">
-        <PropertyRef Name="Comment_Product_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Product_Reply_Comment_Product">
-    <End Role="Comment_Product" Type="Self.Comment_Product" Multiplicity="1" />
-    <End Role="Product_Reply" Type="Self.Product_Reply" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Comment_Product">
-        <PropertyRef Name="Comment_Product_ID" />
-      </Principal>
-      <Dependent Role="Product_Reply">
-        <PropertyRef Name="Comment_Product_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Comment_Works_User">
     <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="Comment_Works" Type="Self.Comment_Works" Multiplicity="*" />
@@ -728,6 +722,18 @@
       </Principal>
       <Dependent Role="Course_Class">
         <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Course_CourseType">
+    <End Role="CourseType" Type="Self.CourseType" Multiplicity="1" />
+    <End Role="Course" Type="Self.Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CourseType">
+        <PropertyRef Name="CourseTypeID" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="CourseTypeID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -779,75 +785,51 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Order_Order_Detail1">
-    <End Role="Order_Detail" Type="Self.Order_Detail" Multiplicity="1" />
-    <End Role="Order" Type="Self.Order" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Order_Detail">
-        <PropertyRef Name="Order_Detail_ID" />
-      </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="Order_Detail_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Order_Product_Detail_Order">
-    <End Role="Order" Type="Self.Order" Multiplicity="1" />
-    <End Role="Order_Product_Detail" Type="Self.Order_Product_Detail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Order">
-        <PropertyRef Name="Order_ID" />
-      </Principal>
-      <Dependent Role="Order_Product_Detail">
-        <PropertyRef Name="Order_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Order_User">
+  <Association Name="FK_Guanzhu_User">
     <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <End Role="Guanzhu" Type="Self.Guanzhu" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="UserID" />
       </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="UserID" />
+      <Dependent Role="Guanzhu">
+        <PropertyRef Name="UserA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Detail_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Order_Detail" Type="Self.Order_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Product_ID" />
+      </Principal>
+      <Dependent Role="Order_Detail">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Detail_Product_Norms">
+    <End Role="Product_Norms" Type="Self.Product_Norms" Multiplicity="1" />
+    <End Role="Order_Detail" Type="Self.Order_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product_Norms">
+        <PropertyRef Name="Product_Norms_ID" />
+      </Principal>
+      <Dependent Role="Order_Detail">
+        <PropertyRef Name="Pro_Norm_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Order_Detail_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
     <End Role="Order_Detail" Type="Self.Order_Detail" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="UserID" />
       </Principal>
       <Dependent Role="Order_Detail">
-        <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Return_Product_Order_Detail">
-    <End Role="Order_Detail" Type="Self.Order_Detail" Multiplicity="1" />
-    <End Role="Return_Product" Type="Self.Return_Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Order_Detail">
-        <PropertyRef Name="Order_Detail_ID" />
-      </Principal>
-      <Dependent Role="Return_Product">
-        <PropertyRef Name="Order_Detail_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Order_Product_Detail_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="Order_Product_Detail" Type="Self.Order_Product_Detail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="Product_ID" />
-      </Principal>
-      <Dependent Role="Order_Product_Detail">
-        <PropertyRef Name="Product_ID" />
+        <PropertyRef Name="User_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -863,30 +845,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Praise_Product_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="Praise_Product" Type="Self.Praise_Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="Product_ID" />
-      </Principal>
-      <Dependent Role="Praise_Product">
-        <PropertyRef Name="Product_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Praise_Product_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Praise_Product" Type="Self.Praise_Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="UserID" />
-      </Principal>
-      <Dependent Role="Praise_Product">
-        <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Praised_User">
     <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="Praised" Type="Self.Praised" Multiplicity="*" />
@@ -899,18 +857,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Product_Image_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="Product_Image" Type="Self.Product_Image" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="Product_ID" />
-      </Principal>
-      <Dependent Role="Product_Image">
-        <PropertyRef Name="Product_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Product_Norms_Product">
     <End Role="Product" Type="Self.Product" Multiplicity="1" />
     <End Role="Product_Norms" Type="Self.Product_Norms" Multiplicity="*" />
@@ -920,18 +866,6 @@
       </Principal>
       <Dependent Role="Product_Norms">
         <PropertyRef Name="Product_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Product_Reply_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Product_Reply" Type="Self.Product_Reply" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="UserID" />
-      </Principal>
-      <Dependent Role="Product_Reply">
-        <PropertyRef Name="Rep_UserID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -956,18 +890,6 @@
       </Principal>
       <Dependent Role="Replys">
         <PropertyRef Name="Rep_To_UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Replys_Course_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Replys_Course" Type="Self.Replys_Course" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="UserID" />
-      </Principal>
-      <Dependent Role="Replys_Course">
-        <PropertyRef Name="Rep_UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1007,18 +929,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Return_Product_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Return_Product" Type="Self.Return_Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="UserID" />
-      </Principal>
-      <Dependent Role="Return_Product">
-        <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Works_User">
     <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="Works" Type="Self.Works" Multiplicity="*" />
@@ -1044,26 +954,24 @@
     <EntitySet Name="Comment_Works" EntityType="Self.Comment_Works" />
     <EntitySet Name="Course" EntityType="Self.Course" />
     <EntitySet Name="Course_Class" EntityType="Self.Course_Class" />
+    <EntitySet Name="CourseType" EntityType="Self.CourseType" />
     <EntitySet Name="Follow" EntityType="Self.Follow" />
-    <EntitySet Name="Order" EntityType="Self.Order" />
+    <EntitySet Name="Guanzhu" EntityType="Self.Guanzhu" />
     <EntitySet Name="Order_Detail" EntityType="Self.Order_Detail" />
-    <EntitySet Name="Order_Product_Detail" EntityType="Self.Order_Product_Detail" />
     <EntitySet Name="Post" EntityType="Self.Post" />
-    <EntitySet Name="Praise_Product" EntityType="Self.Praise_Product" />
     <EntitySet Name="Praised" EntityType="Self.Praised" />
     <EntitySet Name="Product" EntityType="Self.Product" />
-    <EntitySet Name="Product_Image" EntityType="Self.Product_Image" />
     <EntitySet Name="Product_Norms" EntityType="Self.Product_Norms" />
-    <EntitySet Name="Product_Reply" EntityType="Self.Product_Reply" />
     <EntitySet Name="Replys" EntityType="Self.Replys" />
     <EntitySet Name="Replys_Course" EntityType="Self.Replys_Course" />
     <EntitySet Name="Replys_Work" EntityType="Self.Replys_Work" />
-    <EntitySet Name="Return_Product" EntityType="Self.Return_Product" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="Teacher" EntityType="Self.Teacher" />
     <EntitySet Name="User" EntityType="Self.User" />
     <EntitySet Name="Video" EntityType="Self.Video" />
     <EntitySet Name="Works" EntityType="Self.Works" />
+    <EntitySet Name="View_CourseAllTable" EntityType="Self.View_CourseAllTable" />
+    <EntitySet Name="View_Guanzhu" EntityType="Self.View_Guanzhu" />
     <AssociationSet Name="FK_Add_Course_Course" Association="Self.FK_Add_Course_Course">
       <End Role="Course" EntitySet="Course" />
       <End Role="Add_Course" EntitySet="Add_Course" />
@@ -1088,9 +996,9 @@
       <End Role="User" EntitySet="User" />
       <End Role="Cart" EntitySet="Cart" />
     </AssociationSet>
-    <AssociationSet Name="FK_Order_Cart" Association="Self.FK_Order_Cart">
-      <End Role="Cart" EntitySet="Cart" />
-      <End Role="Order" EntitySet="Order" />
+    <AssociationSet Name="FK_Collect_Course" Association="Self.FK_Collect_Course">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="Collect" EntitySet="Collect" />
     </AssociationSet>
     <AssociationSet Name="FK_Collect_Post" Association="Self.FK_Collect_Post">
       <End Role="Post" EntitySet="Post" />
@@ -1136,14 +1044,6 @@
       <End Role="User" EntitySet="User" />
       <End Role="Comment_Product" EntitySet="Comment_Product" />
     </AssociationSet>
-    <AssociationSet Name="FK_Praise_Product_Comment_Product" Association="Self.FK_Praise_Product_Comment_Product">
-      <End Role="Comment_Product" EntitySet="Comment_Product" />
-      <End Role="Praise_Product" EntitySet="Praise_Product" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_Reply_Comment_Product" Association="Self.FK_Product_Reply_Comment_Product">
-      <End Role="Comment_Product" EntitySet="Comment_Product" />
-      <End Role="Product_Reply" EntitySet="Product_Reply" />
-    </AssociationSet>
     <AssociationSet Name="FK_Comment_Works_User" Association="Self.FK_Comment_Works_User">
       <End Role="User" EntitySet="User" />
       <End Role="Comment_Works" EntitySet="Comment_Works" />
@@ -1159,6 +1059,10 @@
     <AssociationSet Name="FK_Course_Class_Course" Association="Self.FK_Course_Class_Course">
       <End Role="Course" EntitySet="Course" />
       <End Role="Course_Class" EntitySet="Course_Class" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Course_CourseType" Association="Self.FK_Course_CourseType">
+      <End Role="CourseType" EntitySet="CourseType" />
+      <End Role="Course" EntitySet="Course" />
     </AssociationSet>
     <AssociationSet Name="FK_Course_Teacher" Association="Self.FK_Course_Teacher">
       <End Role="Teacher" EntitySet="Teacher" />
@@ -1176,57 +1080,33 @@
       <End Role="User" EntitySet="User" />
       <End Role="Follow" EntitySet="Follow" />
     </AssociationSet>
-    <AssociationSet Name="FK_Order_Order_Detail1" Association="Self.FK_Order_Order_Detail1">
-      <End Role="Order_Detail" EntitySet="Order_Detail" />
-      <End Role="Order" EntitySet="Order" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Order_Product_Detail_Order" Association="Self.FK_Order_Product_Detail_Order">
-      <End Role="Order" EntitySet="Order" />
-      <End Role="Order_Product_Detail" EntitySet="Order_Product_Detail" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Order_User" Association="Self.FK_Order_User">
+    <AssociationSet Name="FK_Guanzhu_User" Association="Self.FK_Guanzhu_User">
       <End Role="User" EntitySet="User" />
-      <End Role="Order" EntitySet="Order" />
+      <End Role="Guanzhu" EntitySet="Guanzhu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Detail_Product" Association="Self.FK_Order_Detail_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Order_Detail" EntitySet="Order_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Detail_Product_Norms" Association="Self.FK_Order_Detail_Product_Norms">
+      <End Role="Product_Norms" EntitySet="Product_Norms" />
+      <End Role="Order_Detail" EntitySet="Order_Detail" />
     </AssociationSet>
     <AssociationSet Name="FK_Order_Detail_User" Association="Self.FK_Order_Detail_User">
       <End Role="User" EntitySet="User" />
       <End Role="Order_Detail" EntitySet="Order_Detail" />
     </AssociationSet>
-    <AssociationSet Name="FK_Return_Product_Order_Detail" Association="Self.FK_Return_Product_Order_Detail">
-      <End Role="Order_Detail" EntitySet="Order_Detail" />
-      <End Role="Return_Product" EntitySet="Return_Product" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Order_Product_Detail_Product" Association="Self.FK_Order_Product_Detail_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="Order_Product_Detail" EntitySet="Order_Product_Detail" />
-    </AssociationSet>
     <AssociationSet Name="FK_Post_User" Association="Self.FK_Post_User">
       <End Role="User" EntitySet="User" />
       <End Role="Post" EntitySet="Post" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Praise_Product_Product" Association="Self.FK_Praise_Product_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="Praise_Product" EntitySet="Praise_Product" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Praise_Product_User" Association="Self.FK_Praise_Product_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="Praise_Product" EntitySet="Praise_Product" />
     </AssociationSet>
     <AssociationSet Name="FK_Praised_User" Association="Self.FK_Praised_User">
       <End Role="User" EntitySet="User" />
       <End Role="Praised" EntitySet="Praised" />
     </AssociationSet>
-    <AssociationSet Name="FK_Product_Image_Product" Association="Self.FK_Product_Image_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="Product_Image" EntitySet="Product_Image" />
-    </AssociationSet>
     <AssociationSet Name="FK_Product_Norms_Product" Association="Self.FK_Product_Norms_Product">
       <End Role="Product" EntitySet="Product" />
       <End Role="Product_Norms" EntitySet="Product_Norms" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_Reply_User" Association="Self.FK_Product_Reply_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="Product_Reply" EntitySet="Product_Reply" />
     </AssociationSet>
     <AssociationSet Name="FK_Replys_User" Association="Self.FK_Replys_User">
       <End Role="User" EntitySet="User" />
@@ -1235,10 +1115,6 @@
     <AssociationSet Name="FK_Replys_User1" Association="Self.FK_Replys_User1">
       <End Role="User" EntitySet="User" />
       <End Role="Replys" EntitySet="Replys" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Replys_Course_User" Association="Self.FK_Replys_Course_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="Replys_Course" EntitySet="Replys_Course" />
     </AssociationSet>
     <AssociationSet Name="FK_Replys_Course_User1" Association="Self.FK_Replys_Course_User1">
       <End Role="User" EntitySet="User" />
@@ -1251,10 +1127,6 @@
     <AssociationSet Name="FK_Replys_Work_User1" Association="Self.FK_Replys_Work_User1">
       <End Role="User" EntitySet="User" />
       <End Role="Replys_Work" EntitySet="Replys_Work" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Return_Product_User" Association="Self.FK_Return_Product_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="Return_Product" EntitySet="Return_Product" />
     </AssociationSet>
     <AssociationSet Name="FK_Works_User" Association="Self.FK_Works_User">
       <End Role="User" EntitySet="User" />

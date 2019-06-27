@@ -281,6 +281,13 @@ namespace ChildPro.Controllers
 		}
 
 
+		public ActionResult Search(string key)
+		{
+			// 根据帖子标题和tag来匹配关键字
+			IEnumerable<Post> ps = lpe.Post.Where(e => e.Post_Title.IndexOf(key) != -1 || e.Post_Tag.IndexOf(key) != -1);
+			ViewBag.key = key;
+			return View("Search",ps);
+		}
 
 		//收藏帖子
 		[HttpPost]

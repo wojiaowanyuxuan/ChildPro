@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Models.Post>
+
+@{
+    ViewBag.Title = "搜索 - 少儿编程";
+    Layout = "~/Views/Shared/_PostLayout.cshtml";
+}
+<style type="text/css">
+    body{
+        background-size:1920px 190px;
+        height:100%;
+    }
+    .search_page_content{
+        width:1200px;
+        margin:130px auto 100px;
+    }
+    .search_nav_guid{
+        color:#666;
+        font-size:14px
+    }
+    .search_result_wrap{
+        margin-top:20px;
+        padding:30px;
+        box-shadow:0 2px 1px 0 rgba(0,0,0,.1);
+    }
+    .search_result_inner_item{
+        margin-bottom:10px;
+    }
+    .search_result_item_box{
+        padding:0 15px;
+        position:relative;
+    }
+    .search_result_header{
+        height:32px;
+        line-height:32px;
+    }
+    .search_result_header a{
+        color:#555;
+        font-size:21px;
+    }
+    .search_result_header a:hover{
+        color:#31c27c;
+    }
+    .search_result_body{
+        margin-top:2px;
+        display:flex;
+        justify-content:space-between;
+    }
+    .search_result_body a{
+        color:#999;
+        font-size:12px;
+    }
+    .search_result_body a:hover{
+        color:#31c27c;
+    }
+    .search_result_date{
+        color:#999;
+    }
+    
+</style>
+
+@if (Model.Count() == 0)
+{
+    <div class="search_page_content">
+        <p class="search_nav_guid">抱歉没有找到与"@ViewBag.key"相关的结果！换一个关键字试试</p>
+    </div>
+}
+else
+{
+    <div class="search_page_content">
+        <p class="search_nav_guid">找到与"@ViewBag.key"相关的结果！<span>@Model.Count()</span> 条</p>
+        <div class="search_result_wrap">
+            @foreach(var item in Model)
+            {
+                <div class="search_result_inner_item">
+                    <div class="search_result_item_box">
+                        <div class="search_result_header">
+                           <a href="@Url.Action("PostDetails","Forum",new { postid = item.PostID})">@item.Post_Title</a>
+                        </div>
+                        <div class="search_result_body">
+                            <a href="@Url.Action("Index","User",new { userid = item.User_Id})">@item.User.UserName</a>
+                            <span class="search_result_date">@item.Post_Date</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+

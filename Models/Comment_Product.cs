@@ -14,25 +14,14 @@ namespace Models
     
     public partial class Comment_Product
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Comment_Product()
-        {
-            this.Praise_Product = new HashSet<Praise_Product>();
-            this.Product_Reply = new HashSet<Product_Reply>();
-        }
-    
         public int Comment_Product_ID { get; set; }
         public int UserID { get; set; }
         public string Com_Content { get; set; }
-        public string Com_Data { get; set; }
-        public Nullable<int> Com_Praise_Num { get; set; }
+        public System.DateTime Com_Data { get; set; }
         public int Product_ID { get; set; }
+        public Nullable<int> Praise_Num { get; set; }
     
         public virtual Product Product { get; set; }
         public virtual User User { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Praise_Product> Praise_Product { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product_Reply> Product_Reply { get; set; }
     }
 }

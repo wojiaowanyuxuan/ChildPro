@@ -37,25 +37,23 @@ namespace Models
         public virtual DbSet<Comment_Works> Comment_Works { get; set; }
         public virtual DbSet<Course> Course { get; set; }
         public virtual DbSet<Course_Class> Course_Class { get; set; }
+        public virtual DbSet<CourseType> CourseType { get; set; }
         public virtual DbSet<Follow> Follow { get; set; }
-        public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<Guanzhu> Guanzhu { get; set; }
         public virtual DbSet<Order_Detail> Order_Detail { get; set; }
-        public virtual DbSet<Order_Product_Detail> Order_Product_Detail { get; set; }
         public virtual DbSet<Post> Post { get; set; }
-        public virtual DbSet<Praise_Product> Praise_Product { get; set; }
         public virtual DbSet<Praised> Praised { get; set; }
         public virtual DbSet<Product> Product { get; set; }
-        public virtual DbSet<Product_Image> Product_Image { get; set; }
         public virtual DbSet<Product_Norms> Product_Norms { get; set; }
-        public virtual DbSet<Product_Reply> Product_Reply { get; set; }
         public virtual DbSet<Replys> Replys { get; set; }
         public virtual DbSet<Replys_Course> Replys_Course { get; set; }
         public virtual DbSet<Replys_Work> Replys_Work { get; set; }
-        public virtual DbSet<Return_Product> Return_Product { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Teacher> Teacher { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Video> Video { get; set; }
         public virtual DbSet<Works> Works { get; set; }
+        public virtual DbSet<View_CourseAllTable> View_CourseAllTable { get; set; }
+        public virtual DbSet<View_Guanzhu> View_Guanzhu { get; set; }
     }
 }

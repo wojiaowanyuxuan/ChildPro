@@ -1,0 +1,324 @@
+﻿
+@model ChildPro.Models.MyCourseViewModel
+
+@{
+    ViewBag.Title = "我的课程";
+    Layout = "~/Views/Shared/Layout01.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的课程页</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <style>
+        element.style {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            background: rgb(0, 0, 0);
+        }
+        .es-wrap{
+            margin-bottom:30px;
+        }
+        .container{
+            max-width:1205px;
+        }
+        .control {
+            padding: 0 30px;
+            width: 1000px;
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            z-index: 100;
+        }
+        .course-center-header {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            background: rgb(0, 0, 0);
+            z-index:1;
+            width: 1205px;
+            margin: 0 190px;
+        }
+
+        .user-avatar {
+            position: relative;
+            float: left;
+            width: 66.67%;
+            padding-left: 200px;
+            margin-top:40px;
+        }
+        .avatar-wrap {
+            position: absolute;
+            top: 0;
+            left: 0;          
+        }
+
+        .avatar-lg {
+            width: 120px !important;
+            height: 120px !important;
+            border-radius:50%
+        }
+        .name {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .position {
+            margin-bottom: 10px;
+            color: #919191;
+            color: hsla(0,0%,100%,.5);
+        }
+        .mates {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        #content-container {
+            margin: 30px auto;
+            min-height: 400px;
+        }
+        .nav {
+            margin-bottom: 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        .nav.nav-tabs {
+                position: relative;
+                margin-bottom: 25px;
+                border-color: #f5f5f5;
+                border-bottom: 1px solid #ddd;
+            }
+        ul{
+            margin-top:0;
+        }
+        .nav-tabs > li {
+            float: left;
+            margin-bottom: -1px;
+        }
+        .list-group{
+            display:none;
+        }
+        .nav-tabs li.selected {
+            color: #FFF;
+            border: 1px solid #585560;
+        }
+         /*.nav-tabs li:hover{
+            background-color: #02ccba;
+        }*/
+
+    </style>
+</head>>
+<body>
+    <div class="es-wrap">     
+        <div class="course-center-header">           
+            <div class="blurr-bg" style="background: url(../../Image/Course/我的课程.jpg) center center / 150%;left: 0px;right: 0px;top: -50px;bottom: -50px;width: 1542px;filter: blur(60px);/* z-index: 50; */position: absolute;">
+            </div>
+            <div class="container control clearfix" style="position: absolute; left: 0px; right: 0px; z-index: 100;">
+                <div class="user-avatar">
+                    <div class="avatar-wrap">
+                        <img class="avatar-lg" src="~/Image/Accounter/teachers/3134889_10.jpg" />                      
+                    </div>
+                    <div class="name">
+                        @Model.User.UserName
+                    </div>
+                    <div class="position">
+                        <span class="mrm">暂无头衔</span>
+                    </div>
+                    <div class="mates">
+                        <span class="mrm">@Model.UserB</span>粉丝<span class="mlm mrm">｜</span><span class="mrm">@Model.UserA</span>关注
+                    </div>
+
+                    <div class="h_user">
+                        @foreach (var item in Model.Uses1)
+                        {
+                            
+                            <div class="h_info">
+                                <div class="h_basic">                               
+                                    <input type="hidden" value="@ViewBag.userid" class="Users_id" />
+                                    <input type="hidden" value='@Session["Users_id"]' class="SessionUsers_id" />                                
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="h_action">
+                        @if (@Session["userid"] != null)
+                        {
+                            if ((int)@Session["userid"] == @ViewBag.userid)
+                            {
+                                <button class="h_follow btn btn-ghost-white" style="display:none; color:#fff;border: 1px solid #fff;background-color: #4bbbfa;">关注</button>
+                                <input class="h_follow_v" value="0" type="hidden" />
+                            }
+                            else if (@Session["Guanzhu"].ToString() == "0")
+                            {
+                                <button class="h_follow btn btn-ghost-white" style="color:#fff;border: 1px solid #fff;background-color: #4bbbfa;">关注</button>
+                                <input class="h_follow_v" value="0" type="hidden" />
+                            }
+                            else
+                            {
+                                <button class="h_follow btn btn-ghost-white" style="color:#fff;border: 1px solid #fff;background-color: #4bbbfa;">已关注</button>
+                                <input class="h_follow_v" value="1" type="hidden" />
+                            }
+                        }
+                        else
+                        {
+                            <span class="h_follow">关注 </span>
+                            <input class="h_follow_v" value="0" type="hidden" />
+                        }
+                    </div>
+                </div>             
+            </div>                     
+        </div>
+    </div>
+    <div class="toast_layer fade_transition gzcg" style="display: none;">关注成功！</div>
+    <div class="toast_layer fade_transition qxgz" style="display: none;">取消关注成功！</div>
+
+    @*网页选项卡*@
+    <div id="content-contain" class="container" style="width:1205px">
+        <div class="choose">
+            <ul class="nav nav-tabs clearfix">
+                <li class="active"><a href="#">个人介绍</a></li>
+                <li><a href="#">在学课程</a></li>
+                <li><a href="#">收藏课程</a></li>
+                <li><a href="#">关注的人</a></li>
+                <li><a href="#">我的粉丝</a></li>
+                <li class="highlight" style="left: 0.497497px; width: 123.589px; overflow: hidden;"></li>
+            </ul>
+        </div>
+        <div class="box">
+            <div class="editor-text">
+                <div class="empty">暂无介绍</div>
+            </div>
+            <div class="list-group">
+                <div class="empty">
+                    @foreach (var item in Model.courses)
+                    {
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="course-item">
+                                <div class="course-img">
+                                    <a href="@Url.Action("Datails","Course",new {id = item.Course.CourseID, teacherid = item.Course.TeacherId})" target="_blank">
+                                        <img src="@item.Course.ImageMineType" alt="计算机如何工作？Code.org出品" class="img-responsive">
+                                    </a>
+                                </div>
+                                <div class="course-info">
+                                    <div class="title">
+                                        <a class="link-dark" href="@Url.Action("Datails","Course",new {id = item.Course.CourseID , teacherid = item.Course.TeacherId})" target="_blank">
+                                            @item.Course.CourseName
+                                        </a>
+                                    </div>
+                                    <div class="metas clearfix">
+                                        <span class="num"><i class="fa fa-address-book-o" style="font-size:16px"></i>@item.Course.Number</span>
+                                        <span class="comment"><i class="fa fa-commenting" style="font-size:16px"></i>0</span>
+                                        <span class="comment"><i class="fa fa-youtube-play" style="font-size:16px"></i>试看</span>
+                                        <span class="course-price-widget"><span class="free">免费</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="list-group">
+                <div class="empty">
+                    @foreach (var item in Model.collect_courses)
+                    {
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="course-item">
+                                <div class="course-img">
+                                    <a href="@Url.Action("Datails","Course",new {id = item.Course.CourseID, teacherid = item.Course.TeacherId})" target="_blank">
+                                        <img src="@item.Course.ImageMineType" alt="计算机如何工作？Code.org出品" class="img-responsive">
+                                    </a>
+                                </div>
+                                <div class="course-info">
+                                    <div class="title">
+                                        <a class="link-dark" href="@Url.Action("Datails","Course",new {id = item.Course.CourseID , teacherid = item.Course.TeacherId})" target="_blank">
+                                            @item.Course.CourseName
+                                        </a>
+                                    </div>
+                                    <div class="metas clearfix">
+                                        <span class="num"><i class="fa fa-address-book-o" style="font-size:16px"></i>@item.Course.Number</span>
+                                        <span class="comment"><i class="fa fa-commenting" style="font-size:16px"></i>0</span>
+                                        <span class="comment"><i class="fa fa-youtube-play" style="font-size:16px"></i>试看</span>
+                                        <span class="course-price-widget"><span class="free">免费</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="list-group">
+                <div class="empty">关注的人</div>
+                <p class="n_data_v space_attention">@Model.UserA</p>
+            </div>
+            <div class="list-group">
+                <div class="empty">我的粉丝</div>
+                <p class="n_data_v space_fans">@Model.UserB</p>
+            </div>
+        </div>
+    </div>
+
+<script>
+    /*-----------网页选项卡---------------*/
+    $(function () {
+        var $div_li = $("div.choose ul li");
+        $div_li.click(function () {
+            $(this).addClass("selected")            //当前<li>元素高亮
+                .siblings().removeClass("selected");//去掉其它同辈<li>元素的高亮
+            var index = $div_li.index(this);
+            $("div.box > div")
+                .eq(index).show()
+                .siblings().hide();
+        }).hover(function () {
+            $(this).addClass("hover");
+        }, function () {
+            $(this).removeClass("hover");
+        })
+    });
+
+    /*-----------关注或取消---------------*/
+    $(document).on('click', '.h_follow', function () {
+        if ($(".h_follow_v").val() == "0") {
+            $.ajax({
+                type: "post",
+                url: "/Course/Guanzhu",
+                contentType:'application/json;charset=uft-8',
+                data: JSON.stringify({ UserB: parseInt($(".Users_id").val(),10) }),
+                success: function (data) {
+                    $(".h_follow_v").val(data.code);
+                    $(".h_follow").html("已关注");
+                    $(".gzcg").show().delay(2000).hide(300);
+                }
+            });
+        } else {
+            //alert("222");
+            var msg = "确定要取消关注嘛 QwQ";
+            if (confirm(msg) == true) {
+                $.ajax({
+                    type: "post",
+                    url: "/Course/QuxiaoGuanzhu",
+                    data: { UserB:$(".Users_id").val()},
+                    success: function (data) {
+                        $(".h_follow_v").val(0);
+                        $(".h_follow").html("关注");
+                        $(".space_fans").html(data);
+                        $(".qxgz").show().delay(2000).hide(300);
+                    }
+                });
+            } else {
+                return false;
+            }
+
+        }
+    });
+</script>
+</body>
+</html>
+

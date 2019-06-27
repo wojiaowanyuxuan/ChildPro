@@ -1,0 +1,154 @@
+﻿.AddtoOrder {
+    margin: 23px 40px;
+}
+
+.AddtoOrder1 {
+    border-bottom: 2px solid #f1f1f1;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.AddtoOrder2 {
+    margin: 5px 0 7px;
+    line-height: 32px;
+    position: relative;
+    padding-left: 0;
+    width: 700px;
+}
+
+.AddtoOrder3 {
+    width: 700px;
+    background-color: #fff0e8;
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: baseline;
+    line-height: 32px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+}
+
+    .AddtoOrder3:hover {
+        background-color: #2ac7d2;
+    }
+
+    .AddtoOrder3:hover {
+        border: 1px solid #f40;
+    }
+
+.AddtoOrder4 {
+    font-size: 14px;
+    font-weight: 700;
+    float: left;
+    padding-left: 10px;
+}
+
+.AddtoOrder5 {
+    background-color: #f2f7ff;
+    border-bottom: 1px solid #fff;
+}
+
+.AddtoOrder6 {
+    display: inline-block;
+    width: 875px;
+    vertical-align: top;
+}
+
+.AddtoOrder7 {
+    position: relative;
+    padding: 10px;
+    border-top: 1px solid #fff;
+}
+
+.AddtoOrder8 {
+    vertical-align: top;
+    display: inline-block;
+}
+
+.AddtoOrder9 {
+    display: inline-block;
+}
+
+.AddtoOrder10 {
+    vertical-align: top;
+    width: 700px;
+    resize: none;
+    height: 85px;
+    line-height: 18px;
+    text-indent: 4px;
+    border: 1px dotted #ccc;
+    outline: 0;
+    overflow: auto;
+}
+
+    .AddtoOrder10:hover {
+        border: 1px dotted #f40;
+    }
+
+.AddtoOrder11 {
+    text-align: right;
+    margin-top: 15px;
+}
+
+.AddtoOrder12 {
+    display: inline-block;
+    border: 1px solid #f40;
+    width: 300px;
+    float: right;
+}
+
+.AddtoOrder13 {
+    border: 3px solid #fff0e8;
+    min-width: 230px;
+    padding: 10px 10px 10px 20px;
+}
+
+.AddtoOrder16 {
+    font-weight: 700;
+    color: #333;
+}
+
+.AddtoOrder17 {
+    font-size: 26px;
+    margin-right: 4px;
+    color: #999;
+    font-family: verdana,arial;
+}
+
+.AddtoOrder18 {
+    color: #f40;
+    font: 700 26px tahoma;
+}
+
+.AddtoOrder19 {
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+.AddtoOrder21 {
+    font-weight: 700;
+    color: #333;
+}
+
+.AddtoOrder23 {
+    margin-left: 5px;
+}
+
+.AddtoOrder24 {
+    margin-left: 5px;
+}
+
+.AddtoOrder25 {
+    display: inline-block;
+    width: 182px;
+    height: 39px;
+    position: relative;
+    vertical-align: middle;
+    line-height: 39px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    background: #f40;
+    color: #fff;
+}

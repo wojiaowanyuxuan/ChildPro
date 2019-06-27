@@ -1,0 +1,223 @@
+﻿.Order_Detail {
+    font: 12px/1.5 Tahoma,Helvetica,Arial,sans-serif;
+    margin-top: 20px;
+    position: relative;
+    width: 900px;
+}
+
+.Order_Detail1 {
+    position: relative;
+    border: 1px solid #DDD;
+    border-right: none;
+    min-height: 245px;
+    height: auto !important;
+}
+
+.Order_Detail2 {
+    width: 900px;
+    min-height: 245px;
+    font-size: inherit;
+}
+
+.Order_Detail3 {
+    width: 320px;
+    color: #666;
+    background-color: #fbfbfb;
+    border-right: 1px solid #DDD;
+    vertical-align: top;
+    height: 245px;
+    float: left;
+}
+
+.Order_Detail4 {
+    height: 29px;
+    border-bottom: 1px solid #DDD;
+    background-color: #F3F3F3;
+    line-height: 29px;
+    width: 320px;
+    color: #333;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.Order_Detail5 {
+    margin: 0 0 0 20px;
+    font-size: 12px;
+}
+
+.Order_Detail6 {
+    padding: 0 0 15px 0;
+}
+
+.Order_Detail7 {
+    list-style: none;
+    width: 300px;
+    line-height: 1.5;
+    margin: 15px 8px 0 20px;
+}
+
+.Order_Detail8 {
+    min-width: 62px;
+    display: inline-block;
+    zoom: 1;
+    vertical-align: top;
+}
+
+.Order_Detail10 {
+    width: 220px;
+    display: inline-block;
+    zoom: 1;
+    color: #666;
+}
+
+.Order_Detail11 {
+    display: inline-block;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.Order_Detail12 {
+    min-width: 62px;
+    display: inline-block;
+    zoom: 1;
+    vertical-align: top;
+}
+
+.Order_Detail14 {
+    width: 290px;
+    display: inline-block;
+    zoom: 1;
+    color: #666;
+}
+
+.Order_Detail15 {
+    border-right: 1px solid #DDD;
+    vertical-align: top;
+    height: 246px;
+    position: relative;
+    float: left;
+    width: 578px;
+}
+
+.Order_Detail17 {
+    margin-top: 50px;
+    height: 65px;
+}
+
+.Order_Detail18 {
+    margin: 0 17px 0 35px;
+    width: 50px;
+    padding-left: 50px;
+    float: left;
+    height: 65px;
+    padding-top: 16px;
+}
+
+.Order_Detail19 {
+    vertical-align: top;
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: bolder;
+    margin-left: 20px;
+    display: inline-block;
+}
+
+.Order_Detail20 {
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.Order_Detail22 {
+    margin: 35px 8px 20px 90px;
+}
+
+.Order_Detail24 {
+    list-style: none;
+    margin-right: 12px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+.Order_Detail25 {
+    color: #666;
+    background-color: #F3F3F3;
+    height: 225px;
+}
+
+.Order_Detail26 {
+    width: 500px;
+    float: right;
+    text-align: right;
+    padding: 20px 10px;
+}
+
+.Order_Detail27 {
+    list-style: none;
+    font-size: 13px;
+    margin: 10px 0;
+}
+
+.Order_Detail28 {
+    list-style: none;
+    color: #333;
+    font-weight: 700;
+    margin: 20px 0;
+}
+
+.look_goods8:hover {
+    color: #2ac7d2;
+}
+
+.Order_Detail29:hover {
+    background-color: #2ac7d2;
+    border-color: #2ac7d2;
+}
+
+.Order_Detail30:hover {
+    color: #2ac7d2;
+}
+
+.ch_cart45454:hover {
+    color: #2ac7d2;
+}
+
+.Order_Detail30 {
+    width: 900px;
+    padding: 0 50px;
+    height: 350px;
+}
+
+.Order_Detail31 {
+    float: left;
+    width: 150px;
+    height: 350px;
+    padding: 25px;
+}
+
+.Order_Detail32 {
+    width: 100px;
+    height: 150px;
+    padding: 10px;
+}
+
+.Order_Detail33 {
+    float: left;
+    width: 100px;
+    height: 50px;
+    margin: 10px 0;
+    padding: 10px 0;
+}
+
+.Order_Detail34 {
+    height: 300px;
+    width: 500px;
+    float: left;
+    padding: 50px 50px;
+}
+
+.Order_Detail35 {
+    height: 200px;
+    width: 500px;
+    border-radius: 5px;
+    border: 1px dotted #cecece;
+}

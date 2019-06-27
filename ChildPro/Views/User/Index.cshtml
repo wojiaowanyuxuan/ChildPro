@@ -5,6 +5,12 @@
     Layout = "~/Views/Shared/_PostLayout.cshtml";
 }
 <link href="~/Content/userpage.css" rel="stylesheet" />
+<link href="~/Content/Cart.css" rel="stylesheet" />
+<link href="~/Content/订单.css" rel="stylesheet" />
+<link href="~/Content/AddtoOrder.css" rel="stylesheet" />
+<link rel="stylesheet" href="//cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="//cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <div class="user_page_content" id="app">
     <div class="page_ui">
@@ -24,10 +30,10 @@
                 }
                 <div class="attention_fans">
                     <span class="attention_num">
-                        <span class="num">142</span> 关注
+                        <span class="num">@Model.u.Follow1.Count()</span> 关注
                     </span>
                     <span class="fans_num">
-                        <span class="num" id="fans_num">514</span> 粉丝
+                        <span class="num" id="fans_num">@Model.u.Follow.Count()</span> 粉丝
                     </span>
                     @if (!Model.IsOwner)
                     {
@@ -170,10 +176,352 @@
                     <div class="nav_body_inner">
                         <el-tabs :tab-position="tabPosition">
                             <el-tab-pane label="购物车">
-                                购物车
+                                <div class="ch_cart4" style="margin-left:5px;margin-top:5px">
+                                    <div class="ch_cart5">
+                                        <div class="ch_cart6">
+                                            <ul class="ch_cart7">
+                                                <li class="ch_cart8">
+                                                    <a href="#" class="ch_cart9">
+                                                        <em style="color: #3399FF">全部商品</em>
+                                                        <span class="ch_cart10">(32)</span>
+                                                        <span class="ch_cart11"></span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <div class="ch_cart12">
+                                                <span class="ch_cart13">已选商品（不含运费）</span>
+                                                <strong class="ch_cart14">
+                                                    <em style="font-family: Verdana,Arial;padding-left: 2px;font-weight: 700;">
+                                                        <span class="ch_cart15">0.00</span>
+                                                    </em>
+                                                </strong>
+                                            </div>
+                                            <div class="ch_cart16">
+                                                <div class="ch_cart17" style="width: 220px; left: 0;"></div>
+                                            </div>
+                                            <div class="ch_cart18">
+                                                <div class="ch_cart19">
+
+                                                    <div class="ch_cart21">
+                                                        <div class="ch_cart22">
+                                                            <label style="margin-left: 20px">
+                                                                <span style="margin-right: 3px">
+                                                                    <span style="box-sizing: border-box;padding: 0;margin: 0;overflow: visible;font: inherit">
+                                                                        </sapn>
+                                                                    </span>
+                                                                    <span style="margin-right: 10px">全选</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ch_cart25">
+                                                        <div class="ch_cart26">商品信息</div>
+                                                    </div>
+                                                    <div class="ch_cart28">
+                                                        <div class="ch_cart26">单价</div>
+                                                    </div>
+                                                    <div class="ch_cart29">
+                                                        <div class="ch_cart26">数量</div>
+                                                    </div>
+                                                    <div class="ch_cart30">
+                                                        <div class="ch_cart26">金额</div>
+                                                    </div>
+                                                    <div class="ch_cart31">
+                                                        <div class="ch_cart26">操作</div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div style="height: auto">
+                                                    @foreach (var item in Model.carts)
+                                                    {
+                                                        var sum = item.Product.Product_Price * item.Pro_Num;
+
+                                                        <div class="clearfix carts_jilu" style="margin-bottom: 15px">
+                                                            <div class="ch_cart32 clearfix"></div>
+                                                            <div class="ch_cart33">
+                                                                <div class="ch_cart34">
+                                                                    <div class="ch_cart35">
+                                                                        <div class="ch_cart36">
+                                                                            <div class="ch_cart37">
+                                                                                <ul class="ch_cart38">
+                                                                                    <li class="ch_cart39">
+                                                                                        <div class="ch_cart40">
+                                                                                            <label style="margin-left: 10px">
+                                                                                                <span style="margin-right: 3px">
+                                                                                                    <a style="box-sizing: border-box;padding: 0;margin: 0;overflow: visible;font: inherit"></a>
+                                                                                                </span>
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                    <li class="ch_cart43">
+                                                                                        <div class="ch_cart44">
+                                                                                            <div class="ch_cart45">
+                                                                                                <a href="@Url.Action("ProductDetails","Store",new { id=item.Product_ID})" target="_blank" class="ch_cart46">
+                                                                                                    <img src="@item.Product.Product_Main_Image" class="ch_cart47">
+                                                                                                </a>
+                                                                                            </div>
+                                                                                            <div class="ch_cart1212">
+                                                                                                <div class="ch_cart48">
+                                                                                                    <a href="@Url.Action("ProductDetails","Store",new { id=item.Product_ID})" target="_blank" class="ch_cart45454" title="@item.Product.Product_Name">@item.Product.Product_Name</a>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                    <li class="ch_cart49">
+                                                                                        <div class="ch_cart50">
+                                                                                            <p class="ch_cart51">@item.Product_Norms.Specs<p>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                    <li class="ch_cart52">
+                                                                                        <div class="ch_cart53">
+                                                                                            <div class="ch_cart54">
+                                                                                                <div class="ch_cart55" style="padding-left:35px;width:100px">
+                                                                                                    <div class="ch_cart56">
+                                                                                                        <em class="ch_cart57" style="text-decoration:none;color:#3399FF">￥@item.Product.Product_Price</em>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                    <li class="ch_cart58" style="margin-left:13px">
+                                                                                        <div class="ch_cart59" style="padding-top:25px">
+                                                                                            <div class="ch_cart60">
+                                                                                                <div class="ch_cart61">
+                                                                                                    <span class="ch_cart63" style="border:none">@item.Pro_Num</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                    <li class="ch_cart65" style="padding-left:8px">
+                                                                                        <div class="ch_cart66">
+                                                                                            <em class="ch_cart67 oo">￥@sum</em>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                    <li class="ch_cart68">
+                                                                                        <div class="ch_cart69">
+                                                                                            <a href="@Url.Action("DeleteConfirmed","User",new { id = item.Cart_ID})" class="ch_cart70">删除</a>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>}
+                                                </div>
+                                            </div>
+                                            <div class="ch_cart71">
+                                                <div class="ch_cart72 clearfix">
+                                                    <div class="ch_cart73" style="display: none">
+                                                        <div class="ch_cart74"></div>
+                                                        <span class="ch_cart75"></span>
+                                                    </div>
+                                                    <div class="ch_cart76">
+                                                        <div class="ch_cart77">
+                                                            <label style="margin-left: 25px">
+                                                                <span style="margin-right: 3px">
+                                                                    <input style="box-sizing: border-box;padding: 0;margin:0 0 0 0;overflow: visible;font: inherit" type="checkbox">
+                                                                </span>
+                                                            </label>
+                                                            全选
+                                                        </div>
+                                                        <div class="ch_cart81">
+                                                            <a href="#" class="ch_cart82">删除</a>
+                                                            <a href="#" class="ch_cart83">分享</a>
+                                                        </div>
+                                                        <div class="ch_cart84">
+                                                            <div class="ch_cart85">
+                                                                <span class="txt">已选商品</span>
+                                                                <em class="ch_cart789">0</em>
+                                                                <span class="txt">件</span>
+                                                            </div>
+                                                            <div class="ch_cart86">
+                                                                <span class="txt">合计（不含运费）：</span>
+                                                                <strong class="ch_cart87">
+                                                                    <em class="ch_cart886">
+                                                                        <span class="ch_cart88"> ￥</span>
+                                                                        00.00
+                                                                    </em>
+                                                                </strong>
+                                                            </div>
+                                                            <div class="ch_cart89">
+                                                                <a class="ch_cart90" href="#" aria-label="没有选择宝贝，不能结算">
+                                                                    <span data-toggle="modal" data-target="#myModal">结 算</span>
+                                                                    <b></b>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                             </el-tab-pane>
                             <el-tab-pane label="订单记录">
-                                订单
+                                <div class="cart_box" style="margin-top:15px">
+                                    <div class="ch_cart4">
+                                        <div class="ch_cart5">
+                                            <div class="ch_cart6">
+                                                <ul class="ch_cart7">
+                                                    <li class="ch_cart8">
+                                                        <a href="#" class="ch_cart9">
+                                                            <em style="color: #3399FF">所有订单</em>
+                                                            <span class="ch_cart10">(32)</span>
+                                                            <span class="ch_cart11"></span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <div class="ch_cart16">
+                                                    <div class="ch_cart17" style="width: 220px; left: 0;"></div>
+                                                </div>
+                                                <div class="ch_cart18">
+                                                    <div class="ch_cart19">
+                                                        <div class="ch_cart21">
+                                                            <div class="ch_cart22">
+                                                                <label style="margin-left: 10px">
+                                                                    <span style="margin-right: 3px">
+                                                                        <input style="box-sizing: border-box;padding: 0;margin: 0;overflow: visible;font: inherit" type="checkbox">
+                                                                    </span>
+                                                                    <span style="margin-right: 10px">全选</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="ch_cart25" style="width: 110px">
+                                                            <div class="ch_cart26">商品</div>
+                                                        </div>
+                                                        <div class="ch_cart28" style="margin-left: 75px">
+                                                            <div class="ch_cart26">单价</div>
+                                                        </div>
+                                                        <div class="ch_cart29" style="margin-left: 15px;width: 80px">
+                                                            <div class="ch_cart26" style="padding-left:25px ">数量</div>
+                                                        </div>
+                                                        <div class="ch_cart30" style="width: 70px">
+                                                            <div class="ch_cart26" style="padding: 0">商品操作</div>
+                                                        </div>
+                                                        <div class="ch_cart30" style="width: 60px">
+                                                            <div class="ch_cart26" style="padding: 0">实付款</div>
+                                                        </div>
+                                                        <div class="ch_cart30" style="width: 80px">
+                                                            <div class="ch_cart26" style="padding: 0">交易状态</div>
+                                                        </div>
+                                                        <div class="ch_cart31">
+                                                            <div class="ch_cart26" style="padding-left: 25px">交易操作</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    @foreach (var item in Model.order_Details)
+                                                    {
+                                                        <div style="height: auto">
+                                                            <div class="clearfix" style="margin-bottom: 15px">
+                                                                <div class="ch_cart32 clearfix"></div>
+                                                                <div class="ch_cart33">
+                                                                    <div class="ch_cart34">
+                                                                        <div class="ch_cart35">
+                                                                            <div class="ch_cart36">
+                                                                                <div class="Order1">
+                                                                                    <div class="Order2">
+                                                                                        <div class="Order3">
+                                                                                            <div class="Order4">
+                                                                                                <label class="Order5">
+                                                                                                    <span class="Order6">
+                                                                                                        <input class="Order6154" type="checkbox">
+                                                                                                    </span>
+                                                                                                    <span class="Order7">2016-12-12</span>
+                                                                                                </label>
+                                                                                                <span class="Order8">
+                                                                                                    <span class="Order9">订单号</span>
+                                                                                                    <span class="Order10">：</span>
+                                                                                                    <span class="Order11">@item.Order_Detail_ID</span>
+                                                                                                </span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                </div>
+                                                                                <div class="ch_cart37">
+                                                                                    <ul class="ch_cart38" style="margin: 0">
+                                                                                        <li class="ch_cart43">
+                                                                                            <div class="ch_cart44">
+                                                                                                <div class="ch_cart45">
+                                                                                                    <a href="@Url.Action("ProductDetail","Store",new { id=item.Product_ID})" target="_blank" class="ch_cart46">
+                                                                                                        <img src="@item.Product.Product_Main_Image" class="ch_cart47">
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                                <div class="ch_cart1212">
+                                                                                                    <div class="ch_cart48">
+                                                                                                        <a href="#" target="_blank" class="ch_cart45454" title="@item.Product.Product_Name">@item.Product.Product_Name</a>
+                                                                                                    </div>
+                                                                                                    <div class="ch_cart50" style="padding: 0;min-height: 50px">
+                                                                                                        <p class="ch_cart51" style="margin:2px 0 0 0">@item.Product_Norms.Specs</p>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </li>
+                                                                                        <li class="ch_cart52" style="margin-right:5px">
+                                                                                            <div class="ch_cart53">
+                                                                                                <div class="ch_cart54">
+                                                                                                    <div class="ch_cart55" style="padding-left:20px">
+                                                                                                        <div class="ch_cart56">
+                                                                                                            <em class="ch_cart57" style="text-decoration:none">￥@item.Product.Product_Price</em>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </li>
+                                                                                        <li class="ch_cart58" style="width: 60px;margin-right: 30px">
+                                                                                            <div class="ch_cart59" style="padding: 28px 0 0 30px">
+                                                                                                <div class="ch_cart60">
+                                                                                                    @item.Pro_Num
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </li>
+                                                                                        <li class="ch_cart68" style="margin:0 5px 0 10px;width: 76px">
+                                                                                            <div class="ch_cart69">
+                                                                                                <a class="ch_cart70">退款/退货</a>
+                                                                                            </div>
+                                                                                        </li>
+                                                                                        <li class="ch_cart65" style="margin-left: 40px;width:80px">
+                                                                                            <div class="ch_cart66">
+                                                                                                <em class="ch_cart67">￥@item.Product.Product_Price</em>
+                                                                                            </div>
+                                                                                        </li>
+                                                                                        <li class="ch_cart68" style="margin-left: 5px;padding-left:20px;width:80px">
+                                                                                            <div class="ch_cart69">
+                                                                                                <a class="ch_cart70">待付款</a>
+                                                                                            </div>
+                                                                                            <div class="ch_cart69" style="padding-top:7px">
+                                                                                                <a href="@Url.Action("OrderDetail","Store",new { id=item.Order_Detail_ID})" class="ch_cart70">订单详情</a>
+                                                                                            </div>
+                                                                                        </li>
+                                                                                        <li class="ch_cart68" style="margin:0 0 0 42px;width: 80px">
+                                                                                            <div class="ch_cart69">
+                                                                                                <a href="@Url.Action("OrderDetail","Store",new { id=item.Order_Detail_ID})" class="ch_cart70">确认收货</a>
+                                                                                            </div>
+                                                                                            <div class="ch_cart69" style="padding-top:7px">
+                                                                                                <a href="@Url.Action("OrderDetail","Store",new { id=item.Order_Detail_ID})" class="ch_cart70">评价</a>
+                                                                                            </div>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                             </el-tab-pane>
                         </el-tabs>
                     </div>
@@ -184,6 +532,189 @@
         </div>
     </div>
 </div>
+<!--提交订单-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="margin: 50px 0 0 310px;width: 1000px;height: auto">
+        <div class="modal-content" style="width: 1000px;height: auto">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    提交订单
+                </h4>
+            </div>
+            <div class="modal-body ch_cart4" style="margin: 10px 0 20px 0;float: left;border-bottom: 1px dotted #ccc;">
+                <div class="ch_cart5">
+                    <div class="ch_cart6">
+                        <div class="AddtoOrder">
+                            <h3 class="AddtoOrder1">
+                                <span>确认收货地址：</span>
+                            </h3>
+                        </div>
+                        <div class="ch_cart4" style="float: left">
+                            <div class="ch_cart5" style="min-height: 180px;border-bottom: 1px dotted #cecece">
+                                <div class="ch_cart6">
+                                    <span style="width: 100px;float: left;line-height: 44px;padding-left: 10px;margin-left: 30px">寄送至：</span>
+                                    <select id="addre"  style="float: left;;height: 44px;width: 800px;background-color: #fff0e8;border-radius: 2px;font-size: 14px;padding-left: 10px;">
+                                        @foreach (var item in Model.adresses)
+                                        {
+                                            <option class="AddtoOrder3" value="@item.Adress_Detail">
+                                                <span class="AddtoOrder4">
+                                                    <span class="AddtoOrder5">@item.Adress_Detail</span>
+                                                </span>
+                                            </option>}
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ch_cart4" style="margin-left:45px;margin-top:70px;float: left;">
+                            <div class="ch_cart5">
+                                <div class="ch_cart6">
+                                    <ul class="ch_cart7" style="padding: 0px">
+                                        <li class="ch_cart8">
+                                            <a href="#" class="ch_cart9" style="padding: 0;text-decoration: none">
+                                                <em style="color: #f40">确认订单信息</em>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="ch_cart16">
+                                        <div class="ch_cart17" style="width: 220px; left: 0;background: #f40"></div>
+                                    </div>
+                                    <div class="ch_cart18">
+                                        <div class="ch_cart19">
+                                            <div class="ch_cart25">
+                                                <div class="ch_cart26" style="padding-left: 70px">商品信息</div>
+                                            </div>
+                                            <div class="ch_cart28" style="margin-left: 190px">
+                                                <div class="ch_cart26">单价</div>
+                                            </div>
+                                            <div class="ch_cart29" style="margin-left: 50px">
+                                                <div class="ch_cart26">数量</div>
+                                            </div>
+                                            <div class="ch_cart30">
+                                                <div class="ch_cart26">小计</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="height: auto">
+                                        <!--订单商品展示-->
+                                        <div class="clearfix" style="margin-bottom: 15px">
+                                            <div class="ch_cart32 clearfix"></div>
+                                            <div class="ch_cart33">
+                                                <div class="ch_cart34" style="border-bottom: 1px dotted #ccc">
+                                                    <div class="ch_cart35">
+                                                        <div class="ch_cart36">
+                                                            <div class="ch_cart37">
+                                                                <ul class="ch_cart38" style="padding: 0">
+                                                                    @foreach (var item in Model.carts)
+                                                                    {
+                                                                        var sum = item.Product.Product_Price * item.Pro_Num;
+                                                                            <li class="ch_cart43">
+                                                                                <div class="ch_cart44">
+                                                                                    <div class="ch_cart45">
+                                                                                        <a href="@Url.Action("ProductDetails","Store",new { id = item.Product_ID })" target="_blank" class="ch_cart46">
+                                                                                            <img src="@item.Product.Product_Main_Image" class="ch_cart47">
+                                                                                        </a>
+                                                                                    </div>
+                                                                                    <div class="ch_cart1212">
+                                                                                        <div class="ch_cart48">
+                                                                                            <a href="@Url.Action("ProductDetails","Store",new { id = item.Product_ID})" target="_blank" class="ch_cart45454" title="#" style="text-decoration: none">@item.Product.Product_Name</a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="ch_cart49" style="width: 150px">
+                                                                                <div class="ch_cart50">
+                                                                                    <p class="ch_cart51">@item.Product_Norms.Specs<p>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="ch_cart52" style="width: 100px">
+                                                                                <div class="ch_cart53">
+                                                                                    <div class="ch_cart54">
+                                                                                        <div class="ch_cart55">
+                                                                                            <div class="ch_cart56">
+                                                                                                <em class="ch_cart57" style="text-decoration:none;color:#f40">￥@item.Product.Product_Price</em>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="ch_cart58">
+                                                                                <div class="ch_cart59" style="padding-top:25px">
+                                                                                    <div class="ch_cart60">
+                                                                                        <div class="ch_cart61">
+                                                                                            <p style="padding-left: 12px">@item.Pro_Num</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="ch_cart65" style="width: 100px">
+                                                                                <div class="ch_cart66">
+                                                                                    <em class="ch_cart67 oo" style="color: #f40">￥@sum</em>
+                                                                                </div>
+                                                                            </li>
+}
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="AddtoOrder5">
+                                                    <div class="AddtoOrder6">
+                                                        <div class="AddtoOrder7">
+                                                            <label class="AddtoOrder8">给买家留言：</label>
+                                                            <div class="AddtoOrder9">
+                                                                <input class="AddtoOrder10" placeholder="选填，请先和商家协商一致">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="AddtoOrder12">
+                                        <div class="AddtoOrder13">
+                                            <div class="AddtoOrder14">
+                                                <div class="AddtoOrder15">
+                                                    <span class="AddtoOrder16">实付款：</span>
+                                                    <span class="AddtoOrder17">￥</span>
+                                                    <span class="AddtoOrder18">26.5</span>
+                                                </div>
+                                            </div>
+                                            <div class="AddtoOrder19">
+                                                <div class="AddtoOrder20">
+                                                    <span class="AddtoOrder21">收货人：</span>
+                                                    <span class="AddtoOrder22">
+                                                        <span class="AddtoOrder23">@Model.u.UserName</span>
+                                                        <input class="AddtoOrder24" value="@Model.u.Phone" style="border:1px dashed #cecece;padding-left:13px">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="margin-bottom: 20px">
+                <button id="addtoOrder" type="button" class="btn btn-default AddtoOrder25" data-dismiss="modal" style="float: right;margin-right: 45px;background-color: #f40;border: 1px solid transparent;font-weight: 700;color: #cecece">
+                    提交订单
+                </button>
+                @*<button type="button" class="btn btn-primary AddtoOrder25" id="addtoOrder" style="background-color: #f40;border:1px solid transparent;margin-right: 45px">
+                        提交订单
+                    </button>*@
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+
 
 <script type="text/javascript">
     var app = new Vue({
@@ -230,6 +761,59 @@
                 }
             }
         }
+    })
+</script>
+
+
+<script type="text/javascript">
+
+    //$(function () {
+    //    let a = $('.oo');
+    //    a.each(function () {
+    //        var v = $(this);
+    //        let num = Number(v.parents('.ch_cart65').siblings('.ch_cart58').find('.ch_cart63').val());
+    //        let price = parseInt(v.parents('.ch_cart65').siblings('.ch_cart52').find('.ch_cart57').html().substring(1), 10);
+    //        let sum = num * price;
+    //        v.html('￥' + sum)
+    //    })
+    //})
+
+    $(function () {
+        var s,cart = $(".carts_jilu");
+        for (var i = 0; i < cart.length; i++) {
+            var a = $('.oo');
+            s += a;
+        }
+
+    })
+</script>
+
+<script>
+    $(function () {
+        $('#addtoOrder').on('click', function () {
+            var address = $('#addre').val();
+            var marks = $('.AddtoOrder10').val();
+            let abj = {
+                address,
+                marks,
+            };
+            $.ajax({
+                url: '/User/AddToOrder',
+                type: 'Post',
+                dataType: "Json",
+                contentType:'application/json;setchar=uft-8',
+                //contentType: 'application/json;charset=utf-8',
+                data: JSON.stringify(abj),
+                //data: JSON.stringify(obj),
+                success: function (res) {
+                    console.log(res.message);
+                    window.history.go(0);
+                },
+                error: function () {
+                    console.log("error");
+                }
+            })
+        })
     })
 </script>
 

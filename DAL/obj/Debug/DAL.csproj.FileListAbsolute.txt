@@ -10,3 +10,7 @@ E:\201626705036VS\少儿编程\DAL\bin\Debug\zh-Hans\EntityFramework.resources.d
 E:\201626705036VS\少儿编程\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 E:\201626705036VS\少儿编程\DAL\obj\Debug\DAL.dll
 E:\201626705036VS\少儿编程\DAL\obj\Debug\DAL.pdb
+E:\201626705036VS\少儿编程\DAL\bin\Debug\DAL.dll.config
+E:\201626705036VS\少儿编程\DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\201626705036VS\少儿编程\DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\201626705036VS\少儿编程\DAL\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll

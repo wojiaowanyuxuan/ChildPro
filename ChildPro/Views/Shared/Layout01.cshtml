@@ -1,0 +1,102 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/global.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link href="~/Content/header.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+    <style>
+        .main-nav {
+            margin: 0 auto;
+            width: 1205px;
+            line-height: 45px;
+            font-size: 16px;
+            border-top: 1px solid #ddd;
+            background:#4CAF50;
+            margin-top: 10px;
+        }
+        .container{
+            margin: 0 auto;
+            width: 1250px;
+        }
+
+        .container li a{
+            display: block;
+            color:black;
+            text-align: center;
+            padding: 16px;
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">      
+        <div class="header_wrap p-r">
+            <div class="bg_cover"></div>
+            <div class="header_top_nav p-r">
+                <div class="header_flow">
+                    <div class="header_top p-r">
+                        <a class="indexlogo f-l">
+                            <img class="f-l logo_img" width="188" height="55" src="~/Image/FirstPage/cheng.png"/>
+                        </a>
+                        <div class="search_box p-r f-l">
+                            <div class="search_box_left f-l p-r">
+                                <span class="select_show_type">
+                                    <span class="select_type">课程</span>
+                                    <i class="fa fa-angle-down f-s20"></i>
+                                </span>
+                                <div>
+
+                                </div>
+                            </div>
+                            <div class="search_box_milieu p-r">
+                                <input type="text" class="search_input f-s14" placeholder="行业专家亲授，直击就业痛点">
+                            </div>
+                            <div class="search_box_right p-a">
+                                <i class="fa fa-search-plus m-l10"></i>
+                                <span>搜索</span>
+                            </div>
+                            <!-- 搜索结果列表 -->
+                            <div class="search_result_wrap"></div>
+                        </div>
+                        <div class="header_userinfo p-r f-r">
+                            <div class="userinfo_area p-r">
+                                @Html.Action("headerSummery", "Home")
+                                @if (Session["userid"] != null)
+                                {
+                                    <a href="@Url.Action("Mycourse","Course",new { userid = Session["userid"]})" class="my_study f-r">我的学习</a>
+                                }
+                                @if (Session["teacherid"] != null)
+                                {
+                                    <a href="@Url.Action("Index","Teacher",new { teacherid = Session["teacherid"]})" class="my_study f-r">教师中心</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-nav">
+                        <div class="container">
+                            <!--data-spy="affix" data-offset-top="125"-->
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="@Url.Action("Index","Home")">首页</a></li>
+                                <li><a href="@Url.Action("Index","Course")">学习天地</a></li>
+                                <li><a href="http://localhost:65238/CodeInlie/index.html">创作乐园</a></li>
+                                <li><a href="#">互动社区</a></li>
+                                <li><a href="#">个性商城</a></li>
+                                <li><a href="#">关于我们</a></li>                            
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @RenderBody()
+    </div>
+
+    
+</body>
+</html>

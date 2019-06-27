@@ -1,0 +1,228 @@
+﻿.look_goods {
+    left: 170px;
+    top: 680px;
+    position: absolute;
+    z-index: 121;
+    width: 1200px;
+    height: 50px;
+}
+
+.look_goods1 {
+    word-wrap: break-word;
+    padding: 0px;
+    border-color: transparent transparent rgb(221, 221, 221);
+    border-width: 0px 0px 1px;
+    height: 49px;
+    background-color: rgb(255, 255, 255);
+    width: 1200px;
+    border-style: solid;
+}
+
+.look_goods2 {
+    left: 11px;
+    top: 12px;
+    position: absolute;
+    z-index: 115;
+    width: 26px;
+    height: 26px;
+}
+
+.look_goods3 {
+    overflow: hidden;
+    width: 26px;
+    height: 26px;
+}
+
+.look_goods4 {
+    overflow: hidden;
+    border-color: transparent;
+    border-width: 0px;
+    position: relative;
+    width: 26px;
+    height: 26px;
+}
+
+.look_goods5 {
+    width: 26px;
+    height: auto;
+    display: inline;
+}
+
+.look_goods6 {
+    left: 46px;
+    top: 17px;
+    position: absolute;
+    z-index: 116;
+    width: 1115px;
+    height: 13px;
+}
+
+.look_goods7 {
+    width: 1115px;
+    height: 13px;
+}
+
+.look_goods8 {
+    line-height: 100%;
+    font-size: 12px;
+    font-family: Microsoft YaHei;
+    color: rgb(102, 102, 102);
+}
+
+.look_goods9 {
+    line-height: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: rgb(204, 204, 204);
+    font-size: 12px;
+}
+
+.look_goods10 {
+    left: 540px;
+    top: 794px;
+    position: absolute;
+    z-index: 123;
+    width: 486px;
+    height: 50px;
+}
+
+.look_goods11 {
+    border-color: transparent;
+    border-width: 0px;
+    width: 486px;
+    height: 50px;
+}
+
+.look_goods12 {
+    background-image: url(https://static.websiteonline.cn/website/plugin/product_category/view/images/png_bg.png);
+    background-color: transparent;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    background-position: top left;
+    background-repeat: repeat-x;
+    line-height: 50px;
+    height: 50px;
+}
+
+.look_goods13 {
+    width: 33.333333333333%;
+    z-index: 2;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    background-color: transparent;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    float: left;
+}
+
+.look_goods14 {
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    color: #67d5d8;
+    font-family: Microsoft YaHei;
+}
+
+.look_goods15 {
+    left: 270.5px;
+    top: 836px;
+    position: absolute;
+    z-index: 124;
+    width: 1005px;
+    height: 33px;
+}
+
+.look_goods16 {
+    padding: 0px;
+    border-color: transparent;
+    border-width: 0px;
+    overflow: hidden;
+    width: 1005px;
+    height: 33px;
+}
+
+.look_goods17 {
+    border: none;
+    border-top: 3px double #67d5d8;
+    height: 0;
+    margin: 15px 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+a:focus, a:hover {
+    text-decoration: none;
+}
+
+.look_goods18 {
+    left: 275px;
+    top: 884px;
+    position: absolute;
+    z-index: 122;
+    width: 998px;
+    height: 569px;
+}
+
+.look_goods19 {
+    border-color: transparent;
+    border-width: 0px;
+    overflow: hidden;
+    width: 998px;
+    height: 569px;
+}
+
+.look_goods20 {
+    vertical-align: top;
+    width: 210px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+    border: 1px solid #dddddd;
+    overflow: auto;
+    zoom: 1;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    line-height: 140%;
+    display: inline-block;
+}
+
+.look_goods21 {
+    height: 210px;
+    width: 210px;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    margin-bottom: 8px;
+    overflow: hidden;
+    position: relative;
+    left: -17px;
+}
+
+.look_goods22 {
+    text-decoration: none;
+    color: #5a5a5a;
+}
+
+.look_goods23 {
+    position: relative;
+    max-width: 210px;
+    margin: 0px auto;
+    max-height: 210px;
+    height: 210px;
+    width: 210px;
+    display: inline;
+}
+
+.look_goods24 {
+    height: 20px;
+    padding: 0 3px 0 6px;
+}
+
+.active1 {
+    background-image: url(https://gifts-1022594-hkpic1.websiteonline.cn/upload/title-line-2.png);
+}

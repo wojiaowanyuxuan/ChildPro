@@ -59,3 +59,9 @@ E:\201626705036VS\少儿编程\ChildPro\bin\zh-Hans\System.Web.Mvc.resources.dll
 E:\201626705036VS\少儿编程\ChildPro\obj\Debug\ChildPro.csprojResolveAssemblyReference.cache
 E:\201626705036VS\少儿编程\ChildPro\obj\Debug\ChildPro.dll
 E:\201626705036VS\少儿编程\ChildPro\obj\Debug\ChildPro.pdb
+E:\201626705036VS\少儿编程\ChildPro\bin\BLL.dll
+E:\201626705036VS\少儿编程\ChildPro\bin\PagedList.dll
+E:\201626705036VS\少儿编程\ChildPro\bin\PagedList.Mvc.dll
+E:\201626705036VS\少儿编程\ChildPro\bin\BLL.pdb
+E:\201626705036VS\少儿编程\ChildPro\bin\PagedList.xml
+E:\201626705036VS\少儿编程\ChildPro\bin\PagedList.Mvc.xml

@@ -1,0 +1,240 @@
+﻿
+@model ChildPro.Models.CourseViewModel
+
+@{
+    ViewBag.Title = "学习天地";
+    Layout = "~/Views/Shared/Layout01.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学习天地</title>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <link href="~/Content/程就未来CSS代码/课堂首页样式.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</head>
+<body>  
+    <div class="u-gray">
+        <div class="course-system">
+            <div class="uc-course-system_hd">
+                <h2 class="title f-ib">系统化学习路径</h2>
+                <span class="sub-title f-ib">六大课程体系，让学习有章有序</span>
+            </div>
+            <div class="one">
+                <ul>
+                    @foreach (var item in Model.coursetype)
+                    {
+                        <li><a href="@Url.Action("System","Course",new{ typeid = item.CourseTypeID})"><img src="@item.Image" alt="" height="150" width="240" /><span style="width: 240px;"><b>@item.CourseTypeName</b></span></a></li>
+                    }
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="m-r-index">
+            <div class="m-r-person"></div>
+            <div class="uc-recommend-list">
+                <div class="uc-recommend-list-row-wrap m1">
+                    <div class="uc-recommend-list-row-tit">
+                        最新课程
+                    </div>
+                    <!--一类视频的具体内容-->
+                    <div class="course-list">
+                        <div class="row">
+                            @foreach (var item in Model.GetNewCourse)
+                            {
+                                <div class="col-lg-3 col-md-4 col-xs-6">
+                                    <div class="course-item">
+                                        <div class="course-img">
+                                            <a href="@Url.Action("Datails","Course",new {id = item.CourseID, teacherid = item.TeacherId})" target="_blank">
+                                                <img src="@item.ImageMineType" alt="计算机如何工作？Code.org出品" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="course-info">
+                                            <div class="title">
+                                                <a class="link-dark" href="@Url.Action("Datails","Course",new {id = item.CourseID, teacherid = item.TeacherId})" target="_blank">
+                                                    @item.CourseName
+                                                </a>
+                                            </div>
+                                            <div class="metas clearfix">
+                                                <span class="num"><i class="fa fa-address-book-o" style="font-size:16px"></i>@item.Number</span>
+                                                <span class="comment"><i class="fa fa-commenting" style="font-size:16px"></i>0</span>
+                                                <span class="comment"><i class="fa fa-youtube-play" style="font-size:16px"></i>试看</span>
+                                                <span class="course-price-widget"><span class="free">免费</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="uc-recommend-list">
+                <div class="uc-recommend-list-row-wrap m1">
+                    <div class="uc-recommend-list-row-tit">
+                        热门课程
+                    </div>
+                    <!--一类视频的具体内容-->
+                    <div class="course-list">
+                        <div class="row">
+                            @foreach (var item in Model.GetHotCourse)
+                            {
+                                <div class="col-lg-3 col-md-4 col-xs-6">
+                                    <div class="course-item">
+                                        <div class="course-img">
+                                            <a href="@Url.Action("Datails","Course",new {id = item.CourseID, teacherid = item.TeacherId})" target="_blank">
+                                                <img src="@item.ImageMineType" alt="计算机如何工作？Code.org出品" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="course-info">
+                                            <div class="title">
+                                                <a class="link-dark" href="@Url.Action("Datails","Course",new {id = item.CourseID, teacherid = item.TeacherId})" target="_blank">
+                                                    @item.CourseName
+                                                </a>
+                                            </div>
+                                            <div class="metas clearfix">
+                                                <span class="num"><i class="fa fa-address-book-o" style="font-size:16px"></i>@item.Number</span>
+                                                <span class="comment"><i class="fa fa-commenting" style="font-size:16px"></i>0</span>
+                                                <span class="comment"><i class="fa fa-youtube-play" style="font-size:16px"></i>试看</span>
+                                                <span class="course-price-widget"><span class="free">免费</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="uc-recommend-list">
+                <div class="uc-recommend-list-row-wrap m1">
+                    <div class="uc-recommend-list-row-tit">
+                        好课推荐
+                    </div>
+                    <!--一类视频的具体内容-->
+                    <div class="course-list">
+                        <div class="row">
+                            @foreach (var item in Model.course)
+                            {
+                                <div class="col-lg-3 col-md-4 col-xs-6">
+                                    <div class="course-item">
+                                        <div class="course-img">
+                                            <a href="@Url.Action("Datails","Course",new {id = item.CourseID , teacherid = item.TeacherId})" target="_blank">
+                                                <img src="@item.ImageMineType" alt="计算机如何工作？Code.org出品" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="course-info">
+                                            <div class="title">
+                                                <a class="link-dark" href="@Url.Action("Datails","Course",new {id = item.CourseID  , teacherid = item.TeacherId})" target="_blank">
+                                                    @item.CourseName
+                                                </a>
+                                            </div>
+                                            <div class="metas clearfix">
+                                                <span class="num"><i class="fa fa-address-book-o" style="font-size:16px"></i>@item.Number</span>
+                                                <span class="comment"><i class="fa fa-commenting" style="font-size:16px"></i>0</span>
+                                                <span class="comment"><i class="fa fa-youtube-play" style="font-size:16px"></i>试看</span>
+                                                <span class="course-price-widget"><span class="free">免费</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }                       
+                        </div>
+                    </div>
+                </div>
+            </div>            
+            <div class="uc-recommend-list">
+                <div class="uc-recommend-list-row-wrap m1">
+                    <div class="uc-recommend-list-row-tit">
+                        免费课程
+                    </div>
+                    <!--一类视频的具体内容-->
+                    <div class="course-list">
+                        <div class="row">
+                            @foreach (var item in Model.course)
+                            {
+                                <div class="col-lg-3 col-md-4 col-xs-6">
+                                    <div class="course-item">
+                                        <div class="course-img">
+                                            <a href="@Url.Action("Datails","Course",new {id = item.CourseID , teacherid = item.TeacherId})" target="_blank">
+                                                <img src="@item.ImageMineType" alt="计算机如何工作？Code.org出品" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="course-info">
+                                            <div class="title">
+                                                <a class="link-dark" href="@Url.Action("Datails","Course",new {id = item.CourseID , teacherid = item.TeacherId})" target="_blank">
+                                                    @item.CourseName
+                                                </a>
+                                            </div>
+                                            <div class="metas clearfix">
+                                                <span class="num"><i class="fa fa-address-book-o" style="font-size:16px"></i>@item.Number</span>
+                                                <span class="comment"><i class="fa fa-commenting" style="font-size:16px"></i>0</span>
+                                                <span class="comment"><i class="fa fa-youtube-play" style="font-size:16px"></i>试看</span>
+                                                <span class="course-price-widget"><span class="free">免费</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+    /*/!* 有的浏览器第一次加载不会动画  刷新当前页面一次 可以不加的*!/
+    function reurl(){
+        url = location.href;var times = url.split("?");
+        if(times[1] != 1){url += "?1"; self.location.replace(url);}
+    }
+    onload=reurl ;
+    /!* 有的浏览器第一次加载不会动画  刷新当前页面一次 *!/*/
+
+    $(document).ready(function () {
+        var box0 = $(".one"),v0 = 0.8; //这里添加滚动的对象和其速率
+        Rin(box0,v0);
+
+        function Rin($Box,v){//$Box移动的对象，v对象移动的速率
+            var $Box_ul = $Box.find("ul"),
+                $Box_li = $Box_ul.find("li"),
+                $Box_li_span = $Box_li.find("span"),
+                left = 0,
+                s=0,
+                timer;//定时器
+
+            $Box_li.each(function(index){
+                $($Box_li_span[index]).width($(this).width());//hover
+                s += $(this).outerWidth(true); //即要滚动的长度
+            })
+
+            window.requestAnimationFrame = window.requestAnimationFrame||function(Tmove){return setTimeout(Tmove,1000/60)};
+            window.cancelAnimationFrame = window.cancelAnimationFrame||clearTimeout;
+
+            if( s>=$Box.width()){//如果滚动长度超出Box长度即开始滚动，没有的话就不执行滚动
+                $Box_li.clone(true).appendTo($Box_ul);
+                Tmove();
+                function Tmove(){
+                    //运动是移动left  从0到-s;（个人习惯往左滚）
+                    left -= v;
+                    if(left <= -s){left = 0;$Box_ul.css("left",left)}else{ $Box_ul.css("left",left) }
+                    timer = requestAnimationFrame(Tmove);
+                }
+                $Box_ul.hover(function(){cancelAnimationFrame(timer)},function(){Tmove()})
+            }
+        }
+    })
+
+
+    </script>
+</body>
+
+</html>

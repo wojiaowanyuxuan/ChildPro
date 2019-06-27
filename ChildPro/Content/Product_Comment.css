@@ -1,0 +1,58 @@
+﻿.Comment {
+    width: 540px;
+    padding-right: 120px;
+    padding-left: 15px;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.Comment1 {
+    color: #333;
+    word-wrap: break-word;
+    word-break: break-all;
+    line-height: 19px;
+    overflow: hidden;
+}
+
+.Comment2 {
+    margin: 20px 0 20px 0;
+}
+
+.Comment3 {
+    clear: both;
+    color: #ccc;
+    margin-bottom: 8px;
+}
+
+.Comment4 {
+    width: 200px;
+    color: #999;
+    padding: 16px 7px;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.Comment5 {
+    margin-bottom: 3px;
+}
+
+.Comment6 {
+    padding-right: 0;
+    padding-left: 60px;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.Comment7 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 95px;
+}
+
+.Comment8 {
+    background-color: transparent;
+    margin: 5px;
+}
+
+.Comment9 {
+    width: 20px;
+    height: 20px;
+}

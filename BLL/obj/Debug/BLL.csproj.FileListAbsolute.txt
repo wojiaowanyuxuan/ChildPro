@@ -1,3 +1,20 @@
+C:\Users\User\Desktop\少儿编程阿\ChildPro\BLL\bin\Debug\BLL.dll
+C:\Users\User\Desktop\少儿编程阿\ChildPro\BLL\bin\Debug\BLL.pdb
+C:\Users\User\Desktop\少儿编程阿\ChildPro\BLL\bin\Debug\DALFactory.dll
+C:\Users\User\Desktop\少儿编程阿\ChildPro\BLL\bin\Debug\IDAL.dll
+C:\Users\User\Desktop\少儿编程阿\ChildPro\BLL\bin\Debug\Models.dll
+C:\Users\User\Desktop\少儿编程阿\ChildPro\BLL\bin\Debug\EntityFramework.dll
+C:\Users\User\Desktop\少儿编程阿\ChildPro\BLL\bin\Debug\DALFactory.pdb
+C:\Users\User\Desktop\少儿编程阿\ChildPro\BLL\bin\Debug\IDAL.pdb
+C:\Users\User\Desktop\少儿编程阿\ChildPro\BLL\bin\Debug\Models.pdb
+C:\Users\User\Desktop\少儿编程阿\ChildPro\BLL\bin\Debug\EntityFramework.xml
+C:\Users\User\Desktop\少儿编程阿\ChildPro\BLL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+C:\Users\User\Desktop\少儿编程阿\ChildPro\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\少儿编程阿\ChildPro\BLL\obj\Debug\BLL.dll
+C:\Users\User\Desktop\少儿编程阿\ChildPro\BLL\obj\Debug\BLL.pdb
+E:\201626705036VS\少儿编程\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+E:\201626705036VS\少儿编程\BLL\obj\Debug\BLL.dll
+E:\201626705036VS\少儿编程\BLL\obj\Debug\BLL.pdb
 E:\201626705036VS\少儿编程\BLL\bin\Debug\BLL.dll
 E:\201626705036VS\少儿编程\BLL\bin\Debug\BLL.pdb
 E:\201626705036VS\少儿编程\BLL\bin\Debug\DALFactory.dll
@@ -9,6 +26,3 @@ E:\201626705036VS\少儿编程\BLL\bin\Debug\IDAL.pdb
 E:\201626705036VS\少儿编程\BLL\bin\Debug\Models.pdb
 E:\201626705036VS\少儿编程\BLL\bin\Debug\EntityFramework.xml
 E:\201626705036VS\少儿编程\BLL\bin\Debug\zh-Hans\EntityFramework.resources.dll
-E:\201626705036VS\少儿编程\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
-E:\201626705036VS\少儿编程\BLL\obj\Debug\BLL.dll
-E:\201626705036VS\少儿编程\BLL\obj\Debug\BLL.pdb

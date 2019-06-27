@@ -27,5 +27,14 @@ namespace ChildPro.Models
 
 		//用户关注的人
 		public IEnumerable<Follow> All_Attention { get; set; }
+
+		//购物车
+		public IEnumerable<Cart> carts { get; set; }
+
+		//收货地址
+		public IEnumerable<Adress> adresses { get; set; }
+
+		//订单
+		public IEnumerable<Order_Detail> order_Details { get; set; }
 	}
 }

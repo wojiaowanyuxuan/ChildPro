@@ -1,0 +1,249 @@
+﻿@model ChildPro.Models.StoreViewModel
+
+@{
+    Layout = "~/Views/Shared/_PostLayout.cshtml";
+}
+<link href="~/Content/商城首页.css" rel="stylesheet" />
+<link rel="stylesheet" href="//cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="~/Content/商品中心.css" rel="stylesheet" />
+<script src="//cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+    .look_goods20:hover {
+        border: 1px solid #ff541f;
+        border-radius: 2px;
+    }
+    .product_center123456 {
+        text-decoration: none;
+        display: inline-block;
+        max-width: 120px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .product_center123456:hover {
+        color: aqua;
+    }
+    .guide1314:hover {
+        color: #CCCCFF;
+    }
+    .btnarea:hover {
+        background-color: aquamarine;
+    }
+</style>
+<div style="margin: 0 auto;width:1200px;height: 2741px">
+    <!--导航栏-->
+
+    <!--轮播图-->
+    <div class="picture1" style="top:100px">
+        <div class="picture2">
+            <div class="picture3">
+                <div class="html5zoo-wrapper-0">
+                    <div class="html5zoo-slider-0 html5zoo_slider_div">
+                        <div class="html5zoo-box-0">
+                            <div class="html5zoo-box-0">
+                                <div class="html5zoo-img-box-0" style="overflow: hidden">
+                                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                        <!-- 轮播（Carousel）指标 -->
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                                        </ol>
+                                        <!-- 轮播（Carousel）项目 -->
+                                        <div class="carousel-inner">
+                                            <div class="item active">
+                                                <img src="~/img/slider-img-2.jpg" alt="First slide" style="height: 600px;width:1920px">
+                                            </div>
+                                            <div class="item">
+                                                <img src="~/img/slider-img-3.jpg" alt="Second slide" style="height: 600px;width:1920px">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--轮播between-->
+    <div class="picture-over">
+        <div class="picture-over1">
+            <div class="picture-over2">
+                <div class="picture-over3">
+                    <div style="text-align: center">
+                        <span class="picture-over4">点亮你的学习生活乐趣</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="picture-over5">
+        <div class="picture-over6">
+            <div class="picture-over7">
+                <div class="wp-title_content picture-over8">
+                    <div style="text-align: center">
+                        <span class="ziti">
+                            <strong>
+                                创意书籍
+                                <span class="ziti1">
+                                    <em>营造学习气氛</em>
+                                </span>
+                            </strong>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class=" picture-over9">
+                <div class="picture-over10">
+                    <a href="@Url.Action("ProductCenter","Store")" class="btnarea" style="text-decoration:none">
+                        <span class=" picture-over11">查看产品</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--查看产品-->
+    <div class="look_goods">
+        <div class="look_goods1">
+            <div class="look_goods2">
+                <div class="look_goods3">
+                    <div class="look_goods4">
+                        <img src="https://gifts-1022594-hkpic1.websiteonline.cn/upload/37a45a436340105b0ac2aaac4e8347bc.png" class="look_goods5">
+                    </div>
+                </div>
+            </div>
+            <div class="look_goods6">
+                <div class="look_goods7">
+                    <div class="">
+                        <span class="">
+                            <a href="@Url.Action("Index","Store")" class="look_goods8">首页</a>
+                        </span>
+                        <span class="look_goods9">>></span>
+                        <span class="">
+                            <a href="@Url.Action("ProductCenter","Store")" class="look_goods8">产品中心</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="look_goods10">
+        <div class="look_goods11">
+            <div class="">
+                <ul class="look_goods12">
+                    <li class="look_goods13 part1 active1">
+                        <a class="ahover" href="javascript:;" style>
+                            <span class="look_goods14">文具</span>
+                        </a>
+                    </li>
+                    <li class="look_goods13 part2">
+                        <a class="ahover" href="javascript:;" style>
+                            <span class="look_goods14">书籍</span>
+                        </a>
+                    </li>
+                    <li class="look_goods13 part3">
+                        <a class="ahover" href="javascript:;" style>
+                            <span class="look_goods14">玩具</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="look_goods15">
+        <div class="look_goods16">
+            <div class="look_goods17"></div>
+        </div>
+    </div>
+    <div class="look_goods18">
+        <div class="look_goods19 tab1" style="display: block">
+            <div class="" style="display: none"></div>
+            <div class="" style="overflow: hidden">
+                <ul style="margin: 0;padding-left: 0">
+                    @foreach (var item in Model.products_center_wenju)
+                    {
+                        <li class="look_goods20">
+                            <div class="look_goods21">
+                                <a href="@Url.Action("ProductDetails","Store",new { id=item.Product_ID})" class="look_goods22">
+                                    <img src="@item.Product_Main_Image" class="look_goods23" style="margin-left:15px;width:180px" alt="@item.Product_Name">
+                                </a>
+                            </div>
+                            <div class="look_goods24">
+                                <p class="title" style="font: normal 105% 'Microsoft yahei', Arial, Verdana;">
+                                    <a class="product_center123456" href="@Url.Action("ProductDetails","Store",new { id=item.Product_ID})">@item.Product_Name</a>
+                                </p>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="look_goods19 tab2" style="display: none">
+            <div class="" style="display: none"></div>
+            <div class="" style="overflow: hidden">
+                <ul style="margin: 0;padding-left: 0">
+                    @foreach (var item in Model.products_center_shuji)
+                    {
+                        <li class="look_goods20">
+                            <div class="look_goods21">
+                                <a href="@Url.Action("ProductDetails","Store",new { id=item.Product_ID})" class="look_goods22">
+                                    <img src="@item.Product_Main_Image" class="look_goods23" style="margin-left:15px;width:180px" alt="@item.Product_Name">
+                                </a>
+                            </div>
+                            <div class="look_goods24">
+                                <p class="title" style="font: normal 105% 'Microsoft yahei', Arial, Verdana;">
+                                    <a class="product_center123456" href="@Url.Action("ProductDetails","Store",new { id=item.Product_ID})">@item.Product_Name</a>
+                                </p>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="look_goods19 tab3" style="display: none">
+            <div class="" style="display: none"></div>
+            <div class="" style="overflow: hidden">
+                <ul style="margin: 0;padding-left: 0">
+                    @foreach (var item in Model.products_center_wanju)
+                    {
+                        <li class="look_goods20">
+                            <div class="look_goods21">
+                                <a href="@Url.Action("ProductDetails","Store",new { id=item.Product_ID})" class="look_goods22">
+                                    <img src="@item.Product_Main_Image" class="look_goods23" style="margin-left:15px;width:180px" alt="@item.Product_Name">
+                                </a>
+                            </div>
+                            <div class="look_goods24">
+                                <p class="title" style="font: normal 105% 'Microsoft yahei', Arial, Verdana;">
+                                    <a class="product_center123456" href="@Url.Action("ProductDetails","Store",new { id=item.Product_ID})">@item.Product_Name</a>
+                                </p>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    <!--    判断js-- >
+        $(document).ready(function () {
+            $('.part1').on('click', function () {
+                $(this).addClass("active1").siblings().removeClass("active1");
+                $('.tab1').show(500).siblings().hide();
+            });
+            $('.part2').on('click', function () {
+                $(this).addClass("active1").siblings().removeClass("active1");
+                $('.tab2').show(500).siblings().hide();
+            });
+            $('.part3').on('click', function () {
+                $(this).addClass("active1").siblings().removeClass("active1");
+                $('.tab3').show(500).siblings().hide();
+            });
+        })
+</script>

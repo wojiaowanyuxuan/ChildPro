@@ -1,6 +1,9 @@
 ﻿.header_wrap{
 
 }
+body{
+    padding: 0;
+}
 .bg_cover{
     position: absolute;
     top:0;
@@ -303,3 +306,88 @@
 .headimg img{
     border-radius: 15px;
 }
+
+
+/* 页脚 */
+.footer_wrapper{
+    position: relative;
+}
+.footer_bg{
+    background-color: #474443;
+}
+.footer_wrap{
+    width: 1205px;
+    margin: 0 auto;
+    line-height: 23px;
+    position: relative;
+    color: #fff;
+}
+.footer_wrap::after{
+    display: block;
+    overflow: hidden;
+    clear: both;
+    content: '';
+}
+
+.footer_body_left{
+    width: 702px;
+    padding: 30px 0;
+}
+.footer_des{
+    width: 740px;
+    line-height: 22px;
+    margin-bottom: 11px;
+    font-size: 14px;
+}
+.footer_about_wrap a{
+    color: #fff;
+    margin-right: 17px;
+    padding: 0;
+}
+.footer_about_wrap a:hover{
+    text-decoration: underline;
+}
+.footer_copy{
+    color: #999;
+    font-size: 14px;
+    margin: 15px 0 0;
+}
+
+.footer_body_right{
+    padding: 30px 0;
+    font-size: 12px;
+    text-align: right;
+    line-height: 22px;
+}
+.footer_sup{
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+.footer_sub{
+    display: block;
+    float: left;
+    width: 111px;
+    height: 32px;
+    background: url("../img/download_icon.png");
+    margin-left: 10px;
+}
+.footer_appstpre{
+    background-position: 0 0;
+}
+.footer_android{
+    background-position: 0 -42px;
+}
+
+.footer_share{
+    height: 67px;
+}
+.aas{
+    margin-right: 15px;
+}
+.aaas{
+    position: relative;
+    top: -9px;
+    font-size: 14px;
+    left: -3px;
+}
+

@@ -16,12 +16,7 @@ namespace Models
     {
         public int Adress_ID { get; set; }
         public int UserID { get; set; }
-        public string Country { get; set; }
-        public string Province { get; set; }
-        public string City { get; set; }
-        public string Town { get; set; }
         public string Adress_Detail { get; set; }
-        public int PostalCode { get; set; }
     
         public virtual User User { get; set; }
     }

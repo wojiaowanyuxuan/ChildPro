@@ -1,0 +1,188 @@
+body {
+    min-width: 1250px;
+    background-color: #F7F5F5;
+    display: block;
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+.f-pr{position: relative;}
+.m-nav{
+    z-index: 10;
+    position: relative;
+}
+.g-flow{
+    width: 1205px;
+    height: 139px;
+    margin: 0 auto;
+    text-align: left;
+    background-color: white;
+}
+.topheader{
+    z-index: 10;
+    height: 106px;
+}
+/*logo图片样式*/
+.logo{
+    height: 90px;
+    width: 202px;
+    margin-right: 200px;
+    margin-top: 24px;
+}
+.one {
+    margin: 20px auto;
+    height: 160px;
+    width: 1205px;
+    overflow: hidden;
+    position: relative;
+}
+.one ul{
+    height: 160px;
+    width: 100000px;
+    position: absolute;
+}
+.one ul li{
+    display: block;
+    float: left;
+    height: 150px;
+    margin: 5px;
+    position: relative;
+}
+.one ul li a{
+    display:inline-block;
+    height:150px;
+}
+.one ul li img{
+    border-radius:5px;
+    display:block;
+}
+.one ul li a span{
+    height:0;
+    display:block;
+    background:rgba(0,0,0,0.4);
+    position:absolute;
+    bottom:0;
+    color:#fff;
+    font-size:0px;
+}
+.one ul li a:hover span{
+    height:150px;
+    line-height:150px;
+    font-size:20px;
+    text-align:center;
+    transition:all 0.7s;
+}
+.u-gray{
+    background-color: #fff;
+    width: 1205px;
+    margin: 50px auto;
+    overflow: hidden;
+    position: relative;
+}
+.uc-course-system {
+    width: 1205px;
+    margin: 0 auto 40px auto;
+    overflow: hidden;
+}
+.uc-course-system_hd {
+    margin-bottom: 16px;
+}
+.uc-course-system_hd .title {
+    font-size: 24px;
+    line-height: 31px;
+    color: #333;
+}
+.uc-course-system_hd .sub-title {
+    font-size: 14px;
+    line-height: 19px;
+    color: #666;
+    margin-left: 8px;
+}
+.f-ib {
+    display: inline-block;
+    zoom: 1;
+}
+.m-r-index{
+    min-height: 600px;
+}
+.uc-recommend-list {
+    overflow: hidden;
+    background: #fff;
+}
+.uc-recommend-list-row-wrap {
+    margin-bottom: 40px;
+}
+.uc-recommend-list-row-tit {
+    margin-bottom: 14px;
+    font-size: 24px;
+    color: #333;
+    height: 31px;
+    line-height: 31px;
+}
+.row {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+.col-xs-6 {
+    float: left;
+    width: 50%;
+}
+.course-list .course-item {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    border: 1px solid #e4ecf3;
+    background-color: #fff;
+}
+.course-list .course-item .course-img {
+    position: relative;
+    overflow: hidden;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+a {
+    color: #4bbbfa;
+    text-decoration: none;
+}
+.course-list .course-item .course-img .img-responsive {
+    width: 100%;
+    padding: 10px;
+}
+.course-list .course-item .title {
+    margin-top: 10px;
+    padding: 0 10px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+.link-dark {
+    cursor: pointer;
+    color: #616161!important;
+    transition: all .3s ease;
+}
+.link-dark a:hover{
+    color: #4bbbfa;
+}
+.course-list .course-item .metas {
+    position: relative;
+    padding: 10px;
+    color: #c1c1c1;
+}
+.course-list .course-item .metas i {
+    margin-right: 5px;
+}
+.course-list .course-item .metas .comment {
+    margin-left: 10px;
+}
+.course-list .course-price-widget {
+    float: right;
+}
+.course-price-widget .free {
+    color: #43bc60;
+}
+
+/*----------视频展示------------*/

@@ -16,9 +16,10 @@ namespace Models
     {
         public int VideoID { get; set; }
         public string VideoName { get; set; }
-        public int Teacher_Id { get; set; }
+        public Nullable<int> Teacher_Id { get; set; }
         public int ClassId { get; set; }
         public string Video_Content { get; set; }
+        public string VideoLength { get; set; }
     
         public virtual Course_Class Course_Class { get; set; }
     }

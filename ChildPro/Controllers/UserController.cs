@@ -27,7 +27,11 @@ namespace ChildPro.Controllers
 			//当前登录用户的id 
 			bool isOwner = false;
 			bool isAttention = false;
-			int now_userid = (int)Session["userid"];
+			int now_userid = -1;
+			if (Session["userid"] != null)
+			{
+				now_userid = (int)Session["userid"];
+			}
 			if (now_userid == userid)
 				isOwner = true;
 
@@ -58,6 +62,9 @@ namespace ChildPro.Controllers
 			{
 				isAttention = true;
 			}
+			IEnumerable<Cart> Carts = lpe.Cart.Where(e => e.UserID == userid);
+			IEnumerable<Adress> Adresses = lpe.Adress.Where(e => e.UserID == now_userid);
+			IEnumerable<Order_Detail> Order_Details = lpe.Order_Detail.Where(e => e.User_ID == now_userid);
 			userViewModel uvm = new userViewModel()
 			{
 				u=u,
@@ -67,7 +74,10 @@ namespace ChildPro.Controllers
 				com_posts = com_posts,
 				coll_posts = coll_posts,
 				All_Fans=follow_repository.GetAllFans(userid),
-				All_Attention=follow_repository.GetAllAttention(userid)
+				All_Attention=follow_repository.GetAllAttention(userid),
+				carts = Carts,
+				adresses = Adresses,
+				order_Details = Order_Details
 			};
             return View(uvm);
         }
@@ -91,6 +101,7 @@ namespace ChildPro.Controllers
 			{
 				Follow f = lpe.Follow.Where(e => (e.Followed_Person == Followed_Userid && e.Fans == fans_id)).FirstOrDefault();
 				lpe.Follow.Remove(f);
+				lpe.SaveChanges();
 				t = new tip()
 				{
 					message = "取消关注成功",
@@ -183,6 +194,68 @@ namespace ChildPro.Controllers
 			}
 		}
 
+		//删除购物车商品
+		public RedirectToRouteResult DeleteConfirmed(int id)
+		{
 
-    }
+			var cart = lpe.Cart.Find(id);
+			int cartid = cart.Cart_ID;
+			lpe.Cart.Remove(cart);
+			lpe.SaveChanges();
+			return RedirectToRoute(new { controller = "Store", action = "Index" });
+
+		}
+
+		//购物车结算
+		[HttpPost]
+		public JsonResult AddToOrder(string address, string marks)
+		{
+			tip t = null;
+			var userid = (int)Session["userid"];
+			var carts = lpe.Cart.Where(e => e.UserID == userid);
+			var datetime = System.DateTime.Now;
+			foreach (var i in carts)
+			{
+				i.Flag = 1;
+				var product_id = i.Product_ID;
+
+				var orderdetails = new Order_Detail()
+				{
+					Product_ID = product_id,
+					Pro_Num = i.Pro_Num,
+					Pay_Time = datetime,
+					User_ID = i.UserID,
+					Users_Remarks = marks,
+					Adress = address,
+					Pro_Norm_ID = i.Pro_Norm_id
+				};
+				lpe.Order_Detail.Add(orderdetails);
+
+			}
+			try
+			{
+				lpe.SaveChanges();
+				t = new tip
+				{
+					message = "下单成功"
+				};
+			}
+			catch (Exception d)
+			{
+				throw d;
+			}
+			//删除购物车中的订单
+			var cart = lpe.Cart.Where(e => e.Flag == 1);
+			foreach (var i in cart)
+			{
+				lpe.Cart.Remove(i);
+				
+			}
+			lpe.SaveChanges();
+			return base.Json(t);
+
+		}
+
+
+	}
 }

@@ -14,6 +14,7 @@ namespace ChildPro.Controllers
     public class LoginController : Controller
     {
 		private IUserInfoRepository UIRepository;
+		private LessProEntities lpe = new LessProEntities();
 		//解析依赖项
 		public LoginController(IUserInfoRepository rep)
 		{
@@ -27,7 +28,7 @@ namespace ChildPro.Controllers
         }
 
 		[HttpPost]
-		public JsonResult Index(string key,string password)
+		public JsonResult Index(string key, string password)
 		{
 			tip t = null;
 			LoginStatus ls = UIRepository.LoginIn(key, password);
@@ -43,13 +44,28 @@ namespace ChildPro.Controllers
 			}
 			else
 			{
-				t = new tip
+				Teacher l = lpe.Teacher.Where(e => e.Password == password && e.Phone == key).FirstOrDefault();
+				if (l != null)
 				{
-					message = "密码错误",
-					code = 500
-				};
+					t = new tip
+					{
+						message = "登陆成功",
+						code = 200
+					};
+					Session["teacher"] = l;
+					Session["teacherid"] = l.TeacherID;
+				}
+				else
+				{
+					t = new tip
+					{
+						message = "密码错误",
+						code = 500
+					};
+				}
 			}
 			return base.Json(t);
 		}
-    }
+
+	}
 }

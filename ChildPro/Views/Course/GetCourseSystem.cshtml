@@ -1,0 +1,67 @@
+﻿
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Models.Course>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>系统课程的分部视图</title>
+    <link href="~/Content/程就未来CSS代码/课程体系样式.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <link href="~/Content/程就未来CSS代码/课堂首页样式.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <style>
+        .pagination {
+            display: inline-block;
+            padding-left: 0;
+            margin: 20px 0;
+            border-radius: 4px;
+            float: right;
+        }
+    </style>
+</head>
+<body>    
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-3 col-md-4 col-xs-6" style="height:266px">
+                <div class="course-item">
+                    <div class="course-img">
+                        <a href="@Url.Action("Datails","Course",new { id = item.CourseID})" target="_blank">
+
+                            <img src="@item.ImageMineType" alt="计算机如何工作？Code.org出品" class="img-responsive" style="height:164px">
+                        </a>
+                    </div>
+                    <div class="course-info">
+                        <div class="title">
+                            <a class="link-dark" href="@Url.Action("Datails","Course",new { id = item.CourseID})" target="_blank">
+                                @item.CourseName
+                            </a>
+                        </div>
+                        <div class="metas clearfix">
+                            <span class="num"><i class="fa fa-address-book-o" style="font-size:16px"></i>@item.Number</span>
+                            <span class="comment"><i class="fa fa-commenting" style="font-size:16px"></i>0</span>
+                            <span class="comment"><i class="fa fa-youtube-play" style="font-size:16px"></i>试看</span>
+                            <span class="course-price-widget"><span class="free">免费</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="row page-list">
+        <div class="col-xs-6 col-sm-4 col-md-4 pagejiye" style="width: 100%; ">
+            @Html.PagedListPager(Model, page => Url.Action("System", "Course", new { typeid = ViewBag.tyid ,page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToFirstPageFormat = "首页", LinkToLastPageFormat = "尾页", MaximumPageNumbersToDisplay = 5 }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "getCourseSystem" }))
+        </div>
+    </div>
+</body>
+</html>
+
+

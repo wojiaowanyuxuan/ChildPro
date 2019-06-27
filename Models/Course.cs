@@ -18,24 +18,31 @@ namespace Models
         public Course()
         {
             this.Add_Course = new HashSet<Add_Course>();
+            this.Collect = new HashSet<Collect>();
             this.Comment_Course = new HashSet<Comment_Course>();
             this.Course_Class = new HashSet<Course_Class>();
         }
     
         public int CourseID { get; set; }
         public string CourseName { get; set; }
-        public Nullable<int> CourseType { get; set; }
+        public string CourseType { get; set; }
         public byte[] ImageData { get; set; }
         public string ImageMineType { get; set; }
         public System.DateTime Course_Time { get; set; }
         public int TeacherId { get; set; }
+        public Nullable<int> Number { get; set; }
+        public Nullable<int> Value { get; set; }
+        public int CourseTypeID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Add_Course> Add_Course { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Collect> Collect { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment_Course> Comment_Course { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Course_Class> Course_Class { get; set; }
+        public virtual CourseType CourseType1 { get; set; }
         public virtual Teacher Teacher { get; set; }
     }
 }

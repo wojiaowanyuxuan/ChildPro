@@ -1,0 +1,636 @@
+﻿body {
+    max-width: 1920px;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+.page-first{
+    overflow: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+.head{
+    background: -webkit-linear-gradient(left top,rgba(5,184,190,.93),rgba(40,147,204,0.93));
+    z-index: 2;
+    position: relative;
+    min-height: 100vh;
+}
+/*最顶部样式*/
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.navbar{
+    padding-top: 20px;
+    height: 115px;
+    margin-bottom: 0;
+}
+.navbar-header {
+    float: left;
+}
+.navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
+.navbar-right{
+    padding-top: 15px;
+    padding-right: 0;
+    float: right;
+}
+
+.link-btn1{
+    min-width: 110px;
+    padding: 0 12px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    background: #02ccba;
+    border-radius: 6px;
+    margin-top: 5px;
+    transition: background .25s ease;
+    float: right;
+    display: inline-block;
+}
+.link-btn2{
+    min-width: 110px;
+    padding: 0 12px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    background: #02ccba;
+    border-radius: 6px;
+    margin-top: 5px;
+    transition: background .25s ease;
+    float: right;
+    display: inline-block;
+}
+.btn{
+    padding: 0 5px;
+    color: #fff;
+    text-decoration-line: none;
+}
+/*----------form电话姓名----------*/
+.tips{width: 200px;margin:2px;padding:2px;}
+.onError{
+    background:#E9FBEB url(../../Image/FirstPage/reg3.gif) no-repeat 0 center;
+    padding-left:25px;
+}
+.onSuccess{
+    background:#E9FBEB url(../../Image/FirstPage/reg4.gif) no-repeat 0 center;
+    padding-left:25px;
+}
+.form{
+    padding: 80px 0;
+}
+.form *{
+    letter-spacing: 0;
+}
+.form-inline{
+    text-align: center;
+    margin: auto;
+}
+.form-group{
+    margin-bottom: 5px;
+    margin-right: 15px;
+    position: relative;
+    display: inline-block;
+}
+.form-control{
+    width: 280px;
+    height: 48px;
+    border-radius: 6px;
+    font-weight: lighter;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+}
+.form-together{
+    display: inline-block;
+    margin: 0 20px 0 0;
+}
+.btn1{
+    width: 280px;
+    margin-right: 15px;
+    background: #02b3e4;
+    color: #fff;
+    display: block;
+}
+.btn1:hover {
+    background-color:#535c66;
+}
+button {
+    outline: none !important;
+    border: none;
+    background: transparent;
+}
+
+/*-------------视频内容样式--------------*/
+.audio-area{
+    width: auto !important;
+    border-radius: 6px;
+    margin: 40px 26px 25px !important;
+    border: 1px solid #e6e6e6;
+    overflow: hidden;
+    padding: 45px 20px 0 20px;
+}
+.video-wraper{
+    position: relative;
+    z-index: 11;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 540px;
+    height: 600px;
+}
+#video-div{
+    position: relative;
+    margin: 0 auto;
+    width: 800px;
+    height: 450px;
+}
+video{
+    width: 100%;
+    height: 100%;
+}
+.play-one{
+    width: 70px;
+    height: 70px;
+    background: url("../../Image/VideoPlayer/playone.png") no-repeat;
+    opacity: .7;
+    background-size:cover;
+    position: absolute;
+    bottom: 70px;
+    right: 60px;
+    cursor: pointer;
+}
+.play-footer{
+    position: absolute;
+    width: 100%;
+    height: 36px;
+    bottom: 0;
+}
+.yinyin{
+    position: absolute;
+    height: 80px;
+    width: 100%;
+    background: blue;
+    bottom: 0;
+    background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,2));
+    transition: opacity .3s;
+}
+.yinyin-on{
+    opacity: 1;
+}
+.yinyin-off{
+    opacity: 0;
+}
+.play-footer .play-btn{
+    width: 23px;
+    height: 23px;
+    float: left;
+    margin-left: 3%;
+    cursor: pointer;
+    z-index: 3;
+}
+.stop{
+    background: url("/Image/VideoPlayer/stop.png") no-repeat;
+    background-size:cover;
+}
+.play{
+    background: url("/Image//VideoPlayer/play.png") no-repeat;
+    background-size:cover;
+}
+
+.time{
+    float: left;
+    font-size: 15px;
+    line-height: 23px;
+    color: white;
+    margin-left: 10px;
+    z-index: 2;
+}
+.right-bottom{
+    float: right;
+    margin-right: 3%;
+    z-index: 4;
+}
+.bottom{
+    width: 23px;
+    height: 23px;
+    float: right;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.all{
+    background: url("/Image//VideoPlayer/all.png") no-repeat;
+    background-size:cover;
+}
+.loop{
+    background: url("/Image//VideoPlayer/loop.png") no-repeat;
+    background-size:cover;
+}
+.loop-ture{
+
+    background-size:cover;
+}
+.set{
+    position: relative;
+    background: url("/Image//VideoPlayer/set.png") no-repeat;
+    background-size:cover;
+}
+.set-list{
+    display: none;
+    background: black;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    bottom: 40px;
+    left: -85px;
+    opacity: .7;
+    border-radius: 4px;
+}
+.konge1{
+    display: none;
+    position: absolute;
+    width: 200px;
+    height: 17px;
+    bottom: 23px;
+    left: -85px;
+    text-align: center;
+    z-index: 4;
+}
+.set:hover .set-list,
+.set:hover .konge1{
+    display: block;
+}
+.play-speed{
+    color: white;
+    font-weight: bolder;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    text-align: center;
+}
+.play-speed-list{
+    padding-top: 5px;
+    font-weight: bolder;
+    font-size: 17px;
+    color: azure;
+    text-align: center;
+}
+.play-speed-list span{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.play-speed-list span:hover{
+    color: #7969ff;
+}
+.moren{
+    color: #7969ff;
+}
+.huazhi{
+    width: 50px;
+    font-size: 15px;
+    line-height: 23px;
+    color: white;
+}
+.sound{
+    position: relative;
+    background: url("/Image//VideoPlayer/sound.png") no-repeat;
+    background-size:cover;
+}
+.jinyin{
+    position: relative;
+    background: url("/Image//VideoPlayer/playone.png") no-repeat;
+    background-size:cover;
+}
+.progress1{
+    width: 95%;
+    background: white;
+    height: 2px;
+    position: absolute;
+    bottom: 50px;
+    left: 2.5%;
+    cursor: pointer;
+    transition: bottom 0.1s;
+    border-radius: 3px;
+}
+.progress1:hover{
+    height: 6px;
+    bottom: 48px;
+}
+.progress .timeBar {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: block;
+    z-index: 2;
+    width: 0;
+    background: #F9D43A;
+    border-radius:3px;
+}
+#soundBtn:hover .sound-list,
+#soundBtn:hover .konge{
+    display: block;
+}
+.sound-list{
+    display: none;
+    position: absolute;
+    width: 30px;
+    height: 85px;
+    bottom: 40px;
+    left: -6px;
+    text-align: center;
+    background: black;
+    border-radius: 3px;
+}
+.konge{
+    display: none;
+    position: absolute;
+    width: 30px;
+    height: 17px;
+    bottom: 23px;
+    left: -6px;
+    text-align: center;
+    z-index: 4;
+}
+.sound-number{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    height: 20px;
+    padding-top:5px;
+    line-height: 20px;
+    font-size: 15px;
+    color: white;
+}
+.volume{
+    position: relative;
+    margin: auto;
+    margin-top: 5px;
+    width: 7px;
+    height: 50px;
+    background: aqua;
+    border-radius: 2px;
+    overflow: hidden;
+}
+.volumeBar {
+    display: block;
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    background-color: white;
+    z-index: 2;
+}
+.player-list{
+    position: absolute;
+    padding-left: 10px;
+    width: 30px;
+    height: 60px;
+    top: 50%;
+    margin-top: -30px;
+    background: url("/Image//VideoPlayer/list.png") -10px 0px rgba(0,0,0,.1);
+    background-size: cover;
+    transition: opacity .3s;
+}
+.player-list-on{
+    opacity: 1;
+}
+.player-list-off{
+    opacity: 0;
+}
+.player-list-bk{
+    display: none;
+    position: absolute;
+    width: 160px;
+    height: 250px;
+    top: 50%;
+    margin-top: -150px;
+    background: rgba(0,0,0,.3);
+}
+.player-list:hover{
+    background: none;
+}
+.player-list:hover .player-list-bk{
+    display: block;
+}
+.player-list-head{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 25px;
+    color: white;
+    background: #7c7d7f;
+}
+.player-list-cotent{
+    height: 220px;
+    width: 160px;
+    overflow: hidden;
+}
+.player-list-box{
+    height: 220px;
+    width: 195px;
+    text-align: center;
+    overflow: auto;
+}
+.player-list-video{
+    padding-top: 5px;
+    margin-left: -17px;
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    line-height: 15px;
+    font-size: 16px;
+    color: #00F7DE;
+    cursor: pointer;
+    font-weight: bolder;
+    border-bottom: 1px #60bff2 dashed;
+    transition: all .2s;
+}
+.player-list-video:hover{
+    height: 25px;
+    font-size: 18px;
+    line-height: 20px;
+}
+.video-now,
+.video-now:hover{
+    height: 30px;
+    font-size: 20px;
+    line-height: 25px;
+    background: rgba(139,288,255,.3);
+    color: #6956ff;
+}
+footer{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    color: darkcyan;
+    font-size: 20px;
+    line-height: 30px;
+    top: 0;
+}
+.wrap{
+    margin-top: 10px;
+    font-size: 12px;
+    color: #acacac;
+    text-align: center;
+}
+.wrap a{
+    text-decoration: none;
+    display: inline-block;
+    color: #aaaaaa;
+    margin: 0 25px;
+}
+
+/*-------------蓝色背景解说-------------*/
+.p_texts{
+    padding: 0 26px;
+    font-size: 16px;
+    color: #7c8999;
+    text-align: center;
+    line-height: 30px;
+}
+.bg_blue{
+    height: 752px;
+    margin-top: 60px;
+    padding: 60px 26px 60px 26px;
+    background-color: #008cff;
+}
+.bg_blue p {
+    color: #fff;
+    text-align: center;
+}
+.p_bold{
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.age{
+    width: 75%;
+    height: 520px;
+    background-color: #fff;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    margin: 28px auto;
+    background-image: url("../../Image/FirstPage/分隔线.png");
+    background-position: top center;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+}
+.performance {
+    width: 50%;
+    float: left;
+    height: 100%;
+    padding-top: 35px;
+}
+.performance p {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+.performance p, .performance ul li {
+    color: #535c66;
+}
+.performance div {
+    width: 272px;
+    height: 166px;
+    background-color: #999;
+    margin: 17px auto 22px;
+    overflow: hidden;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+.performance img{
+    width: 272px;
+    height: 166px;
+}
+.performance ul{
+    padding-left: 132px;
+}
+.performance ul li {
+    line-height: 38px;
+    font-size: 14px;
+    position: relative;
+}
+.performance_2 p {
+    color: #008cff;
+}
+.performance_2 ul li {
+    color: #008cff;
+}
+/*-------------背景解说2-------------*/
+.system3_8 {
+    width: 80%;
+    margin: auto;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.system3_8 p {
+    text-align: center;
+}
+.subtitle {
+    font-size: 20px;
+    color: #535c66;
+    margin-bottom: 55px;
+}
+.system3_8 ul {
+    height: calc(176px + 35px);
+    display: flex;
+    justify-content: space-between;
+}
+.system3_8 ul li {
+    width: 30%;
+    height: 208px;
+    margin-right: 20px;
+    float: left;
+    line-height: 35px;
+    list-style: none;
+}
+.system3_8 ul li img {
+    width: 100%;
+    height: 136.8px;
+}
+.system3_8 p {
+    text-align: center;
+}
+.img_down {
+    font-size: 20px;
+    color: black;
+}
+.system_8 {
+    margin-bottom: 55px;
+}
+.system_8 img {
+    width: 100%;
+}
+.future {
+    font-size: 20px;
+    color: #535c66;
+    margin-bottom: 25px;
+}
+.get_more {
+    text-align: center;
+}
+.get_more input {
+    width: 300px;
+    height: 60px;
+    background-color: #ffcc00;
+    padding-left: 20px;
+    border: 2px solid #eab200;
+    color: #fff;
+    font-size: 24px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}

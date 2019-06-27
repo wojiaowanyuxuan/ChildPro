@@ -1,0 +1,306 @@
+﻿@model ChildPro.Models.StoreViewModel
+
+@{
+    Layout = "~/Views/Shared/_PostLayout.cshtml";
+}
+
+<link href="~/Content/商品中心.css" rel="stylesheet" />
+<link href="~/Content/订单详情.css" rel="stylesheet" />
+<link href="~/Content/Cart.css" rel="stylesheet" />
+<link rel="stylesheet" href="//cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="//cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<div class="look_goods" style="top: 140px;height: auto;width: 900px;left: 320px">
+    <div class="look_goods1" style="float: none;width: 900px">
+        <div class="look_goods2">
+            <div class="look_goods3">
+                <div class="look_goods4">
+                    <img src="https://gifts-1022594-hkpic1.websiteonline.cn/upload/37a45a436340105b0ac2aaac4e8347bc.png" class="look_goods5">
+                </div>
+            </div>
+        </div>
+        <div class="look_goods6">
+            <div class="look_goods7">
+                <div class="">
+                    <span class="">
+                        <a href="程就未来.html" class="look_goods8" style="text-decoration: none">商城</a>
+                    </span>
+                    <span class="look_goods9">>></span>
+                    <span class="">
+                        <a href="查看产品.html" class="look_goods8" style="text-decoration: none">个人中心</a>
+                    </span>
+                    <span class="look_goods9">>></span>
+                    <span class="">
+                        <a href="查看产品.html" class="look_goods8" style="text-decoration: none">订单详情</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Order_Detail">
+        <div class="Order_Detail1">
+            <div class="Order_Detail2">
+                <div>
+                    <div>
+                        <div class="Order_Detail3">
+                            <div>
+                                <div class="Order_Detail4" style="padding-top:9px">
+                                    <h3 class="Order_Detail5">订单信息</h3>
+                                </div>
+                                <ul class="Order_Detail6">
+                                    <li class="Order_Detail7">
+                                        <div class="Order_Detail8">
+                                            <span class="Order_Detail9">
+                                                收货人：
+                                            </span>
+                                        </div>
+                                        <div class="Order_Detail10">
+                                            
+                                                <span class="Order_Detail11">
+                                                   @Model.Order_Details.User.UserName
+                                                </span>
+                                            
+                                        </div>
+                                    </li>
+                                    <li class="Order_Detail7">
+                                        <div class="Order_Detail8">
+                                            <span class="Order_Detail9">
+                                                电话：
+                                            </span>
+                                        </div>
+                                        <div class="Order_Detail10">
+                                            <span class="Order_Detail11">
+                                                @Model.Order_Details.User.Phone
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li class="Order_Detail7">
+                                        <div class="Order_Detail8">
+                                            <span class="Order_Detail9">
+                                                收货地址：
+                                            </span>
+                                        </div>
+                                        <div class="Order_Detail10">
+                                            <span class="Order_Detail11">
+                                                @Model.Order_Details.Adress
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li class="Order_Detail7">
+                                        <div class="Order_Detail12">
+                                            <span class="Order_Detail13">买家留言：</span>
+                                        </div>
+                                        <div class="Order_Detail14">
+                                            <span class="Order_Detail11">@Model.Order_Details.Users_Remarks</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="Order_Detail15">
+                            <div class="Order_Detail16">
+                                <div class="Order_Detail17">
+                                    <div class="Order_Detail18">
+                                        <img src="~/img/订单详情.png" height="34" width="34" />
+                                    </div>
+                                    <div class="Order_Detail19">
+                                        <span class="Order_Detail20">
+                                            <h3 class="Order_Detail21">订单状态：商家已发货，等待买家确认</h3>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="Order_Detail22">
+                                    <ul class="Order_Detail23">
+                                        <li class="Order_Detail24">
+                                            您可以
+                                        </li>
+                                        <li class="Order_Detail24">
+                                            <button class="Order_Detail29">
+                                                <a href="#" style="text-decoration:none;color: #9d9d9d">确认收货</a>
+                                            </button>
+                                        </li>
+                                        <li class="Order_Detail24">
+                                            <a href="#" class="Order_Detail30" style="text-decoration: none;color: #9d9d9d">申请退款</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ch_cart18" style="float: left;margin-top: 30px;width: 900px">
+        <div class="ch_cart19" style="border: 1px solid #cecece">
+            <div class="ch_cart25" style="font-size: 12px;color: #666">
+                <div class="ch_cart26" style="padding-left: 70px">商品信息</div>
+            </div>
+            <div class="ch_cart28" style="margin-left: 200px;font-size: 12px;color: #666">
+                <div class="ch_cart26">单价</div>
+            </div>
+            <div class="ch_cart29" style="margin-left: 50px;font-size: 12px;color: #666">
+                <div class="ch_cart26">数量</div>
+            </div>
+            <div class="ch_cart30" style="margin-left: 50px;font-size: 12px;color: #666">
+                <div class="ch_cart26">操作</div>
+            </div>
+        </div>
+    </div>
+    <div style="height: auto;margin-top: 81px">
+        <!--订单商品展示-->
+        <div class="clearfix" style="margin-bottom: 15px">
+            <div class="ch_cart32 clearfix"></div>
+            <div class="ch_cart33">
+                <div class="ch_cart34" style="border-bottom: 1px dotted #ccc">
+                    <div class="ch_cart35">
+                        <div class="ch_cart36">
+                            <div class="ch_cart37">
+                                <ul class="ch_cart38" style="padding: 0">
+                                    <li class="ch_cart43">
+                                        <div class="ch_cart44">
+                                            <div class="ch_cart45">
+                                                <a href="#" target="_blank" class="ch_cart46">
+                                                    <img src="@Model.Order_Details.Product.Product_Main_Image" class="ch_cart47">
+                                                </a>
+                                            </div>
+                                            <div class="ch_cart1212">
+                                                <div class="ch_cart48">
+                                                    <a href="@Url.Action("ProductDetail","Store",new { id=Model.Order_Details.Product_ID})" target="_blank" class="ch_cart45454" title="#" style="text-decoration: none">@Model.Order_Details.Product.Product_Name</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="ch_cart49" style="width: 125px">
+                                        <div class="ch_cart50">
+                                            <p class="ch_cart51" style="font-size: 12px">@Model.Order_Details.Product_Norms.Specs<p>
+                                        </div>
+                                    </li>
+                                    <li class="ch_cart52" style="width: 100px;">
+                                        <div class="ch_cart53">
+                                            <div class="ch_cart54">
+                                                <div class="ch_cart55">
+                                                    <div class="ch_cart56">
+                                                        <em class="ch_cart57" style="text-decoration:none;color:#f40">￥@Model.Order_Details.Product.Product_Price</em>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="ch_cart58" style="margin-left: 20px;list-style: none">
+                                        <div class="ch_cart59" style="padding-top:25px">
+                                            <div class="ch_cart60">
+                                                <div class="ch_cart61">
+                                                    <p style="padding-left: 12px;margin-top: 0;color: #666">@Model.Order_Details.Pro_Num</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="ch_cart65" style="width: 100px;font-size: 14px">
+                                        <div class="ch_cart66">
+                                            <a href="#" class="ch_cart67 oo" style="color: #3399FF;text-decoration: none" data-toggle="modal" data-target="#myModal">评价</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="Order_Detail25">
+        <ul class="Order_Detail26">
+            <li class="Order_Detail27">
+                <span>商品总价：</span>
+                <span style="margin-left: 97px">@Model.Order_Details.Product.Product_Price</span>
+            </li>
+            <li class="Order_Detail27">
+                <span>运费（快递）：</span>
+                <span style="margin-left: 97px">￥0.00</span>
+            </li>
+            <li class="Order_Detail27">
+                <span>运费险（卖家赠送）：</span>
+                <span style="margin-left: 97px">￥0.00</span>
+            </li>
+            <li class="Order_Detail28">
+                <span>订单总价：</span>
+                <span style="margin-left: 81px">￥@Model.Order_Details.Product.Product_Price</span>
+            </li>
+            <li class="Order_Detail28">
+                <span>实付款：</span>
+                <span style="color: #f40;font-size: 22px;margin-left: 59px">￥@Model.Order_Details.Product.Product_Price</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="margin: 50px 0 0 310px;width: 900px;height: auto">
+        <div class="modal-content" style="width: 900px;height: auto">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    评价宝贝
+                </h4>
+            </div>
+            <div class="modal-body ch_cart4" style="margin: 10px 0 20px 0;float: left;border-bottom: 1px dotted #ccc;width: 900px;padding: 0 50px;">
+                <div class="Order_Detail30">
+                    <div class="Order_Detail31" style="width:190px">
+                        <img src="@Model.Order_Details.Product.Product_Main_Image" class="Order_Detail32" style="width:150px">
+                        <span class="Order_Detail33" style="width:200px;height:20px;padding:0 10px;display:inline-block;text-overflow:ellipsis;overflow:hidden;white-space:nowrap">
+                            @Model.Order_Details.Product.Product_Name
+                        </span>
+                        <span class="Order_Detail33" style="width:200px;height:20px;padding:0 10px;display:inline-block;text-overflow:ellipsis;overflow:hidden;white-space:nowrap">
+                            @Model.Order_Details.Product_Norms.Specs
+                        </span>
+                    </div>
+                    <div class="Order_Detail34">
+                        <input class="Order_Detail35">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="margin-bottom: 20px">
+                <button id="Comment" type="button" class="btn btn-default" data-dismiss="modal" style="float: right;margin-right: 45px;background-color: #f40;border: 1px solid transparent;font-weight: 700;color: #cecece">
+                    发表评价
+                </button>
+                @*<button type="button" class="btn btn-primary AddtoOrder25" id="addtoOrder" style="background-color: #f40;border:1px solid transparent;margin-right: 45px;float: right">
+                    发表评价
+                </button>*@
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<script>
+    $(function () {
+        $('#Comment').on('click', function () {
+            alert("发表成功")
+            var comment = $('.Order_Detail35').val();
+        var id = parseInt(@Model.Order_Details.Product_ID);
+        let dbj = {
+            "comment": comment,
+            "pro_id":id
+        }
+        $.ajax({
+                url: '/Store/Comment',
+                type: 'Post',
+                dataType: "Json",
+
+                data: {
+                    "comment": comment,
+                    "pro_id": id
+                },
+
+                success: function (res) {
+                    console.log(res.message);
+                },
+                error: function () {
+                    console.log("error");
+                }
+            })
+        })
+    })
+</script>

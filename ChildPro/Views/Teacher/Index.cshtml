@@ -1,0 +1,272 @@
+﻿@model ChildPro.Models.TeacherViewModel
+
+@{
+    ViewBag.Title = "教师详情页";
+    Layout = "~/Views/Shared/Layout01.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的课程页</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="~/Content/程就未来CSS代码/课堂首页样式.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <style>
+        element.style {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            background: rgb(0, 0, 0);
+        }
+
+        .es-wrap {
+            margin-bottom: 30px;
+        }
+
+        .container {
+            max-width: 1205px;
+        }
+
+        .control {
+            padding: 0 30px;
+            width: 1000px;
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            z-index: 100;
+        }
+
+        .course-center-header {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            background: rgb(0, 0, 0);
+            z-index: 1;
+            width: 1205px;
+            margin: 0 190px;
+        }
+
+        .user-avatar {
+            position: relative;
+            float: left;
+            width: 66.67%;
+            padding-left: 200px;
+            margin-top: 40px;
+        }
+
+        .avatar-wrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .avatar-lg {
+            width: 120px !important;
+            height: 120px !important;
+            border-radius: 50%;
+        }
+
+        .name {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .position {
+            margin-bottom: 10px;
+            color: #919191;
+            color: hsla(0,0%,100%,.5);
+        }
+
+        .mates {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        #content-container {
+            margin: 30px auto;
+            min-height: 400px;
+        }
+
+        .nav {
+            margin-bottom: 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+            .nav.nav-tabs {
+                position: relative;
+                margin-bottom: 25px;
+                border-color: #f5f5f5;
+                border-bottom: 1px solid #ddd;
+            }
+
+        ul {
+            margin-top: 0;
+        }
+
+        .nav-tabs > li {
+            float: left;
+            margin-bottom: -1px;
+        }
+
+        .list-group {
+            display: none;
+        }
+
+        .nav-tabs li.selected {
+            color: #FFF;
+            border: 1px solid #585560;
+        }
+        /*.nav-tabs li:hover{
+            background-color: #02ccba;
+        }*/
+    </style>
+</head>>
+<body>
+    <div class="es-wrap">
+        <div class="course-center-header">
+            <div class="blurr-bg" style="background: url(../../Image/Course/我的课程.jpg) center center / 150%;left: 0px;right: 0px;top: -50px;bottom: -50px;width: 1542px;filter: blur(60px);/* z-index: 50; */position: absolute;">
+            </div>
+            <div class="container control clearfix" style="position: absolute; left: 0px; right: 0px; z-index: 100;">
+                <div class="user-avatar">
+                    <div class="avatar-wrap">
+                        <img class="avatar-lg" src="@Model.teachers.ImageHead" />
+                    </div>
+                    <div class="name">
+                        @Model.teachers.TeacherName
+                    </div>
+                    <div class="position">
+                        <span class="mrm">资深少儿编程教育导师</span>
+                    </div>
+                    <div class="mates">
+                        <span class="mrm">0</span>粉丝<span class="mlm mrm">｜</span><span class="mrm">1</span>关注
+                    </div>
+                    <div class="watch">
+                        <button class="btn btn-ghost-white" style="color:#fff;border: 1px solid #fff;background-color: #4bbbfa;" data-toggle="modal" data-backdrop="static" data-target="#modal" data-url="/message/create/284">关注</button>
+                    </div>
+                </div>
+                @*<div class="user-about hidden-sm hidden-xs">
+                        <div class="user-about-content">
+                            暂无签名
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+
+    @*网页选项卡*@
+    <div id="content-contain" class="container" style="width:1205px">
+        <div class="choose">
+            <ul class="nav nav-tabs clearfix">
+                <li class="active"><a href="#">个人介绍</a></li>
+                <li><a href="#">在教课程</a></li>
+                <li><a href="#">发布课程</a></li>
+                <li><a href="#">在学课程</a></li>
+                <li><a href="#">收藏课程</a></li>
+                <li><a href="#">关注/粉丝</a></li>
+                <li class="highlight" style="left: 0.497497px; width: 123.589px; overflow: hidden;"></li>
+            </ul>
+        </div>
+        <div class="box">
+            <div class="editor-text">
+                <div class="empty">暂无介绍</div>
+            </div>
+            <div class="list-group">
+                <div class="empty">
+                    @foreach (var item in Model.courses)
+                    {
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="course-item">
+                                <div class="course-img">
+                                    <a href="@Url.Action("Datails","Course",new {id = item.CourseID ,teacherid = item.TeacherId})" target="_blank">
+                                        <img src="@item.ImageMineType" alt="计算机如何工作？Code.org出品" class="img-responsive">
+                                    </a>
+                                </div>
+                                <div class="course-info">
+                                    <div class="title">
+                                        <a class="link-dark" href="@Url.Action("Datails","Course",new {id = item.CourseID })" target="_blank">
+                                            @item.CourseName
+                                        </a>
+                                    </div>
+                                    <div class="metas clearfix">
+                                        <span class="num"><i class="fa fa-address-book-o" style="font-size:16px"></i>@item.Number</span>
+                                        <span class="comment"><i class="fa fa-commenting" style="font-size:16px"></i>0</span>
+                                        <span class="comment"><i class="fa fa-youtube-play" style="font-size:16px"></i>试看</span>
+                                        <span class="course-price-widget"><span class="free">免费</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="list-group">
+                <div class="empty">
+                    <table class="table">  
+                        @Html.ActionLink("添加", "Add", "Teacher")                    
+                        <thead>
+                            <tr>
+                                <th>课程ID</th>
+                                <th>课程名</th>
+                                <th>课程类型</th>
+                                <th>上传时间</th>
+                                <th>课程价格</th>                               
+                            </tr>
+                        </thead>
+                        @foreach (var item in Model.courses)
+                        {
+                            <tbody>
+                                <tr class="active">
+                                    <td>@item.CourseID</td>
+                                    <td>@item.CourseName</td>
+                                    <td>@item.CourseType</td>
+                                    <td>@item.Course_Time</td>
+                                    <td>@item.Value</td>
+                                    <td><a href="/Teacher/Edit/@item.CourseID">修改</a></td>
+                                    <td><a href="/Teacher/Delect/@item.CourseID">删除</a></td> 
+                                </tr>
+                            </tbody>
+                        }
+                    </table>
+                </div>
+            </div>
+            <div class="list-group">
+                <div class="empty">在学课程</div>
+            </div>
+            <div class="list-group">
+                <div class="empty">收藏的课程</div>
+            </div>
+            <div class="list-group">
+                <div class="empty">关注的人粉丝</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    /*-----------网页选项卡---------------*/
+    $(function () {
+        var $div_li = $("div.choose ul li");
+        $div_li.click(function () {
+            $(this).addClass("selected")            //当前<li>元素高亮
+                .siblings().removeClass("selected");//去掉其它同辈<li>元素的高亮
+            var index = $div_li.index(this);
+            $("div.box > div")
+                .eq(index).show()
+                .siblings().hide();
+        }).hover(function () {
+            $(this).addClass("hover");
+        }, function () {
+            $(this).removeClass("hover");
+        })
+    });
+    </script>
+</body>
+</html>

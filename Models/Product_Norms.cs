@@ -18,14 +18,18 @@ namespace Models
         public Product_Norms()
         {
             this.Cart = new HashSet<Cart>();
+            this.Order_Detail = new HashSet<Order_Detail>();
         }
     
         public int Product_ID { get; set; }
-        public int Product_Class_ID { get; set; }
+        public int Product_Norms_ID { get; set; }
         public string Specs { get; set; }
+        public decimal Price { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cart> Cart { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order_Detail> Order_Detail { get; set; }
         public virtual Product Product { get; set; }
     }
 }

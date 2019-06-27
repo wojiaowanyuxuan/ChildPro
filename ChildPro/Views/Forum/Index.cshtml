@@ -12,7 +12,7 @@
                 <div class="tag_all"><img src="//edu-image.nosdn.127.net/f7901b6c-d0a2-4865-9844-9e9fae787993.png" /><span class="tag_all_text">全部</span></div>
                 <ul>
                     <li v-for="(item,index) of sidelist" class="side_nav_item">
-                        <a v-bind:href="item.src" class="side_nav_link" target="_blank">
+                        <a v-bind:href="item.src" class="side_nav_link">
                             <img :src="item.path">
                             <span class="side_text p-r">{{item.name}}</span>
                         </a>
@@ -50,6 +50,11 @@
             <div class="announce">
                 <div class="announce_box">
                     <h3 class="announce_title">公告栏</h3>
+                    <ul>
+                        <li style="line-height:32px;" class="p-r">
+                            <a href="javascript:;" style="color:#333;font-size:14px;">【站务】反馈|建议|举报|投诉请进</a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="write_post">
                     <span class="pub_post post_btn" v-on:click="centerDialogVisible = true">发表帖子</span>

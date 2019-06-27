@@ -14,24 +14,16 @@ namespace Models
     
     public partial class Cart
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Cart()
-        {
-            this.Order = new HashSet<Order>();
-        }
-    
         public int Cart_ID { get; set; }
         public int UserID { get; set; }
-        public int Product_ID { get; set; }
-        public int Num { get; set; }
         public System.DateTime Time { get; set; }
-        public int Product_Class_ID { get; set; }
-        public int Order_Product_Detail_ID { get; set; }
+        public int Product_ID { get; set; }
+        public int Pro_Num { get; set; }
+        public int Pro_Norm_id { get; set; }
+        public Nullable<int> Flag { get; set; }
     
         public virtual Product Product { get; set; }
         public virtual Product_Norms Product_Norms { get; set; }
         public virtual User User { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Order { get; set; }
     }
 }

@@ -25,6 +25,5 @@ namespace Models
     
         public virtual Comment_Course Comment_Course { get; set; }
         public virtual User User { get; set; }
-        public virtual User User1 { get; set; }
     }
 }

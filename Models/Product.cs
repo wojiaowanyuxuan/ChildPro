@@ -19,9 +19,7 @@ namespace Models
         {
             this.Cart = new HashSet<Cart>();
             this.Comment_Product = new HashSet<Comment_Product>();
-            this.Order_Product_Detail = new HashSet<Order_Product_Detail>();
-            this.Praise_Product = new HashSet<Praise_Product>();
-            this.Product_Image = new HashSet<Product_Image>();
+            this.Order_Detail = new HashSet<Order_Detail>();
             this.Product_Norms = new HashSet<Product_Norms>();
         }
     
@@ -31,20 +29,15 @@ namespace Models
         public string Product_Type { get; set; }
         public Nullable<decimal> Product_Price { get; set; }
         public string Product_Main_Image { get; set; }
-        public int Image_ID { get; set; }
-        public int Product_Norms_ID { get; set; }
         public Nullable<int> Stock { get; set; }
+        public Nullable<int> Sales_Num { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cart> Cart { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment_Product> Comment_Product { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order_Product_Detail> Order_Product_Detail { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Praise_Product> Praise_Product { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product_Image> Product_Image { get; set; }
+        public virtual ICollection<Order_Detail> Order_Detail { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product_Norms> Product_Norms { get; set; }
     }
